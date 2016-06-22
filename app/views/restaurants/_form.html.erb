@@ -1,0 +1,32 @@
+_form.html.erb
+
+<%= form_for(@restaurant) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_area :address %>
+  </div>
+  <div class="field">
+    <%= f.label :seats %><br />
+    <%= f.number_field :seats %>
+  </div>
+  <div class="field">
+    <%= f.label :open %><br />
+    <%= f.number_field :open %>
+  </div>  
+  <div class="field">
+    <%= f.label :close %><br />
+    <%= f.number_field :close %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

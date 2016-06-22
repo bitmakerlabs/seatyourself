@@ -3,5 +3,6 @@
 <% @restaurants.each do |restaurant| %>
 
 <%= restaurant.name %>
+<%= link_to 'View', restaurants_path(@restaurant) %>
 
 <% end %>

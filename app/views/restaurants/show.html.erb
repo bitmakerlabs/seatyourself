@@ -1,0 +1,6 @@
+<h1><%= image_tag(@restaurant.logo_url) %><%= @restaurant.name %></h1>
+<p>
+    <%= @restaurant.location %></br>
+    <%= link_to "#{@restaurant.name}'s website", @restaurant.site_url %></br>
+    <%= @restaurant.description %></br>
+</p>

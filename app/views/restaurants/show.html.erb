@@ -10,31 +10,7 @@
 <% if current_user %>
   <h2>Make a Reservation</h2>
 
-  <%= form_for([@restaurant, @reservation]) do |f| %>
-    <% if @reservation.errors.any? %>
-      <div id="error_explanation">
-        <h3><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being made:</h3>
-
-        <ul>
-        <% @reservation.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label :number_of_people %><br />
-      <%= f.number_field :number_of_people %>
-    </div>
-    <div class="field">
-      <%= f.label :hour %><br />
-      <%= f.number_field :hour %>
-    </div>      
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
+<%= render 'reservations/form' %>
 
 <% else %>
   <p>Please <%= link_to "log in", new_session_path %> or <%= link_to "sign up", new_user_path %> to make a reservation.</p> 

@@ -1,5 +1,8 @@
+Restaurant.destroy_all
+
 Restaurant.create(
   name:'McDonalds',
+  cuisine: 'Fast Food',
   capacity: 20,
   address: '1234 Yonge St',
   phone: '123456789',
@@ -8,6 +11,7 @@ Restaurant.create(
 
 Restaurant.create(
   name: 'Burger King',
+  cuisine: 'Fast Food',
   capacity: 25,
   address: '2234 Yonge St',
   phone: '223456789',
@@ -16,6 +20,7 @@ Restaurant.create(
 
 Restaurant.create(
   name: 'Wendys',
+  cuisine: 'Fast Food',
   capacity: 15,
   address: '334 Yonge St',
   phone: '333456789',
@@ -24,6 +29,7 @@ Restaurant.create(
 
 Restaurant.create(
   name: 'Taco Bell',
+  cuisine: 'Fast Food',
   capacity: 10,
   address: '4434 Yonge St',
   phone: '443456789',

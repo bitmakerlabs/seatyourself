@@ -8,5 +8,47 @@
 <p>Hours: <%= @restaurant.open %>:00 to <%= @restaurant.close %>:00</p>
 <%= link_to 'Back', restaurants_path %>
 
+<% if current_user %>
+  <h4>Make a Reservation</h4>
 
+  <%= form_for([@restaurant, @reservation]) do |f| %>
+    <% if @reservation.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being made:</h2>
 
+        <ul>
+        <% @reservation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :number_of_people %><br />
+      <%= f.number_field :number_of_people %>
+    </div>
+    <div class="field">
+      <%= f.label :hour %><br />
+      <%= f.number_field :hour %>
+    </div>      
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+<% else %>
+  <p>Please <%= link_to "log in", new_session_path %> or <%= link_to "sign up", new_user_path %> to make a reservation.</p> 
+<% end %>
+
+<% if current_user %>
+ <h2>Your Reservations</h2>
+
+  <% @restaurant.reservations.each do |reservation| %>
+
+  	<p>Location: <em><%= reservation.restaurant.name %></em>
+  	<br>Number of Guests: <em><%= reservation.number_of_people %></em>
+  	<br>Time: <em><%= reservation.hour %>:00</em></p>
+
+  <% end %>
+<% end %> 

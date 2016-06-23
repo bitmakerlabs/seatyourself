@@ -34,7 +34,7 @@ class DinersController < ApplicationController
 private
 
 def diner_params
-  params.require(:diner).permit(:name, :email, :phone_number, :password_digest)
+  params.require(:diner).permit(:name, :email, :phone_number, :password, :password_confirmation)
 end
 
 

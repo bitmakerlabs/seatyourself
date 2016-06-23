@@ -1,10 +1,13 @@
 <h1>Seat Yourself</h1>
-<ul>
-<li><%= @restaurant.name %></li>
-<li><%= @restaurant.cuisine %></li>
-<li><%= @restaurant.phone %></li>
-<li><%= @restaurant.address %></li>
-<li><%= @restaurant.url %></li>
-</ul>
+
+
+<%= link_to "Back to Restaurants", restaurants_url %>
+  <ul>
+  <li><%= @restaurant.name %></li>
+  <li><%= @restaurant.cuisine %></li>
+  <li><%= @restaurant.phone %></li>
+  <li><%= @restaurant.address %></li>
+  <li><%= @restaurant.url %></li>
+  </ul>
 
 <!-- <p>Find me in app/views/restaurants/show.html.erb</p> -->

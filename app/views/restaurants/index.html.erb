@@ -3,8 +3,7 @@
 <p>Choose a Restaurant</p>
 
 <% @restaurants.each do |restaurant| %>
-  <p><%= restaurant.name %></p>
+  <p><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %></p>
   <p><%= restaurant.cuisine %></p>
-
 <% end %>
 <!-- <p>Find me in app/views/restaurants/index.html.erb</p> -->

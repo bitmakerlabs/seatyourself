@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
   # Restaurant
-  get 'restaurants/index'
+  # get 'restaurants/index'
 
-  get 'restaurants/new' => 'restaurants#new'
-  post 'restaurants'=> 'restaurants#create'
+  root 'restaurants#index'
+  resources :restaurants
+  resources :reservations
 
-  get 'restaurants/:id' => 'restaurants#show', as: 'restaurant'
-
-# Reservation
-  get 'reservations/new' => 'reservations#new'
-  post 'reservations' => 'reservations#create'
+#   get 'restaurants/new' => 'restaurants#new'
+#   post 'restaurants'=> 'restaurants#create'
+#
+#   get 'restaurants/:id' => 'restaurants#show', as: 'restaurant'
+#
+# # Reservation
+#   get 'reservations/new' => 'reservations#new'
+#   post 'reservations' => 'reservations#create'
 
   #get 'reservations/create
 

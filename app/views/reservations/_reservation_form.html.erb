@@ -1,40 +1,30 @@
 <%=form_for(@reservation) do |f| %>
-    <% if @diner.errors.any? %>
+    <% if @reservation.errors.any? %>
       <div class="error_msg">
         <h2>Form is Invalid</h2>
         <ul>
-          <% @diner.errors.full_message.each do |message| %>
+          <% @reservation.errors.full_message.each do |message| %>
             <li><%=message%></li>
           <%end%>
         </ul>
       </div>
     <%end%>
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.label :party_size %>
+    <%= f.number_field :party_size %>
   </div>
 
   <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
   </div>
 
   <div class="field">
-    <%= f.label :phone_number %>
-    <%= f.text_field :phone_number %>
+    <%= f.label :instructions %>
+    <%= f.text_area :instructions %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.text_field :password %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.text_field :password_confirmation %>
-  </div>
-
-  <div class="sumbit">
-      <%=f.submit%>
+  <div class="submit">
+      <%=f.submit "Make Reservation"%>
   </div>
 <%end%>

@@ -5,7 +5,10 @@ Rails.application.routes.draw do
     resources :reservations, only: [:show, :create, :destroy]
   end
 
-  resources :users, only: [:show, :new, :create]
+  resources :users, only: [:show, :new, :create] do
+    resources :reservations, only: [:show, :create, :destroy]
+  end
+      
   resources :sessions, only: [:new, :create, :destroy]
 end
 

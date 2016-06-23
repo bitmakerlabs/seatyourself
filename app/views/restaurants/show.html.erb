@@ -9,12 +9,12 @@
 <%= link_to 'Back', restaurants_path %>
 
 <% if current_user %>
-  <h4>Make a Reservation</h4>
+  <h2>Make a Reservation</h2>
 
   <%= form_for([@restaurant, @reservation]) do |f| %>
     <% if @reservation.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being made:</h2>
+        <h3><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being made:</h3>
 
         <ul>
         <% @reservation.errors.full_messages.each do |msg| %>
@@ -48,7 +48,10 @@
 
   	<p>Location: <em><%= reservation.restaurant.name %></em>
   	<br>Number of Guests: <em><%= reservation.number_of_people %></em>
-  	<br>Time: <em><%= reservation.hour %>:00</em></p>
+  	<br>Time: <em><%= reservation.hour %>:00</em>
+  	<br><%= link_to "View"%> | <%= link_to "Edit"%> | <%= link_to "Delete"%></p>
 
   <% end %>
+  <%= link_to "View All" %>
+
 <% end %> 

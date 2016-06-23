@@ -1,2 +1,19 @@
-<h1>Reservations#new</h1>
-<p>Find me in app/views/reservations/new.html.erb</p>
+<h1>Make a Reservation!</h1>
+
+<%= form_for @reservation do |f| %>
+ <p>
+   <%= f.label :name %> <br>
+   <%= f.text_field :name %>
+ </p>
+
+ <p>
+   <%= f.label :time %> <br>
+   <%= f.datetime_field :time %>
+ </p>
+
+ <p>
+   <%= f.label :party_size %> <br>
+   <%= f.text_field :party_size %>
+ </p>
+
+<% end %>

@@ -1,12 +1,11 @@
 <h1><%=@restaurant.name%></h1>
 
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
 <p><%= @restaurant.name %></p>
 <p><%= @restaurant.description %></p>
 <p>Location:<%= @restaurant.address %></p>
 <p>Hours: <%= @restaurant.open %>:00 to <%= @restaurant.close %>:00</p>
-<%= link_to 'Back', restaurants_path %>
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> | <%= link_to 'Back', restaurants_path %> 
 
 <% if current_user %>
   <h2>Make a Reservation</h2>

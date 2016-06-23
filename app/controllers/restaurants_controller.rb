@@ -6,4 +6,20 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
   end
+
+  def create
+    @restaurant = Restaurant.new(restaurant_params)
+    if @restaurant.save
+      redirect_to restaurants_url
+    else
+      render :new
+    end
+  end
+
+private
+def restaurant_params
+  params.require(:restaurant).permit(:name, :capacity, :address, :phone, :url)
+end
+
+
 end

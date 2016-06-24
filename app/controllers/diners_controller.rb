@@ -1,5 +1,9 @@
 class DinersController < ApplicationController
 
+  def index
+    
+  end
+
   def new
     @diner = Diner.new
   end

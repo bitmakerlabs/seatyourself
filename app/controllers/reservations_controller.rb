@@ -1,8 +1,5 @@
 class ReservationsController < ApplicationController
 
-  def index
-  end
-
   def new
     @reservation = Reservation.new
   end
@@ -31,7 +28,7 @@ class ReservationsController < ApplicationController
     if @reservation.update_attributes(reservation_params)
       redirect_to reservations_url(@reservation)
     else
-      render :edit
+      render 'edit'
     end
   end
 

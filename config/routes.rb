@@ -1,18 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'restaurants/new'
-
-  get 'restaurants/create'
-
-  get 'restaurants/show'
-
-  get 'restaurants/edit'
-
+resources :restaurants
 resources :reservations
 resources :restaurants
 resources :diners
 
-root 'reservations#index'
+root 'diners#index'
 end
 
 

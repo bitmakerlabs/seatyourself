@@ -5,7 +5,7 @@ resources :reservations
 resources :restaurants
 resources :diners
 
-root 'diners#index'
+# root 'diners#index'
 end
 
 

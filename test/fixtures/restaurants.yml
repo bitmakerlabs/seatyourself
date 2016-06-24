@@ -2,10 +2,18 @@
 
 one:
   name: MyString
-  email: MyString
-  password_digest: MyString
+  location: MyString
+  op_hours: 2016-06-24 15:16:37
+  about: MyText
+  capacity: 1
+  phone: MyString
+  reser_hours: 2016-06-24 15:16:37
 
 two:
   name: MyString
-  email: MyString
-  password_digest: MyString
+  location: MyString
+  op_hours: 2016-06-24 15:16:37
+  about: MyText
+  capacity: 1
+  phone: MyString
+  reser_hours: 2016-06-24 15:16:37

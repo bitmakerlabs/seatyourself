@@ -6,7 +6,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
-      redirect_to restaurants_url
+      redirect_to reservations_confirmation_url
     else
       render :new
     end

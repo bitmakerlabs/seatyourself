@@ -1,7 +1,7 @@
 class DinersController < ApplicationController
 
   def index
-    
+    @diner = Diner.new
   end
 
   def new

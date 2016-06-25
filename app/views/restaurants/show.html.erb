@@ -5,9 +5,12 @@
   <ul>
   <li><%= @restaurant.name %></li>
   <li><%= @restaurant.cuisine %></li>
+  <li><%= @restaurant.opening_time.to_f %></li>
+  <li><%= @restaurant.closing_time.to_f %></li>
   <li><%= @restaurant.phone %></li>
   <li><%= @restaurant.address %></li>
   <li><%= @restaurant.url %></li>
   </ul>
 
+<%= link_to "Make a Reservation", new_reservation_url %>
 <!-- <p>Find me in app/views/restaurants/show.html.erb</p> -->

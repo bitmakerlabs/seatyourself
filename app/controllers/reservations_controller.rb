@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
 
     if @reservation.save
-      redirect_to reservations_url
+      redirect_to reservation_url(@reservation)
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
 
     if @reservation.update_attributes(reservation_params)
-      redirect_to reservations_url(@reservation)
+      redirect_to reservation_url(@reservation)
     else
       render 'edit'
     end
@@ -35,7 +35,7 @@ class ReservationsController < ApplicationController
 private
 
 def reservation_params
-  params.require(:reservation).permit(:time, :party_size, :diner_id, :restaurant_id)
+  params.require(:reservation).permit(:diner_id, :restaurant_id, :time, :date, :party_size, :instructions)
 end
 
 

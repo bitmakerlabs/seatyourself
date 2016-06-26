@@ -10,7 +10,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
 
     if @restaurant.save
-      redirect_to restaurants_url(@restaurant) #goes to the restaurant's page
+      redirect_to restaurants_url(@restaurant)
     else
       render 'new'
     end

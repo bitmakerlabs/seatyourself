@@ -28,7 +28,7 @@ class ReservationsController < ApplicationController
     if @reservation.update_attributes(reservation_params)
       redirect_to reservation_url(@reservation)
     else
-      render 'edit'
+      render :edit
     end
   end
 

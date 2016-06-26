@@ -10,4 +10,4 @@
 <br>
 <%= @restaurant.about %>
 </p>
-<p><%= link_to "Make Reservation", new_restaurant_reservation_path(@restaurant.id) %></p>
+<p><%= link_to "Make Reservation", new_restaurant_reservation_path(:restaurant_id => @restaurant.id) %></p>

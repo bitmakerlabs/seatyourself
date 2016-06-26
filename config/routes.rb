@@ -12,7 +12,9 @@ resources :reservations
 resources :restaurants
 resources :diners
 
-root 'reservations#index'
+
+root 'diners#new'
+# root 'reservations#index'
 end
 
 

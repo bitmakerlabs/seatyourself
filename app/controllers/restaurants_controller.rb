@@ -33,7 +33,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
 
     if @restaurant.update_attributes(restaurant_params)
-      redirect_to restaurants_url(@restaurant), alert: "Updated!" #goes to restaurant's page to show the updates
+      redirect_to restaurant_path(@restaurant.id), alert: "Updated!" #goes to restaurant's page to show the updates
     else
       render 'edit'
     end
@@ -42,7 +42,7 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :location, :op_hours, :about, :capacity, :phone, :reser_hours)
+    params.require(:restaurant).permit!
   end
 
 

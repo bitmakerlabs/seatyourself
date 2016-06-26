@@ -19,7 +19,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
 
-    if @diner.restaurant_id == @restaurant.id #if the diner owns the restaurant
+    if @diner && @diner.restaurant_id == @restaurant.id #if the diner owns the restaurant
       @reservations = Restaurant.find(@restaurant.id).reservations  #find the reservations for this restaurant
     end
 

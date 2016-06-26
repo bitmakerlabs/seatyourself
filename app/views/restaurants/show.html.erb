@@ -1,8 +1,5 @@
-<h1>Restaurants</h1>
+<h1><%= "#{@restaurant.name.titleize}" %></h1>
 
-<%= @restaurants.each do |restaurant| %>
-<p><%= link_to "#{restaurant.name.titleize}", restaurant%>
-  <br>
-  <%= "#{restaurant.location}" %>
+<p>
+  
 </p>
-<%end%>

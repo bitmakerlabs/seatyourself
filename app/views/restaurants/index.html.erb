@@ -1,1 +1,7 @@
 <h1>Restaurants</h1>
+
+<%= @restaurants.each do |restaurant| %>
+<p><%= link_to "#{restaurant.name.titleize}", "restaurants/#{restaurant.id}"%>
+
+</p>
+<%end%>

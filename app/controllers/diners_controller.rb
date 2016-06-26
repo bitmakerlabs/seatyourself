@@ -10,6 +10,7 @@ class DinersController < ApplicationController
 
   def show
     @diner = Diner.find(params[:id])
+    @owned_restaurants = current_diner.owned_restaurants #shows the restaurants the Diner owns
   end
 
   def edit
@@ -29,7 +30,8 @@ class DinersController < ApplicationController
   def create
     @diner = Diner.new(diner_params)
     if @diner.save
-      redirect_to root_url, notice: 'Thanks for signing up!'
+      session[:diner_id] = @diner.id  #log in diner once signed up
+      redirect_to root_path, notice: 'Thanks for signing up!'
     else
       render 'new'
     end

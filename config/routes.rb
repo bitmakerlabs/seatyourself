@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
 resources :sessions, only: [:new, :create, :destroy]
-resources :restaurants
 resources :reservations
-resources :restaurants
+
+resources :restaurants do  #allows restaurant to pass it's id to a new reservation
+  resources :reservations, only: [:new, :create, :destroy, :edit, :update]
+end
 resources :diners
 
 root 'diners#index'

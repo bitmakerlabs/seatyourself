@@ -1,4 +1,7 @@
 class RestaurantsController < ApplicationController
+  def index
+    @restaurants = Restaurant.all
+  end
   def new
     @restaurant = Restaurant.new
   end
@@ -6,8 +9,8 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
 
-    if restaurant.save
-      redirect_to restaurants_url(@restaurant)
+    if @restaurant.save
+      redirect_to restaurants_url(@restaurant) #goes to the restaurant's page
     else
       render 'new'
     end
@@ -15,6 +18,11 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+
+    if @diner.restaurant_id == @restaurant.id #if the diner owns the restaurant
+      @reservations = Restaurant.find(@restaurant.id).reservations  #find the reservations for this restaurant
+    end
+
   end
 
   def edit
@@ -24,8 +32,8 @@ class RestaurantsController < ApplicationController
   def update
     @restaurant = Restaurant.find(params[:id])
 
-    if restaurant.save
-      redirect_to restaurants_url(@restaurant)
+    if @restaurant.update_attributes(restaurant_params)
+      redirect_to restaurants_url(@restaurant), alert: "Updated!" #goes to restaurant's page to show the updates
     else
       render 'edit'
     end

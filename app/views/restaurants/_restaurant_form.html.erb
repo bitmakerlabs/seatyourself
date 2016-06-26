@@ -15,25 +15,41 @@
   </div>
 
   <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
+    <%= f.label :cuisine %>
+    <%= f.text_field :cuisine %>
   </div>
 
   <div class="field">
-    <%= f.label :phone_number %>
-    <%= f.telephone_field :phone_number %>
+    <%= f.label :street %>
+    <%= f.text_field :street %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :postal %>
+    <%= f.text_field :postal %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :phone %>
+    <%= f.telephone_field :phone %>
   </div>
 
   <div class="field">
     <%= f.label :start_time %>
-    <%= f.time_field_tag :start_time %>
+    <%= f.time_field :start_time %>
     <%= f.label :end_time %>
-    <%= f.time_field_tag :end_time %>
+    <%= f.time_field :end_time %>
   </div>
 
   <div class="field">
     <%= f.label :about %>
-    <%= f.text :about %>
+    <%= f.text_area :about %>
   </div>
 
   <div class="field">

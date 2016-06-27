@@ -33,7 +33,7 @@ class DinersController < ApplicationController
       session[:diner_id] = @diner.id  #log in diner once signed up
       redirect_to root_path, notice: 'Thanks for signing up!'
     else
-      render 'new'
+      render :new, notice: "Error"
     end
   end
 

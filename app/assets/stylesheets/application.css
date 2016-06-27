@@ -1,49 +1,3 @@
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  font-family: helvetica;
-}
-
-.nav-bar {
-  float: right;
-  margin: 10px;
-  padding: 0;
-}
-
-.nav-item {
-  display: inline;
-  text-decoration: none;
-  text-transform: capitalize;
-  color: gold;
-  margin: 10px;
-}
-
-.home-background img {
-  width: 100%;
-  height: 600px;
-  opacity: .5;
-}
-
-#welcome-page {
-  position: absolute;
-  left: 300px;
-  top: 300px;
-  z-index: 2;
-  color: white;
-  font-size: 80px;
-  font-weight: bold;
-}
-
-#sub-header {
-  position: absolute;
-  left: 100px;
-  top: 300px;
-  z-index: 3;
-  font-size: 20px;
-  color: white;
-}
-
  /* This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -58,22 +12,59 @@
  *= require_tree .
  *= require_self
  */
-.new_user {
-  font-family: Graphik, Helvetica, sans-serif;
-  font-weight: lighter;
-  border: 3px solid #AF9C7B;
-  padding-bottom: 20px;
-  padding-top: 20px;
-  width: 200px;
-  text-align: center;
-}
- h1 {
-   text-align: center;
-   font-family: Graphik, Helvetica, sans-serif;
-   font-weight: lighter;
+
+ * {
+   box-sizing: border-box;
+   margin: 0;
+   font-family: helvetica;
  }
 
-.userinfo {
-  font-family: Graphik, Helvetica, sans-serif;
-  font-weight: lighter;
-}
+ body {
+   width: 100%;
+   margin: 0 auto;
+ }
+ .nav-bar {
+   float: right;
+   margin: 10px;
+   padding: 0;
+   height: 20px;
+ }
+
+ .nav-item {
+   display: inline;
+   text-decoration: none;
+   text-transform: capitalize;
+   color: gold;
+   margin: 10px;
+ }
+
+ .content {
+   margin-top: 20px
+ }
+ .home-background img {
+   width: 100%;
+   height: 600px;
+   opacity: .5;
+ }
+
+ #welcome-page {
+   text-align: center;
+   position: absolute;
+   width: 100%;
+   top: 300px;
+   z-index: 2;
+   color: white;
+   font-size: 80px;
+   font-weight: bold;
+ }
+
+ #sub-header {
+   position: absolute;
+   text-align: center;
+   width: 100%;
+   top: 620px;
+   z-index: 3;
+   font-size: 20px;
+   color: white;
+   text-transform: uppercase;;
+ }

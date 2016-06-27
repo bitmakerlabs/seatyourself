@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'restaurants#index'
   #When adding custom routes (i.e. confirmation page), it's best to do it
   # below the root but above your resources
-  get 'reservations/confirmation' => 'reservations#confirmation'
+  get 'reservations/:id/confirmation' => 'reservations#confirmation', as: 'reservation_confirmation'
 
   resources :restaurants
   resources :reservations

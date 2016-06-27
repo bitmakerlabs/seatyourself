@@ -1,6 +1,28 @@
-<h1>Seat Yourself</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-<p>Choose a Restaurant</p>
+  <meta charset="UTF-8">
+  <title>Seat Yourself</title>
+  <link rel="stylesheet" href="css/application.css">
+</head>
+<body>
+  <header>
+    <nav class="nav-bar">
+      <ul class="nav-list">
+        <li class="nav-item">Log in</li>
+        <li class="nav-item">Sign up</li>
+      </ul>
+    </nav>
+  </header>
+    <div class="home-background">
+      <%= image_tag "restaurant-bw.jpg"%>
+      <h1 id="welcome-page">Seat Yourself</h1>
+        <p id="sub-header">Book with the many restaurants below!</p>
+    </div>
+</body>
+</html>
+
 
 <% @restaurants.each do |restaurant| %>
   <p><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %></p>

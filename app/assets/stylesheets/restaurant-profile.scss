@@ -1,4 +1,21 @@
-.restaurant-heading {
+.image{
+  width: 50%;
+}
+
+
+.rest-heading{
   background-color: black;
   color: white;
+  float: left;
+  width: 40%; /* 40% of parent class */
+  height: 100%;
+}
+
+.rest-heading p{
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+.rest-image img{
+  width: 60%;
 }

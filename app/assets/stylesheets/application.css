@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+.new_user {
+  font-family: Graphik, Helvetica, sans-serif;
+  font-weight: lighter;
+  border: 3px solid #AF9C7B;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  width: 200px;
+  text-align: center;
+}
+ h1 {
+   text-align: center;
+   font-family: Graphik, Helvetica, sans-serif;
+   font-weight: lighter;
+ }
+
+.userinfo {
+  font-family: Graphik, Helvetica, sans-serif;
+  font-weight: lighter;
+}

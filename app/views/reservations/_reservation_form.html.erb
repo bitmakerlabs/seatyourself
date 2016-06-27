@@ -3,7 +3,7 @@
       <div class="error_msg">
         <h2>Form is Invalid</h2>
         <ul>
-          <% @reservation.errors.full_message.each do |message| %>
+          <% @reservation.errors.full_messages.each do |message| %>
             <li><%=message%></li>
           <%end%>
         </ul>
@@ -17,8 +17,8 @@
   <div class="field">
     <%= f.label :date %>
     <%= f.date_field :date %>
-    <%= f.label :time %>
-    <%= f.time_field :time%>
+    <%= f.label 'Time'  %>
+    <%= f.time_field :date, :ignore_date => true %>
   </div>
 
   <div class="field">

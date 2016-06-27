@@ -48,7 +48,7 @@ def load_restaurant
   @restaurant = Restaurant.find(params[:restaurant_id])
 end
 def reservations_params
-  params.require(:reservation).permit(:diner_id, :restaurant_id, :time, :date, :party_size, :instructions)
+  params.require(:reservation).permit(:diner_id, :restaurant_id, :date, :party_size, :instructions)
 end
 
 

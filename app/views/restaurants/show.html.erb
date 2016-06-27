@@ -3,17 +3,17 @@
 
 <%= link_to "Seat Yourself", restaurants_url %>
   <ul>
-  <li><%= @restaurant.url %></li>
-  <li><%= @restaurant.address %></li>
-  <li><%= @restaurant.phone %></li>
-  <li><%= @restaurant.opening_time.to_f %></li>
-  <li><%= @restaurant.closing_time.to_f %></li>
-</ul>
+    <li><%= @restaurant.url %></li>
+    <li><%= @restaurant.address %></li>
+    <li><%= @restaurant.phone %></li>
+    <li><%= @restaurant.opening_time.to_f %></li>
+    <li><%= @restaurant.closing_time.to_f %></li>
+  </ul>
 
-<div class="restaurant-heading">
-<li><%= @restaurant.name %></li>
-<li><%= @restaurant.cuisine %></li>
-</div>
+  <div class="restaurant-heading">
+    <li><%= @restaurant.name %></li>
+    <li><%= @restaurant.cuisine %></li>
+  </div>
 
 <%= link_to "Make a Reservation", new_reservation_url %>
 <!-- <p>Find me in app/views/restaurants/show.html.erb</p> -->

@@ -31,15 +31,16 @@
   z-index: 2;
   color: white;
   font-size: 80px;
+  font-weight: bold;
 }
 
-#welcome-page2 {
+#sub-header {
   position: absolute;
   left: 100px;
-  top: 500px;
-  z-index: 5;
+  top: 300px;
+  z-index: 3;
+  font-size: 20px;
   color: white;
-  font-size: 10px;
 }
 
  /* This is a manifest file that'll be compiled into application.css, which will include all the files

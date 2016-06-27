@@ -4,23 +4,31 @@
 
 
 
-<!-- Image -->
-
-<div class="restaurant-heading">
-  <li><%= @restaurant.name %></li>
-  <li><%= @restaurant.cuisine %></li>
+<!-- Image Class -->
+<div class="image">
+  <div class="restaurant-heading">
+    <p><%= @restaurant.name %></p>
+    <p><%= @restaurant.cuisine %></p>
+  </div>
+  <div class="image">
+    <%= image_tag @restaurant.url %>
+  </div>
 </div>
 
-
+<!-- Details Class -->
+<div class="details">
   <ul>
-    <li><%= @restaurant.url %></li>
     <li><%= @restaurant.address %></li>
     <li><%= @restaurant.phone %></li>
+    <li>Hours of Operation</li>
     <li><%= @restaurant.opening_time.to_f %></li>
     <li><%= @restaurant.closing_time.to_f %></li>
   </ul>
+</div>
 
+<!-- Reserve-Button Class -->
+<div class="reserve-button">
+  <%= link_to "Make a Reservation", new_reservation_url %>
+</div>
 
-
-<%= link_to "Make a Reservation", new_reservation_url %>
-<!-- <p>Find me in app/views/restaurants/show.html.erb</p> -->
+<img src="app/assets/images/noun_302916_cc(1).png" alt="bench">

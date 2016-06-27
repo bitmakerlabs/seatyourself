@@ -1,0 +1,13 @@
+<h1><%= "#{@restaurant.name.titleize}" %></h1>
+<p><%= link_to "Edit", edit_restaurant_path %></p>
+<br>
+<p><%= "Location: #{@restaurant.street.titleize}, #{@restaurant.city.titleize}, #{@restaurant.postal.upcase}"%></p>
+<p><%= "Cuisine: #{@restaurant.cuisine.titleize}" %></p>
+<p><%= "Phone: #{@restaurant.phone}"%></p>
+<p><%= "Hours of Operation: #{@restaurant.start_time.strftime("%I:%M %p")} - #{@restaurant.end_time.strftime("%I:%M %p")}" %></p>
+<p><%= "Seats left: #{@restaurant.capacity}" %></p>
+<p>About Us
+<br>
+<%= @restaurant.about %>
+</p>
+<p><%= link_to "Make Reservation", "#{@restaurant.id}/reservations/new" %></p>

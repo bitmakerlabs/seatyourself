@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+
+resources :sessions, only: [:new, :create, :destroy]
+resources :reservations, only: [:index, :show, :edit, :patch ]
+resources :restaurants do  #allows restaurant to pass it's id to a new reservation
+  resources :reservations, except: [:index, :show, :edit, :patch ]
+end
+resources :diners
+
+root 'restaurants#index'
+end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +66,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end

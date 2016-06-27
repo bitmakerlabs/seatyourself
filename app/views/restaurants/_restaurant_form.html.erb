@@ -1,0 +1,60 @@
+<%=form_for(@restaurant) do |f| %>
+    <% if @restaurant.errors.any? %>
+      <div class="error_msg">
+        <h2>Form is Invalid</h2>
+        <ul>
+          <% @restaurant.errors.full_message.each do |message| %>
+            <li><%=message%></li>
+          <%end%>
+        </ul>
+      </div>
+    <%end%>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :cuisine %>
+    <%= f.text_field :cuisine %>
+  </div>
+
+  <div class="field">
+    <%= f.label :street %>
+    <%= f.text_field :street %>
+
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+
+    <%= f.label :postal %>
+    <%= f.text_field :postal %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :phone %>
+    <%= f.telephone_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_time %>
+    <%= f.time_field :start_time %>
+    <%= f.label :end_time %>
+    <%= f.time_field :end_time %>
+  </div>
+
+  <div class="field">
+    <%= f.label :about %>
+    <%= f.text_area :about %>
+  </div>
+
+  <div class="field">
+    <%= f.label :capacity %>
+    <%= f.number_field :capacity %>
+  </div>
+
+
+  <div class="submit">
+      <%=f.submit%>
+  </div>
+<%end%>

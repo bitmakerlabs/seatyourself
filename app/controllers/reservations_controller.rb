@@ -17,6 +17,8 @@ class ReservationsController < ApplicationController
 
   def show
     @reservation = Reservation.find(params[:id])
+    @reservation.date = @reservation.date.format_date
+    @reservation.time = @reservation.time.format_time
   end
 
   def edit
@@ -31,6 +33,14 @@ class ReservationsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def format_date(date)
+    date.strftime("%Y/%m/%d")
+  end
+
+  def format_time(time)
+    time.strftime("%I:%M %p")
   end
 
 private

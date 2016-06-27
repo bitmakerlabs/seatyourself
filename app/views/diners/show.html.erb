@@ -10,5 +10,6 @@
 <% @diner.owned_restaurants.each do |restaurant| %>
 <p>
   <%=link_to "#{restaurant.name}", restaurant_path(restaurant.id)%>
+  <%= link_to "Edit", edit_restaurant_path %>
 </p>
 <%end%>

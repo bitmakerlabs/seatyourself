@@ -1,14 +1,15 @@
 class ReservationsController < ApplicationController
-
+  before_action :load_restaurant, except: [:index, :show, :edit, :update]
   def new
     @reservation = Reservation.new
   end
 
   def create
-    @reservation = Reservation.new(reservation_params)
+    @reservation = @restaurant.reservations.new(reservations_params)
+    @reservation.diner_id = current_diner.id
 
     if @reservation.save
-      redirect_to reservation_url(@reservation)
+      redirect_to current_diner
     else
       render 'new'
     end
@@ -25,16 +26,18 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
 
-    if @reservation.update_attributes(reservation_params)
-      redirect_to reservation_url(@reservation)
+    if @reservation.update_attributes(reservations_params)
+      redirect_to root_url
     else
       render :edit
     end
   end
 
 private
-
-def reservation_params
+def load_restaurant
+  @restaurant = Restaurant.find(params[:restaurant_id])
+end
+def reservations_params
   params.require(:reservation).permit(:diner_id, :restaurant_id, :time, :date, :party_size, :instructions)
 end
 

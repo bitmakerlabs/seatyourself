@@ -5,4 +5,10 @@
 <p><%= "email: #{@diner.email}"%></p>
 <p><%= "phone: #{@diner.phone_number}"%></p>
 <br>
-<h3>Your Reservations</h3>
+<h3><%= link_to "Your Reservations", reservations_url %></h3>
+<h3> Your Restaurants </h3>
+<% @diner.owned_restaurants.each do |restaurant| %>
+<p>
+  <%=link_to "#{restaurant.name}", restaurant_path(restaurant.id)%>
+</p>
+<%end%>

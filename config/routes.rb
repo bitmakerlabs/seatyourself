@@ -8,7 +8,8 @@ resources :restaurants do  #allows restaurant to pass it's id to a new reservati
 end
 resources :diners
 
-root 'diners#index'
+root 'restaurants#index'
+
 end
 
 

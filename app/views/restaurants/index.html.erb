@@ -15,17 +15,20 @@
       </ul>
     </nav>
   </header>
-    <div class="home-background">
-      <%= image_tag "restaurant-bw.jpg"%>
-      <h1 id="welcome-page">Seat Yourself</h1>
-        <p id="sub-header">Book with the many restaurants below!</p>
+    <div class="content">
+      <div class="home-background">
+        <%= image_tag "restaurant-bw.jpg"%>
+        <h1 id="welcome-page">Seat Yourself</h1>
+          <p id="sub-header">Book with the many restaurants below!</p>
+      </div>
     </div>
-</body>
-</html>
 
 
 <% @restaurants.each do |restaurant| %>
   <p><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %></p>
   <p><%= restaurant.cuisine %></p>
 <% end %>
+
+</body>
+</html>
 <!-- <p>Find me in app/views/restaurants/index.html.erb</p> -->

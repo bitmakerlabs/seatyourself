@@ -4,10 +4,15 @@
   font-family: helvetica;
 }
 
+body {
+  width: 100%;
+  margin: 0 auto;
+}
 .nav-bar {
   float: right;
   margin: 10px;
   padding: 0;
+  height: 20px;
 }
 
 .nav-item {
@@ -18,6 +23,9 @@
   margin: 10px;
 }
 
+.content {
+  margin-top: 20px
+}
 .home-background img {
   width: 100%;
   height: 600px;
@@ -26,7 +34,7 @@
 
 #welcome-page {
   position: absolute;
-  left: 300px;
+  width: 100%;
   top: 300px;
   z-index: 2;
   color: white;
@@ -36,11 +44,13 @@
 
 #sub-header {
   position: absolute;
-  left: 100px;
-  top: 300px;
+  text-align: center;
+  width: 100%;
+  top: 620px;
   z-index: 3;
   font-size: 20px;
   color: white;
+  text-transform: uppercase;;
 }
 
  /* This is a manifest file that'll be compiled into application.css, which will include all the files

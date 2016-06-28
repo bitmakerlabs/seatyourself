@@ -32,7 +32,7 @@ class RestaurantsController < ApplicationController
 
   def update
     @restaurant = Restaurant.find(params[:id])
-
+    @restaurant.diner_id = current_diner.id
     if @restaurant.update_attributes(restaurant_params)
       redirect_to restaurant_path(@restaurant.id), alert: "Updated!" #goes to restaurant's page to show the updates
     else

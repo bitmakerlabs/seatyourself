@@ -3,7 +3,7 @@
       <div class="error_msg">
         <h2>Form is Invalid</h2>
         <ul>
-          <% @diner.errors.full_message.each do |message| %>
+          <% @diner.errors.full_messages.each do |message| %>
             <li><%=message%></li>
           <%end%>
         </ul>

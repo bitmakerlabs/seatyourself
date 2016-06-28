@@ -1,10 +1,10 @@
 <h1><%= "#{@restaurant.name.titleize}" %></h1>
-<p><%= "Location: #{@restaurant.street.titleize}, #{@restaurant.city.titleize}, #{@restaurant.postal.upcase}"%></p>
-<p><%= "Cuisine: #{@restaurant.cuisine.titleize}" %></p>
-<p><%= "Phone: #{@restaurant.phone}"%></p>
-<p><%= "Hours of Operation: #{@restaurant.start_time.strftime("%l:%M %p")} - #{@restaurant.end_time.strftime("%l:%M %p")}" %></p>
-<p><%= "Max Capacity: #{@restaurant.capacity}" %></p>
-<p>About Us
+<p><strong>Location: </strong><%= "   #{@restaurant.street.titleize}, #{@restaurant.city.titleize}, #{@restaurant.postal.upcase}"%></p>
+<p><strong>Cuisine: </strong><%=" #{@restaurant.cuisine.titleize}" %></p>
+<p><strong>Phone: </strong> <%=" #{@restaurant.phone}"%></p>
+<p><strong>Hours of Operation:</strong> <%=" #{@restaurant.start_time.strftime("%l:%M %p")} - #{@restaurant.end_time.strftime("%l:%M %p")}" %></p>
+<p><strong>Max Capacity:</strong><%=" #{@restaurant.capacity}" %></p>
+<p><strong>About Us</strong>
 <br>
 <%= @restaurant.about %>
 </p>
@@ -16,8 +16,8 @@
   <h3><%="#{@restaurant.name.titleize}'s Reservations"%></h3>
 
   <% @restaurant.reservations.each do |reser| %>
-    <p><%= "Reservation for #{reser.diner.name}"%> <br>
-      <%= "#{reser.date}  #{reser.time}" %> <br>
+    <p><strong><%= "Reservation for #{reser.diner.name}"%></strong> <br>
+      <%= "#{reser.date.strftime("%B %e, %Y")}  #{reser.date.strftime("%l:%M %p")}" %> <br>
       <%= "Party Size: #{reser.party_size}" %> <br>
         <% if reser.instructions != nil %>
           <%= "Instructions: #{reser.instructions}  " %>

@@ -1,19 +1,18 @@
 class Reservation < ActiveRecord::Base
 belongs_to :diner
 belongs_to :restaurant
-validates :party_size, :diner_id, :restaurant_id, :date, :instructions, presence: true
+validates :party_size, :diner_id, :restaurant_id, :date, presence: true
 validates :instructions, length: {maximum: 200}
 validate :check_avail
-before_validation :calc_seats, on: :create
 
-private
+
 def size
   @restaurant.capacity - @reservation.party_size = seats
   return seats
 end
 
 def seats_left
-  Reservations.where({date: date, restaurant_id: restaurant.id}).sum(:party_size)
+  Reservation.where({date: date, restaurant_id: restaurant_id}).sum(:party_size)
 end
 
 def check_avail

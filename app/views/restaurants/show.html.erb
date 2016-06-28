@@ -8,4 +8,27 @@
 <br>
 <%= @restaurant.about %>
 </p>
-<p><%= link_to "Make Reservation", "#{@restaurant.id}/reservations/new" %></p>
+
+<h3><%= link_to "Make Reservation", "#{@restaurant.id}/reservations/new" %></h3>
+<br>
+<h3>Your Reservations</h3>
+<% @restaurant.reservations.each do |reser| %>
+  <%if current_diner.id == reser.diner_id%>
+  <p><%= "Reservation at #{reser.restaurant.name}"%> <br>
+    <%= "#{reser.date}  #{reser.time}" %> <br>
+    <%= "Party Size: #{reser.party_size}" %> <br>
+    <% if reser.instructions != nil %>
+    <%= "Instructions: #{reser.instructions}  " %>
+    <%end%> 
+    <%= link_to "Edit", edit_reservation_path(reser.id)%>
+  </p>
+  <% elsif current_diner.id == owned_restaurants.diner_id %>
+    <p><%= "Reservation at #{reser.restaurant.name}"%> <br>
+      <%= "#{reser.date}  #{reser.time}" %> <br>
+      <%= "Party Size: #{reser.party_size}" %> <br>
+      <% if reser.instructions != nil %>
+      <%= "Instructions: #{reser.instructions}  " %>
+      <%end%>
+    </p>
+  <%end%>
+<%end%>

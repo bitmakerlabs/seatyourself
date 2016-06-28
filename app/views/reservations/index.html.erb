@@ -3,7 +3,9 @@
 <p><%= "Reservation at #{reservation.restaurant.name}"%> <br>
   <%= "#{reservation.date}  #{reservation.time}" %> <br>
   <%= "Party Size: #{reservation.party_size}" %> <br>
+  <% if reservation.instructions != nil %>
   <%= "Instructions: #{reservation.instructions}  " %>
+  <%end%>
   <%= link_to "Edit", edit_reservation_path(reservation.id)%>
 </p>
 <%end%>

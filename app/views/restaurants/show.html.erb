@@ -1,27 +1,35 @@
 <%= link_to "Seat Yourself", restaurants_url %>
 
 <!-- Image Class -->
-<div class="image">
+<div class="content-wrapper">
+  <div class="image">
     <%= image_tag @restaurant.url %>
-    <p><%= @restaurant.name %><br /> <%= @restaurant.cuisine %></p>
+
+    <div class="transbox">
+      <div class="text-wrap">
+        <h2><%= @restaurant.name %></h2>
+        <p><%= @restaurant.cuisine %></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Details Class -->
+  <div class="details">
+    <ul>
+      <li><%= @restaurant.address %></li>
+      <li><%= @restaurant.phone %></li>
+      <li>Hours of Operation</li>
+      <li><%= @restaurant.opening_time.to_f %></li>
+      <li><%= @restaurant.closing_time.to_f %></li>
+    </ul>
+    <!-- Reserve-Button Class -->
+    <div class="reserve-button">
+      <%= link_to "Make a Reservation", new_reservation_url %>
+    </div>
+  </div>
 </div>
 
 
 
-<!-- Details Class -->
-<div class="details">
-  <ul>
-    <li><%= @restaurant.address %></li>
-    <li><%= @restaurant.phone %></li>
-    <li>Hours of Operation</li>
-    <li><%= @restaurant.opening_time.to_f %></li>
-    <li><%= @restaurant.closing_time.to_f %></li>
-  </ul>
-</div>
 
-<!-- Reserve-Button Class -->
-<div class="reserve-button">
-  <%= link_to "Make a Reservation", new_reservation_url %>
-</div>
-
-<img src="app/assets/images/noun_302916_cc(1).png" alt="bench">
+<!-- <img src="app/assets/images/noun_302916_cc(1).png" alt="bench"> -->

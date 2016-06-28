@@ -1,4 +1,8 @@
-<%= link_to "Seatyourself", restaurants_url %>
+<%= link_to restaurants_url do %>
+ <div class="logo">
+     <%= image_tag 'seatyourself_logo.png', width: 200, height: 55, alt: 'logo'%>
+ </div>
+<% end %>
 
 <h1 class="reservation-title">MAKE A RESERVATION</h1>
 

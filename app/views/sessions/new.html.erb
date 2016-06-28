@@ -1,14 +1,16 @@
-<%= link_to "Home", restaurants_url %>
-<h1 class="login">Log In</h1>
+<%= link_to "Seatyourself", restaurants_url %>
+<h1 class="login-title">LOG IN</h1>
 <%= form_tag sessions_path do %>
 
-<div class="field">
-  <%= label_tag :email %><br/>
-  <%= text_field_tag :email, params[:email] %>
+<div class="login-form">
+  <div class="field">
+    <%= label_tag :email %><br/>
+    <%= text_field_tag :email, params[:email] %>
+  </div>
+  <div class="field">
+    <%= label_tag :password %><br/>
+    <%= password_field_tag :password %>
+  </div>
+  <div class="actions"><%= submit_tag "Log in" %></div>
+  <% end %>
 </div>
-<div class="field">
-  <%= label_tag :password %><br/>
-  <%= password_field_tag :password %>
-</div>
-<div class="actions"><%= submit_tag "Log in" %></div>
-<% end %>

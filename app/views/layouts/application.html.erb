@@ -11,7 +11,7 @@
     <% if current_user %>
       Signed in as <%= current_user.email %>. <%= link_to "LOG OUT", session_path("current"), :method => :delete %>
     <% else %>
-      <%= link_to "LOG IN", new_session_path %> <%= link_to "SIGN UP", new_user_path %>
+    <%= link_to "LOG IN", new_session_path %> | <%= link_to "SIGN UP", new_user_path %>
     <% end %>
   </p>
 

@@ -8,5 +8,12 @@ class ApplicationController < ActionController::Base
     @current_diner ||= Diner.find(session[:diner_id]) if session[:diner_id]
   end
 
+  def require_login
+    unless current_diner
+      redirect_to new_session_path
+    end
+  end
+
+  helper_method :require_login
   helper_method :current_diner
 end

@@ -7,15 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  
-<p class ="diner_status">
-  <% if current_diner %>
-    Signed in as <%= link_to "#{current_diner.name.titleize}", current_diner %>. <%=link_to "Log Out", session_path("current"), :method => :delete %>
-  <% else %>
-  <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_diner_path %>
-  <%end%>
-</p>
+
+<header>
+
+  <nav>
+    <ul>
+      <% if current_diner %>
+        <li>Signed in as <%= link_to "#{current_diner.name.titleize}", current_diner %></li>
+        <li><%=link_to "Log Out", session_path("current"), :method => :delete %></li>
+        <% else %>
+        <li><%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_diner_path %></li>
+      <%end%>
+    </ul>
+  </nav>
+
+</header>
+
+<main>
 <%= yield %>
+</main>
 
 </body>
 </html>

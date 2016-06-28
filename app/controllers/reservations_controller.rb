@@ -1,4 +1,5 @@
 class ReservationsController < ApplicationController
+  before_action :require_login
   before_action :load_restaurant, except: [:index, :show, :edit, :update]
   def new
     @reservation = Reservation.new

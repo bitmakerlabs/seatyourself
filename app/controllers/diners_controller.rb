@@ -1,5 +1,6 @@
 class DinersController < ApplicationController
-
+  before_action :require_login, except: [:new, :create]
+  
   def index
     @diner = Diner.new
   end

@@ -8,25 +8,18 @@
 </head>
 <body>
   <header>
-    <nav class="nav-bar">
-      <ul class="nav-list">
-        <li class="nav-item">Log in</li>
-        <li class="nav-item">Sign up</li>
-      </ul>
-    </nav>
+    <nav class="nav-bar"></nav>
   </header>
     <div class="content">
       <div class="home-background">
-        <%= image_tag "restaurant-bw.jpg"%>
+        <%= image_tag "restaurant-bw.jpg" %>
         <h1 id="welcome-page">Seat Yourself</h1>
-          <p id="sub-header">Book with the many restaurants below!</p>
+          <p id="sub-header">Book with one of the many restaurants below!</p>
       </div>
-    </div>
-
 
 <% @restaurants.each do |restaurant| %>
-  <p><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %></p>
-  <p><%= restaurant.cuisine %></p>
+  <div><%= link_to restaurant.name, "/restaurants/#{restaurant.id}", :id => "homepage-restaurants" %></div>
+
 <% end %>
 
 </body>

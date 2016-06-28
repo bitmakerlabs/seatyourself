@@ -1,0 +1,45 @@
+
+<!-- Logo Class -->
+<%= link_to restaurants_url do %>
+  <div class="logo">
+      <%= image_tag 'logo.png', width: 250, height: 70, alt: 'logo'%>
+  </div>
+<% end %>
+
+
+<!-- Content-Wrapper Class -->
+<div class="content-wrapper">
+
+  <!-- Image Class -->
+  <div class="image">
+    <%= image_tag @restaurant.url %>
+    <div class="transbox">
+      <div class="text-wrap">
+        <h2><%= @restaurant.name %></h2>
+        <p id="cuisine"><%= @restaurant.cuisine %></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Details Class -->
+  <div class="details">
+    <ul>
+      <li>Address:</li>
+      <li><%= @restaurant.address %></li><br>
+      <li>Phone:</li>
+      <li><%= @restaurant.phone %></li><br>
+      <li>Hours of Operation:</li>
+      <li><%= @restaurant.opening_time %>:00 - <%= @restaurant.closing_time %>:00</li><br>
+    </ul>
+    <!-- Reserve-Button Class -->
+    <div class="reserve-button">
+      <%= link_to "Reserve a Table", new_reservation_url %>
+    </div>
+  </div>
+
+
+  <!-- Bench Class -->
+  <div class="chair-img">
+    <img src="noun_302916_cc(1).png" alt="bench">
+  </div>
+</div>

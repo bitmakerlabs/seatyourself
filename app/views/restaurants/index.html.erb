@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Seat Yourself</title>
+  <link rel="stylesheet" href="css/application.css">
+</head>
+<body>
+  <header>
+    <nav class="nav-bar"></nav>
+  </header>
+    <div class="content">
+      <div class="home-background">
+        <%= image_tag "restaurant.jpg" %>
+        <%= image_tag "logo.png", :id=> "welcome-page" %>
+          <p id="sub-header">Book with one of the many restaurants below!</p>
+      </div>
+
+<% @restaurants.each do |restaurant| %>
+  <div><%= link_to image_tag restaurant.url, :id => "homepage-restaurants" %></div>
+<% end %>
+
+
+</body>
+</html>
+<!-- <p>Find me in app/views/restaurants/index.html.erb</p> -->

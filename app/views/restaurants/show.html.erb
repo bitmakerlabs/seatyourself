@@ -1,18 +1,9 @@
 <%= link_to "Seat Yourself", restaurants_url %>
 
-  <h1>Seat Yourself</h1>
-
-
-
 <!-- Image Class -->
 <div class="image">
-  <div class="rest-heading">
-    <p><%= @restaurant.name %></p>
-    <p><%= @restaurant.cuisine %></p>
-  </div>
-  <div class="rest-image">
     <%= image_tag @restaurant.url %>
-  </div>
+    <p><%= @restaurant.name %><br /> <%= @restaurant.cuisine %></p>
 </div>
 
 

@@ -13,24 +13,26 @@
     </div>
   <% end %>
 
- <div class="field">
-   <%= f.label :name %> <br>
-   <%= f.text_field :name %>
- </div>
+<div class="reservation-form">
+   <div class="field">
+     <%= f.label :name %> <br>
+     <%= f.text_field :name %>
+   </div>
 
- <div class="field">
-   <%= f.label :date %> and <%= f.label :time %><br>
-   <%= f.date_field :date %> <%= f.time_field :time %>
- </div>
+   <div class="field">
+     <%= f.label :date %> and <%= f.label :time %><br>
+     <%= f.date_field :date %> <%= f.time_field :time %>
+   </div>
 
- <div class="field">
-   <%= f.label :party_size %> <br>
-   <%= f.number_field :party_size %>
- </div>
+   <div class="field">
+     <%= f.label :party_size %> <br>
+     <%= f.number_field :party_size %>
+   </div>
 
- <div class="actions">
-   <%=f.submit "Submit" %>
- </div>
+   <div class="actions">
+     <%=f.submit "Submit" %>
+   </div>
+</div>
 
 <% end %>
 

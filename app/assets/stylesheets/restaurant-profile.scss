@@ -60,34 +60,48 @@
     font-weight: lighter;
     border: 4px solid #AF9C7B ;
     display: inline-block;
-    padding-bottom: 0;
-    padding-top: 20px;
+    padding-bottom: 40px;
+    padding-top: 40px;
     width: 28%;
     float: right;
     line-height: 30px;
+    position: relative;
 
-    ul {
-      padding: 0;
-    }
 
-    li {
-      list-style-type: none;
-      text-align: center;
-    }
+      ul {
+        padding: 0;
+      }
+
+      li {
+        list-style-type: none;
+        text-align: center;
+      }
 
   }
 
 
-  // Reserve-Button Class
-  .reserve-button{
-    font-family: Graphik, Helvetica, sans-serif;
-    font-weight: lighter;
-    border: 2px solid #AF9C7B ;
-    display: inline-block;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    width: 50%;
-    line-height: 30px;
-    text-align: center;
-    margin-left: 25%;
+// Reserve-Button Class
+.reserve-button{
+  //font
+  font-family: Graphik, Helvetica, sans-serif;
+  font-weight: lighter;
+  text-align: center;
+  //border
+  border: 4px solid #AF9C7B;
+  //display
+  display: inline-block;
+  background-color: white;
+  //dimensions
+  padding: 5px;
+  line-height: 30px;
+  margin-top: 20px;
+  margin-left: 25%;
+  margin-right: 25%;
+  position: absolute;
+
+  a{
+    text-decoration: none;
+    color:#333;
   }
+
+}

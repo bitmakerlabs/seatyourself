@@ -1,20 +1,41 @@
-
-  <h1>Seat Yourself</h1>
-
-
 <%= link_to "Seat Yourself", restaurants_url %>
-  <ul>
-    <li><%= @restaurant.url %></li>
-    <li><%= @restaurant.address %></li>
-    <li><%= @restaurant.phone %></li>
-    <li><%= @restaurant.opening_time.to_f %></li>
-    <li><%= @restaurant.closing_time.to_f %></li>
-  </ul>
 
-  <div class="restaurant-heading">
-    <li><%= @restaurant.name %></li>
-    <li><%= @restaurant.cuisine %></li>
+
+<!-- Content-Wrapper Class -->
+<div class="content-wrapper">
+
+  <!-- Image Class -->
+  <div class="image">
+    <%= image_tag @restaurant.url %>
+
+    <div class="transbox">
+      <div class="text-wrap">
+        <h2><%= @restaurant.name %></h2>
+        <p id="cuisine"><%= @restaurant.cuisine %></p>
+      </div>
+    </div>
   </div>
 
-<%= link_to "Make a Reservation", new_reservation_url %>
-<!-- <p>Find me in app/views/restaurants/show.html.erb</p> -->
+  <!-- Details Class -->
+  <div class="details">
+    <ul>
+      <li>Address:</li>
+      <li><%= @restaurant.address %></li><br>
+      <li>Phone:</li>
+      <li><%= @restaurant.phone %></li><br>
+      <li>Hours of Operation:</li>
+      <li><%= @restaurant.opening_time %>:00 - <%= @restaurant.closing_time %>:00</li><br>
+    </ul>
+    <!-- Reserve-Button Class -->
+    <div class="reserve-button">
+      <%= link_to "Make a Reservation", new_reservation_url %>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+<!-- <img src="app/assets/images/noun_302916_cc(1).png" alt="bench"> -->

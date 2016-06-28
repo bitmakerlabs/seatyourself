@@ -2,8 +2,8 @@
 <p><%= "Location: #{@restaurant.street.titleize}, #{@restaurant.city.titleize}, #{@restaurant.postal.upcase}"%></p>
 <p><%= "Cuisine: #{@restaurant.cuisine.titleize}" %></p>
 <p><%= "Phone: #{@restaurant.phone}"%></p>
-<p><%= "Hours of Operation: #{@restaurant.start_time.strftime("%I:%M %p")} - #{@restaurant.end_time.strftime("%I:%M %p")}" %></p>
-<p><%= "Seats left: #{@restaurant.capacity}" %></p>
+<p><%= "Hours of Operation: #{@restaurant.start_time.strftime("%l:%M %p")} - #{@restaurant.end_time.strftime("%l:%M %p")}" %></p>
+<p><%= "Max Capacity: #{@restaurant.capacity}" %></p>
 <p>About Us
 <br>
 <%= @restaurant.about %>
@@ -11,24 +11,20 @@
 
 <h3><%= link_to "Make Reservation", "#{@restaurant.id}/reservations/new" %></h3>
 <br>
-<h3>Your Reservations</h3>
-<% @restaurant.reservations.each do |reser| %>
-  <%if current_diner.id == reser.diner_id%>
-  <p><%= "Reservation at #{reser.restaurant.name}"%> <br>
-    <%= "#{reser.date}  #{reser.time}" %> <br>
-    <%= "Party Size: #{reser.party_size}" %> <br>
-    <% if reser.instructions != nil %>
-    <%= "Instructions: #{reser.instructions}  " %>
-    <%end%> 
-    <%= link_to "Edit", edit_reservation_path(reser.id)%>
-  </p>
-  <% elsif current_diner.id == owned_restaurants.diner_id %>
-    <p><%= "Reservation at #{reser.restaurant.name}"%> <br>
+<% if @restaurant.diner_id == current_diner.id %>
+
+  <h3><%="#{@restaurant.name.titleize}'s Reservations"%></h3>
+
+  <% @restaurant.reservations.each do |reser| %>
+    <p><%= "Reservation for #{reser.diner.name}"%> <br>
       <%= "#{reser.date}  #{reser.time}" %> <br>
       <%= "Party Size: #{reser.party_size}" %> <br>
-      <% if reser.instructions != nil %>
-      <%= "Instructions: #{reser.instructions}  " %>
-      <%end%>
+        <% if reser.instructions != nil %>
+          <%= "Instructions: #{reser.instructions}  " %>
+        <%end%>
     </p>
   <%end%>
+    <%if @restaurant.reservations.count == 0 %>
+    <p><%="#{restaurant.name.titleize} currently has no reservations"%></p>
+    <%end%>
 <%end%>

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def require_login
     unless current_diner
-      redirect_to new_session_path
+      redirect_to new_session_path, alert: "Please Login or Sign Up to Continue"
     end
   end
 

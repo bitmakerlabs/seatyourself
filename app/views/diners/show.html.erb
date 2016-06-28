@@ -1,0 +1,16 @@
+<h1><%="Welcome #{@diner.name.titleize}"%></h1>
+<h3>Your Info</h3>
+<p><%= "email: #{@diner.email}"%></p>
+<p><%= "phone: #{@diner.phone_number}"%></p>
+<p><%= link_to "Edit Info", edit_diner_path %></p>
+<br>
+<h3><%= link_to "Your Reservations", reservations_url %></h3>
+<br>
+<h3> Your Restaurants </h3>
+<% @diner.owned_restaurants.each do |restaurant| %>
+<p>
+  <%=link_to "#{restaurant.name}", restaurant_path(restaurant.id)%>
+  <%= link_to "Edit", "/restaurants/#{restaurant.id}/edit" %>
+</p>
+<%end%>
+<%=link_to "New Restaurant", new_restaurant_path %>

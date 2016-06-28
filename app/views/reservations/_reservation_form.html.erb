@@ -1,0 +1,34 @@
+<%=form_for ([@restaurant, @reservation]) do |f| %>
+    <% if @reservation.errors.any? %>
+      <div class="error_msg">
+        <h2>Form is Invalid</h2>
+        <ul>
+          <% @reservation.errors.full_messages.each do |message| %>
+            <li><%=message%></li>
+          <%end%>
+        </ul>
+      </div>
+    <%end%>
+  <div class="field">
+    <%= f.label :party_size %>
+    <%= f.number_field :party_size %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+    <br>
+    <%= f.label "Time" %>
+    <%= f.time_select :date, {:minute_step => 60, :ampm => true}, :ignore_date => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :instructions %>
+    <%= f.text_area :instructions %>
+  </div>
+
+
+  <div class="submit">
+      <%=f.submit%>
+  </div>
+<%end%>

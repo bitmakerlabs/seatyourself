@@ -1,0 +1,11 @@
+<h1>Reservations</h1>
+<% current_diner.reservations.each do |reservation| %>
+<p><strong><%= "Reservation at #{reservation.restaurant.name}"%></strong> <br>
+  <%= "#{reservation.date.strftime("%B %e, %Y")}  #{reservation.date.strftime("%l:%M %p")}" %> <br>
+  <%= "Party Size: #{reservation.party_size}" %> <br>
+  <% if reservation.instructions != nil %>
+  <%= "Instructions: #{reservation.instructions}  " %>
+  <%end%>
+  <%= link_to "Edit", edit_reservation_path(reservation.id)%>
+</p>
+<%end%>

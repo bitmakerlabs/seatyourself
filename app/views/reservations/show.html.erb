@@ -1,0 +1,8 @@
+<h1><%="Your Reservation"%></h1>
+<h3>Details</h3>
+<p><%= "Reservation for #{@reservation.diner.name} at #{@reservation.restaurant.name}"%></p>
+<p><%= "When: #{@reservation.date}  at #{@reservation.time}" %></p>
+<p><%= "Party Size: #{@reservation.party_size}" %></p>
+<p>"Special Instructions:" <br>
+  <%= @reservation.instructions %>
+</p>

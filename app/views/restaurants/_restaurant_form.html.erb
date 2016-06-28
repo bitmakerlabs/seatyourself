@@ -38,9 +38,9 @@
 
   <div class="field">
     <%= f.label :start_time %>
-    <%= f.time_field :start_time %>
+    <%= f.time_select :start_time, {minute_step: 60, ampm: true}, ignore_date: true %>
     <%= f.label :end_time %>
-    <%= f.time_field :end_time %>
+    <%= f.time_select :end_time, {minute_step: 60, ampm: true}, ignore_date: true %>
   </div>
 
   <div class="field">

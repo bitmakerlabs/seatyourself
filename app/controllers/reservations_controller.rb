@@ -36,11 +36,11 @@ class ReservationsController < ApplicationController
   end
 
   def format_date(date)
-    date.strftime("%Y/%m/%d")
+    date.strftime("%m/%d/%Y")
   end
 
-  def format_time(time)
-    time.strftime("%I:%M %p")
+  def format_time(date)
+    date.strftime("%I:%M %p")
   end
 
 private

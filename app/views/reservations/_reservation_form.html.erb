@@ -16,9 +16,10 @@
 
   <div class="field">
     <%= f.label :date %>
-    <%= f.date_field :date %>
-    <%= f.label 'Time'  %>
-    <%= f.time_field :date, :ignore_date => true %>
+    <%= f.date_select :date %>
+    <br>
+    <%= f.label "Time" %>
+    <%= f.time_select :date, {:minute_step => 60, :ampm => true}, :ignore_date => true %>
   </div>
 
   <div class="field">

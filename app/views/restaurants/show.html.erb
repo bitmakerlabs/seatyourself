@@ -1,4 +1,10 @@
-<%= link_to "Seat Yourself", restaurants_url %>
+
+<!-- Logo Class -->
+<%= link_to restaurants_url do %>
+  <div class="logo">
+      <%= image_tag 'seatyourself_logo.png', width: 200, height: 55, alt: 'logo'%>
+  </div>
+<% end %>
 
 
 <!-- Content-Wrapper Class -->

@@ -18,7 +18,7 @@
       </div>
 
 <% @restaurants.each do |restaurant| %>
-  <div><%= link_to restaurant.name, "/restaurants/#{restaurant.id}", :id => "homepage-restaurants" %></div>
+  <div><%= link_to restaurant.url, "/restaurants/#{restaurant.id}", :id => "homepage-restaurants" %></div>
 
 <% end %>
 

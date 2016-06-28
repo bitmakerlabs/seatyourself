@@ -1,14 +1,17 @@
 <%= link_to "Seat Yourself", restaurants_url %>
 
-<!-- Image Class -->
+
+<!-- Content-Wrapper Class -->
 <div class="content-wrapper">
+
+  <!-- Image Class -->
   <div class="image">
     <%= image_tag @restaurant.url %>
 
     <div class="transbox">
       <div class="text-wrap">
         <h2><%= @restaurant.name %></h2>
-        <p><%= @restaurant.cuisine %></p>
+        <p id="cuisine"><%= @restaurant.cuisine %></p>
       </div>
     </div>
   </div>
@@ -18,9 +21,11 @@
     <ul>
       <li><%= @restaurant.address %></li>
       <li><%= @restaurant.phone %></li>
-      <li>Hours of Operation</li>
-      <li><%= @restaurant.opening_time.to_f %></li>
-      <li><%= @restaurant.closing_time.to_f %></li>
+      <br>
+      <li>Hours of Operation:</li>
+      <li><%= @restaurant.opening_time %>:00</li>
+      <li><%= @restaurant.closing_time %>:00</li>
+      <br>
     </ul>
     <!-- Reserve-Button Class -->
     <div class="reserve-button">

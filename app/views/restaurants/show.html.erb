@@ -17,7 +17,7 @@
 
   <% @restaurant.reservations.each do |reser| %>
     <p><strong><%= "Reservation for #{reser.diner.name}"%></strong> <br>
-      <%= "#{reser.date.strftime("%B %e, %Y")}  #{reser.date.strftime("%l:%M %p")}" %> <br>
+      <%= "#{reser.date.strftime("%B/%e/%Y")}"%> <%="#{reser.date.strftime("%l:%M %p")}" %> <br>
       <%= "Party Size: #{reser.party_size}" %> <br>
         <% if reser.instructions != nil %>
           <%= "Instructions: #{reser.instructions}  " %>
@@ -25,6 +25,6 @@
     </p>
   <%end%>
     <%if @restaurant.reservations.count == 0 %>
-    <p><%="#{restaurant.name.titleize} currently has no reservations"%></p>
+    <p><%="#{@restaurant.name.titleize} currently has no reservations"%></p>
     <%end%>
 <%end%>

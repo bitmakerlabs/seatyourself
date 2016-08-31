@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  phone_number: 
+  cuisine_id: 1
+  seats: 1
+  owner_id: 1
+  description: MyText
+  opens_at: 2016-08-31 15:58:20
+  closes_at: 2016-08-31 15:58:20
+
+two:
+  name: MyString
+  address: MyString
+  phone_number: 
+  cuisine_id: 1
+  seats: 1
+  owner_id: 1
+  description: MyText
+  opens_at: 2016-08-31 15:58:20
+  closes_at: 2016-08-31 15:58:20

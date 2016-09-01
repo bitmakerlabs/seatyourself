@@ -17,14 +17,21 @@
         <a class="navbar-brand" href="#">
           <i class="fa fa-cutlery" aria-hidden="true"></i> <span id="brand-icon">ResturRat</span>
         </a>
-        <p class="navbar-text navbar-right"><a href="#" class="navbar-link">Login</a> or <a href="#" class="navbar-link">Sign up</a>    < RUBY HERE TO SPLIT IF OR BLAH >     Signed in as <a href="#" class="navbar-link">user.first_name user.last_name</a></p>
+        <p class="navbar-text navbar-right"><a href="#" class="navbar-link">Login</a> or <a href="#" class="navbar-link">Sign up</a>
+          <% else %>
+           < RUBY HERE TO SPLIT IF OR BLAH >     Signed in as <a href="#" class="navbar-link">user.first_name user.last_name</a></p>
+
+        <% #end %>
       </div>
     </div>
   </nav>
 </div>
 <!-- THIS PART IS FOR THE TOP IMAGE AND STUFF -->
-
+<div class="container">
 <%= yield %>
+</div>
+
+
 <div class="container">
     <div class="row pull-right">
       <h3> Find us at</h3>

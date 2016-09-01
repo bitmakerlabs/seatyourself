@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require_main
  */
 
  #main-title {
@@ -32,9 +33,9 @@
    min-height: auto;
    background-size: cover;
    background-position: center;
-   background-image: url('../img/r.jpeg');
    text-align: center;
    color: white;
+   padding-top: 0;
  }
  .main-header {
    position: relative;
@@ -84,3 +85,14 @@
    padding-bottom: 0;
    margin-bottom: 0;
  }
+.navbar{
+  margin-bottom: 0;
+}
+a {
+  text-decoration: none;
+  color: orange;
+}
+a:hover {
+  color: darkred;
+  text-decoration: none;
+}

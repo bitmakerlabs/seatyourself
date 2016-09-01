@@ -13,3 +13,74 @@
  *= require_tree .
  *= require_self
  */
+
+ #main-title {
+   font-family:impact;
+   font-size: 80px;
+   -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+ }
+
+ body {
+   width: 100%;
+   height: 100%;
+ }
+ .top-head {
+   position: relative;
+   width: 100%;
+   min-height: auto;
+   background-size: cover;
+   background-position: center;
+   background-image: url('../img/r.jpeg');
+   text-align: center;
+   color: white;
+ }
+ .main-header {
+   position: relative;
+   text-align: center;
+   padding: 100px 15px 100px;
+   width: 100%;
+ }
+ #brand-icon {
+   color: white;
+ /*-webkit-text-fill-color: white; /* Will override color (regardless of order) */
+ /*-webkit-text-stroke-width: 1px;*/
+ /*-webkit-text-stroke-color: black;*/*/
+ }
+ .border-block {
+   height: 20px;
+   background-color: black;
+   color: white;
+ }
+ #motto {
+   color: black;
+   font-weight: bold;
+   font-family: noteworthy;
+   font-size: 30px;
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: white;
+ }
+ .view-all {
+   height: 160px;
+   padding-right: 20px;
+ }
+ .thumb-img {
+   width: 200px;
+   float:left;
+   display: inline-block;
+   margin: 15px;
+   padding-left: 20px;
+ }
+ .view-content {
+   padding-left: 230px;
+
+ }
+ .main-view-box {
+   margin-top: 20px;
+ }
+
+ .main-view-title {
+   padding-bottom: 0;
+   margin-bottom: 0;
+ }

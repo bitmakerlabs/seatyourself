@@ -10,3 +10,4 @@ FactoryGirl.define do
     opens_at Time.now
     closes_at Time.now
   end
+end

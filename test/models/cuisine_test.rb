@@ -1,7 +1,13 @@
 require 'test_helper'
 
 class CuisineTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @cuisine = build(:cuisine)
+  end
+
+  test "should be invalid without a name" do
+    @cuisine.name = nil
+    assert_equal false, @cuisine.valid?
+  end
+
 end

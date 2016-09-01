@@ -1,6 +1,34 @@
-<% @restaurants.each do |restaurant| %>
-  <div class="restaurant">
-    <h2><%= restaurant.name %></h2>
-    <p><%= restaurant.description %></p>
+
+<!-- THIS PART IS FOR THE TOP IMAGE AND STUFF -->
+<div class="main-header">
+      <div class="page-header">
+        <h1 id="main-title">ResturRat <small>seat yourself</small></h1>
+        </div>
+        <p id="motto">Resturant Reservations made easy</p>
+</div>
+</div>
+<div class="border-block">
+  <div class="container">
+    “All you need is love. But a little chocolate now and then doesn't hurt.”  <em>― Charles M. Schulz</em>
   </div>
-<% end %>
+</div>
+  <div class="container main-view-box">
+      <div class="row">
+
+        <!--- This the start of the each -->
+        <% @restaurants.each do |restaurant| %>
+        <div class="thumbnail view-all col-md-6">
+            <img class="thumb-img" src="http://www.freeimageslive.com/galleries/food/dessert/preview/apple_crumble.jpg">
+            <div class="container view-content">
+              <h3 class="main-view-title"><%= restaurant.name %></h3>
+              <small class="main-view-add"><strong>Address</strong><em><%= restaurant.address %></em> </small> <br/>
+              <strong>Cuisine:</strong>  <%=restaurant.cuisine %> <br/><br/>
+              <input class="btn btn-default" type="submit" value="View More or Make Reso">
+            </div>
+        </div>
+        <% end %>
+
+        <!-- this is the break of the each -->
+      </div>
+  </div>
+</div>

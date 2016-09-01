@@ -25,6 +25,16 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
   end
 
+  def update
+    @restaurant = Restaurant.find(params[:id])
+
+    if @restaurant.update_attributes(restaurant_params)
+      redirect_to @restaurant
+    else
+      render :edit
+    end
+  end
+
   def delete
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy

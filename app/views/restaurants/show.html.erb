@@ -2,8 +2,10 @@
 <p>Find me in app/views/restaurants/show.html.erb</p> -->
 
 <h1><%= @restaurant.name %></h1>
+<%= link_to 'Edit', edit_restaurant_path %>
 
-<p><%= @restaurant.address%><br/>
-  <%= @restaurant.phone_number%><br/>
+<p><%= @restaurant.address %><br/>
+  <%= @restaurant.phone_number %><br/>
+  <%= @restaurant.seats %>
 </p>
 <p><%= @restaurant.description%></p>

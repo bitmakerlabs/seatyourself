@@ -1,41 +1,6 @@
 <div class="container">
 
-<h1>Create a new Restaurant!</h1>
-  <%= form_for @restaurant do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :address %>
-    <%= f.text_area :address %>
-  </p>
-  <p>
-    <%= f.label :phone_number %>
-    <%= f.number_field :phone_number %>
-  </p>
-  <p>
-    <%= f.label :Cuisine %>
-    <%= f.collection_select :cuisine_id, @cuisines, :id, :name, :prompt => "Cuisine type" %>
-  </p>
-  <p>
-    <%= f.label :Seats %>
-    <%= f.number_field :seats %>
-  </p>
-  <p>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.label :opens_at %>
-    <%= f.time_field :opens_at %>
-  </p>
-  <p>
-    <%= f.label :closes_at %>
-    <%= f.time_field :closes_at %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+  <%= render 'form'%>
+
+
 </div>

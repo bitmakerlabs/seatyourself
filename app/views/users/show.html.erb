@@ -1,20 +1,20 @@
 <div class="container">
-<h1>Welcome first_name  last_name</h1>
+<h1>Welcome <%= @user.first_name %>  <%= @user.last_name %></h1>
 <hr>
 <div class="row">
   <img src="http://www.aspirehire.co.uk/aspirehire-co-uk/_img/profile.svg" id="profile-pic" class="thumbnail col-md-3">
     <div class="thumbnail col-md-6 profile-info">
       <div class="profile-user-info">
         <p>
-        <strong>Name:</strong>
+        <strong>Name:</strong><%= @user.first_name %>&nbsp;<%= @user.last_name %>
         </p>
         <p>
-        <strong>Email:</strong>
+        <strong>Email:</strong>&nbsp;<%= @user.email %>
         </p>
       </div>
     </div>
 </div>
-<%= link_to "Edit Profile", edit_users_path %>
+<%= link_to "Edit Profile", edit_users_url %>
 <hr>
 <h3> Current Reservations </h3>
 

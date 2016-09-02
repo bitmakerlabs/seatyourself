@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
 
   before_action do
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def new

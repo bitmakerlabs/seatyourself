@@ -13,15 +13,15 @@ class ReservationsController < ApplicationController
   end
 
   def edit
-  end
-
-  def update
+    @reservation = Reservation.find(params[:id])
   end
 
   def index
+    @reservations = Reservation.all
   end
 
   def show
+    @reservation = Reservation.fin(params[:id])
   end
 
   private

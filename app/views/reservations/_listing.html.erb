@@ -1,0 +1,5 @@
+<% listing.each do |reservation| %>
+  <h2><%= reservation.restaurant.name %></h2>
+  <p><%= reservation.date %>&nbsp; <%= reservation.time %></p>
+  <p><%= reservation.party_size %></p>
+  <% end %>

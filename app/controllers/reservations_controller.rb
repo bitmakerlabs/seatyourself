@@ -26,12 +26,12 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    @reservation = Reservation.fin(params[:id])
+    @reservation = Reservation.find(params[:id])
   end
 
   private
 
   def reservation_params
-    params.require(:reservation).permit(:time, :date, :party_size)
+    params.require(:reservation).permit(:time, :date, :party_size, :user_id)
   end
 end

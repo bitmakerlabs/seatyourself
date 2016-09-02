@@ -96,3 +96,19 @@ a:hover {
   color: darkred;
   text-decoration: none;
 }
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: left;
+}
+input {
+  display: inline-block;
+  float: left;
+  margin: 5px;
+}
+
+.form-fix {
+
+}

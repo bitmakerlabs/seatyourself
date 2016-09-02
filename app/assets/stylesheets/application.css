@@ -96,3 +96,25 @@ a:hover {
   color: darkred;
   text-decoration: none;
 }
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: left;
+}
+input, textarea, #restaurant_cuisine_id {
+  display: inline-block;
+  float: left;
+  margin: 5px;
+  width: 200px;
+}
+input[type=submit]{
+  display: list-item;
+}
+.form-fix {
+
+}
+textarea {
+  height: 120px;
+}

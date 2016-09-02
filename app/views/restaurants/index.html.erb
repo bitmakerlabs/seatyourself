@@ -23,7 +23,7 @@
               <h3 class="main-view-title"><%= restaurant.name %></h3>
               <small class="main-view-add"><strong>Address </strong><em><%= restaurant.address %></em> </small> <br/>
               <strong>Cuisine:</strong>  <%=restaurant.cuisine %> <br/><br/>
-              <input class="btn btn-default" type="submit" value="View More or Make Reso">
+              <%= link_to "View More or Make Reservation", restaurant_path(restaurant), class: "btn btn-default" %>
             </div>
         </div>
         <% end %>

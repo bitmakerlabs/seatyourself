@@ -1,4 +1,6 @@
-<h1>Sessions#new</h1>
+<div class="container form-fix">
+<h1>Login</h1>
+<small><%= link_to "Need Account? Sign Up here", new_users_path%></small>
 <%= form_for :session, url: session_path do %>
   <p>
     <%= label_tag :email %>
@@ -13,3 +15,4 @@
   </p>
 
 <% end %>
+</div>

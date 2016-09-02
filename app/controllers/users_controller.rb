@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = user.find(current_user)
+    @user = User.find(current_user)
   end
 
   private

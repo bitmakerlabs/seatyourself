@@ -2,12 +2,28 @@
 <p>Find me in app/views/restaurants/show.html.erb</p> -->
 <div class="container">
 <h1><%= @restaurant.name %></h1>
-<%= link_to 'Edit', edit_restaurant_path %>
+<%= link_to 'Edit Resturant Info', edit_restaurant_path %>
+<hr>
+<div class="row">
+<div class="thumbnail col-md-6">
+  <p>
+    <strong> Address: </strong>    <br/><%= @restaurant.address %><br/>
+    <strong> Phone Number:</strong>  <br/><%= @restaurant.phone_number %><br/>
+    <strong> Available Seating:</strong>  <br/><%= @restaurant.seats %> seats<br/>
+  </p>
+  <p>
+        <strong> Description:</strong><br/>
+    <%= @restaurant.description%>
+  </p>
+</div>
+<div class="col-md-6">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Tom's_Restaurant,_NYC.jpg" id="rest-pic">
+</div>
+</div>
 
-
-<p><%= @restaurant.address %><br/>
-  <%= @restaurant.phone_number %><br/>
-  <%= @restaurant.seats %>
-</p>
-<p><%= @restaurant.description%></p>
+<a href="#" class="btn btn-success"> Make an reservation for this restaurant</a>
+<hr>
+<div class="container">
+  <h3>Reviews</h3>
+</div>
 </div>

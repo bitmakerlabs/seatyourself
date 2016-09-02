@@ -118,3 +118,22 @@ input[type=submit]{
 textarea {
   height: 120px;
 }
+.logout-right {
+}
+
+#profile-pic {
+  height: 200px;
+  margin-right: 20px;
+}
+.profile-info {
+  height: 200px;
+}
+.profile-user-info {
+  margin: 10px;
+}
+.container {
+  width:90%;
+}
+#rest-pic {
+  height:250px;
+}

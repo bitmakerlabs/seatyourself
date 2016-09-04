@@ -6,15 +6,16 @@
     <div class="thumbnail col-md-6 profile-info">
       <div class="profile-user-info">
         <p>
-        <strong>Name:</strong><%= @user.first_name %>&nbsp;<%= @user.last_name %>
+        <strong>Name:  </strong> <%= @user.first_name %>&nbsp;<%= @user.last_name %>
         </p>
         <p>
-        <strong>Email:</strong>&nbsp;<%= @user.email %>
+        <strong>Email:  </strong>&nbsp;<%= @user.email %>
         </p>
       </div>
     </div>
 </div>
-<%= link_to "Edit Profile", edit_users_url %>
+<%= link_to "Edit Profile", edit_users_url %>&nbsp;&nbsp;<%= link_to "Create Resturant", new_restaurant_url %>
+
 <hr>
 <h3> Current Reservations </h3>
 

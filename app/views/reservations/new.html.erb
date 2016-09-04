@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Make a new reservation at <%= @restaurant.name %></h1>
 <%= form_for ([@restaurant, @restaurant.reservations.build]) do |f|%>
 <p>
@@ -18,3 +19,6 @@
 </p>
 
 <% end %>
+
+
+</div>

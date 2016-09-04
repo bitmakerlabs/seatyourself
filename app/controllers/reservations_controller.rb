@@ -21,12 +21,27 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
   end
 
+  def update
+    @reservation = Reservation.find(params[:id])
+    if @reservation.update(reservation_params)
+      redirect_to users_path
+    else
+      render 'edit'
+    end
+  end
+
   def index
     @reservations = Reservation.all
   end
 
   def show
     @reservation = Reservation.find(params[:id])
+  end
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    redirect_to users_path
   end
 
   private

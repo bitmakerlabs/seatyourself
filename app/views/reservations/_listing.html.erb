@@ -2,4 +2,8 @@
   <h2><%= reservation.restaurant.name %></h2>
   <p><%= reservation.date %>&nbsp; <%= reservation.time %></p>
   <p><%= reservation.party_size %></p>
-  <% end %>
+  <p>
+    <%= link_to "Edit", edit_restaurant_reservation_path(reservation.restaurant.id, reservation.id) %>
+    <%= link_to "Cancel Reservation", restaurant_reservation_path(reservation.restaurant.id, reservation.id), :method => :delete %>
+  </p>
+<% end %>

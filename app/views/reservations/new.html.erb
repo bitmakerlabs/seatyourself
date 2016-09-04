@@ -1,20 +1,3 @@
 <h1>Make a new reservation at <%= @restaurant.name %></h1>
-<%= form_for ([@restaurant, @restaurant.reservations.build]) do |f|%>
-<p>
-  <%= f.label :date %>
-  <%= f.date_field :date %>
-</p>
-<p>
-  <%= f.label :time %>
-  <%= f.time_field :time %>
-</p>
-<p>
-  <%= f.label :party_size %>
-  <%= f.number_field :party_size %>
-</p>
-<%= f.hidden_field :user_id, :value => current_user.id  %>
-<p>
-  <%= f.submit %>
-</p>
 
-<% end %>
+<%= render 'form', restaurant: @restaurant, reservation: @reservation %>

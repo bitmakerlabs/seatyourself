@@ -137,3 +137,8 @@ textarea {
 #rest-pic {
   height:250px;
 }
+#new-type {
+  float: left;
+  width: 200px;
+  margin-left: 260px;
+}

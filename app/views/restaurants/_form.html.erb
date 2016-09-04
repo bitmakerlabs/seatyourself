@@ -14,6 +14,9 @@
   <p>
     <%= f.label :Cuisine %>
     <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name, prompt: "Cuisine type" %>
+    <label id="new-type">
+    <%= link_to "Add Cuisine Type", new_cuisine_path %>
+    </label>
   </p>
   <p>
     <%= f.label :Seats %>

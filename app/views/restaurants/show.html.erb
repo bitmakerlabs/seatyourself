@@ -22,7 +22,11 @@
   </p>
 </div>
 <div class="col-md-6">
-  <p><%= image_tag @restaurant.image.url, id:"rest-pic" %></p>
+  <% if @restaurant.image_file_name.nil? %>
+    <img src="http://344apz3bh6di1m0sag1etg3fxyz.wpengine.netdna-cdn.com/wp-content/uploads/2010/02/beef-roast-company.gif" class="rest-pic">
+    <% else %>
+    <%= image_tag restaurant.image, class: "rest-pic" %>
+    <% end %>
 </div>
 </div>
 

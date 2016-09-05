@@ -4,7 +4,7 @@
   <%= reservation.time.strftime("%l:%M %p") %><br/>
   Party Size: <%= reservation.party_size %></p>
   <p>
-    <%= link_to "Edit", edit_restaurant_reservation_path(reservation.restaurant.id, reservation.id) %>
+    <%= link_to "Edit Reservation", edit_restaurant_reservation_path(reservation.restaurant.id, reservation.id) %>&nbsp;&nbsp;
     <%= link_to "Cancel Reservation", restaurant_reservation_path(reservation.restaurant.id, reservation.id), :method => :delete %>
   </p>
 <% end %>

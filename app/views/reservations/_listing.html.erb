@@ -1,7 +1,8 @@
 <% listing.each do |reservation| %>
   <h2><%= reservation.restaurant.name %></h2>
-  <p><%= reservation.date %>&nbsp; <%= reservation.time %></p>
-  <p><%= reservation.party_size %></p>
+  <p><%= reservation.date.strftime("%B %d, %Y") %><br/>
+  <%= reservation.time.strftime("%l:%M %p") %><br/>
+  Party Size: <%= reservation.party_size %></p>
   <p>
     <%= link_to "Edit", edit_restaurant_reservation_path(reservation.restaurant.id, reservation.id) %>
     <%= link_to "Cancel Reservation", restaurant_reservation_path(reservation.restaurant.id, reservation.id), :method => :delete %>

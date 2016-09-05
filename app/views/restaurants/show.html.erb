@@ -2,7 +2,10 @@
 <p>Find me in app/views/restaurants/show.html.erb</p> -->
 <div class="container">
 <h1><%= @restaurant.name %></h1>
+<% if current_user.id == @restaurant.owner_id %>
+
 <%= link_to 'Edit Resturant Info', edit_restaurant_path %>
+<% end %>
 <hr>
 <div class="row">
 <div class="thumbnail col-md-6">

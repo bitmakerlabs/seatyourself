@@ -16,7 +16,7 @@
  */
 
  #main-title {
-   font-family:impact;
+   font-family: 'Alfa Slab One', cursive;
    font-size: 80px;
    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
    -webkit-text-stroke-width: 1px;
@@ -57,7 +57,7 @@
  #motto {
    color: black;
    font-weight: bold;
-   font-family: noteworthy;
+   font-family: 'Chewy', cursive;
    font-size: 30px;
    -webkit-text-stroke-width: 1px;
    -webkit-text-stroke-color: white;
@@ -67,7 +67,8 @@
    padding-right: 20px;
  }
  .thumb-img {
-   width: 200px;
+   max-width: 200px;
+   max-height: 120px;
    float:left;
    display: inline-block;
    margin: 15px;

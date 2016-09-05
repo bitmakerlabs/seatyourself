@@ -30,7 +30,8 @@ Restaurant.create(
   description: "Loungey hot spot offering a big tequila selection, margaritas & a full menu of Mexican street fare.",
   opens_at: "8:00",
   closes_at: "10:00",
-  owner_id: 1
+  owner_id: 1,
+  seats: 25
 )
 
 Restaurant.create(
@@ -41,7 +42,8 @@ Restaurant.create(
   description: "Mexican outlet with limited seating offering sizable meat, seafood & vegetarian burritos.",
   opens_at: "8:00",
   closes_at: "10:00",
-  owner_id: 1
+  owner_id: 1,
+  seats: 20
 )
 
 Restaurant.create(
@@ -52,5 +54,6 @@ Restaurant.create(
   description: "Casual standby offering creative sushi rolls & other Japanese fare in simple environs.",
   opens_at: "8:00",
   closes_at: "10:00",
-  owner_id: 1
+  owner_id: 1,
+  seats: 30
 )

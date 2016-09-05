@@ -14,11 +14,14 @@
 </div>
   <div class="container main-view-box">
       <div class="row">
-
         <!--- This the start of the each -->
         <% @restaurants.each do |restaurant| %>
         <div class="thumbnail view-all col-md-6">
-          <p><%= image_tag restaurant.image.url, class:"thumb-img" %></p>
+          <% if restaurant.image_file_name.nil? %>
+            <img src="http://344apz3bh6di1m0sag1etg3fxyz.wpengine.netdna-cdn.com/wp-content/uploads/2010/02/beef-roast-company.gif" class="thumb-img">
+            <% else %>
+            <%= image_tag restaurant.image, class: "thumb-img" %>
+            <% end %>
             <div class="container view-content">
               <h3 class="main-view-title"><%= restaurant.name %></h3>
               <small class="main-view-add"><strong>Address </strong><em><%= restaurant.address %></em> </small> <br/>

@@ -14,12 +14,11 @@
 </div>
   <div class="container main-view-box">
       <div class="row">
-
         <!--- This the start of the each -->
         <% @restaurants.each do |restaurant| %>
         <div class="thumbnail view-all col-md-6">
           <p><%= image_tag restaurant.image.url, class:"thumb-img" %></p>
-            <div class="container view-content">
+            <div class="view-content">
               <h3 class="main-view-title"><%= restaurant.name %></h3>
               <small class="main-view-add"><strong>Address </strong><em><%= restaurant.address %></em> </small> <br/>
               <strong>Cuisine:</strong>  <%=restaurant.cuisine.name %><br/><br/>

@@ -10,7 +10,10 @@ class Restaurant < ActiveRecord::Base
   after_validation :geocode, if: :address_changed? #auto-fetch coordinates
 
   def available?(party_size, time)
-    party_size > 0 && available_seats(time) >= party_size
+    if party_size == nil || time == nil
+    else
+      party_size > 0 && available_seats(time) >= party_size
+    end
   end
 
   def available_seats(time)

@@ -29,8 +29,11 @@
     <% end %>
 </div>
 </div>
-
+<% if current_user != nil %>
 <%= link_to "Make an reservation for this restaurant", new_restaurant_reservation_path(@restaurant.id), class: "btn btn-success" %>
+<% else %>
+<%= link_to "Make an reservation for this restaurant", new_session_url, class: "btn btn-success" %>
+<% end %>
 <hr>
 <div class="container">
   <h3>Reviews</h3>

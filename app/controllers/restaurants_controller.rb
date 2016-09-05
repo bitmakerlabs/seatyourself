@@ -19,7 +19,7 @@ class RestaurantsController < ApplicationController
     if @restaurant.update_attributes(restaurant_params)
       redirect_to @restaurant
     else
-      render :edit_users_path
+      redirect_to edit_restaurant_path
     end
 
   end
@@ -45,7 +45,7 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:owner_id, :name, :address, :phone_number, :cuisine_id, :description, :opens_at, :closes_at, :seats)
+    params.require(:restaurant).permit(:owner_id, :name, :address, :phone_number, :cuisine_id, :description, :opens_at, :closes_at, :seats, :image)
   end
 
 end

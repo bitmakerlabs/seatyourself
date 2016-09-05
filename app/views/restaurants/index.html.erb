@@ -18,7 +18,7 @@
         <!--- This the start of the each -->
         <% @restaurants.each do |restaurant| %>
         <div class="thumbnail view-all col-md-6">
-            <img class="thumb-img" src="http://www.freeimageslive.com/galleries/food/dessert/preview/apple_crumble.jpg">
+          <p><%= image_tag restaurant.image.url, class:"thumb-img" %></p>
             <div class="container view-content">
               <h3 class="main-view-title"><%= restaurant.name %></h3>
               <small class="main-view-add"><strong>Address </strong><em><%= restaurant.address %></em> </small> <br/>

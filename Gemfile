@@ -29,6 +29,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem "paperclip", "~> 5.0.0"
+
+
 #Setting up geocoding - incase
 # bin/rails generate scaffold Location address:reference latitude:float longitude:float
 

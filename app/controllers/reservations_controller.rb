@@ -35,7 +35,7 @@ class ReservationsController < ApplicationController
   end
 
   def index
-    @reservations = Reservation.all
+    @reservations = @restaurant.reservations
   end
 
   def show

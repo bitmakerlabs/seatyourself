@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash.now[:success] = "You have succesfully created an Account"
+      flash[:success] = "You have succesfully created an Account"
       redirect_to new_session_path
     else
       render :new

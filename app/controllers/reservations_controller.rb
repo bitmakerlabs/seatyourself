@@ -12,8 +12,10 @@ class ReservationsController < ApplicationController
     @reservation = @restaurant.reservations.build(reservation_params)
     if @restaurant.available?(@reservation.party_size, @reservation.time)
       if @reservation.save
+        flash[:success] = "You have succesfully made a reservation."
         redirect_to users_path
       else
+        flash[:alert] = "There was a problem with creating your reservation."
         render 'new'
       end
     else
@@ -28,8 +30,10 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
     if @reservation.update(reservation_params)
+      flash[:success] = "You have succesfully edited your reservation."
       redirect_to users_path
     else
+      flash[:alert] = "There was a problem with editing your reservation."
       render 'edit'
     end
   end
@@ -45,6 +49,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
+    flash[:success] = "Reservation cancelled!"
     redirect_to users_path
   end
 

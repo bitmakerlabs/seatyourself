@@ -43,7 +43,7 @@
 <div class="col-md-4 thumbnail">
   <h4><%=link_to "#{restaurant.name}", restaurant_url(restaurant) %></h4>
   <strong>Address:</strong> <%= restaurant.address %><br/>
-  <strong>Distance from this restaurant:</strong> <%= restaurant.distance_to(@restaurant, :km) %> km away
+  <strong>Distance from this restaurant:</strong> <%= restaurant.display_distance_to(@restaurant) %> km 
   <% end %>
 </div>
 </div>

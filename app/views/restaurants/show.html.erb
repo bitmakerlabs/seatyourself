@@ -35,15 +35,15 @@
 </div>
 </div>
 <% if current_user != nil %>
-<%= link_to "Make an reservation for this restaurant", new_restaurant_reservation_path(@restaurant.id), class: "btn btn-success" %>
+<%= link_to "Make a reservation for this restaurant", new_restaurant_reservation_path(@restaurant.id), class: "btn btn-success" %>
 <% else %>
-<%= link_to "Make an reservation for this restaurant", new_session_url, class: "btn btn-success" %>
+<%= link_to "Make a reservation for this restaurant", new_session_url, class: "btn btn-success" %>
 <% end %>
 <hr>
 <div class="container">
   <h3>Reviews</h3>
 </div>
-<h4> Other Nearby Restaurants from <%= @restaurant.name %>:</h4>
+<h4> Other Restaurants Near <%= @restaurant.name %>:</h4>
 <% @nearby_restaurants.each do |restaurant| %>
 <div class="col-md-4 thumbnail">
   <h4><%=link_to "#{restaurant.name}", restaurant_url(restaurant) %></h4>

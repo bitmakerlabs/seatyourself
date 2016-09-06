@@ -155,3 +155,9 @@ textarea {
   height: 100px;
 
 }
+.search-box {
+float: right;
+display: inline;
+width: 400px;
+
+}

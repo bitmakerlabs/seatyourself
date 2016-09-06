@@ -1,17 +1,36 @@
 <div id="myimage" class="top-head">
 <!-- THIS PART IS FOR THE TOP IMAGE AND STUFF -->
-<div class="main-header">
-      <div class="page-header">
-        <h1 id="main-title">ResturRat <small>seat yourself</small></h1>
-      </div>
-        <p id="motto">Restaurant Reservations made easy</p>
+
+  <div class="main-header">
+        <div class="page-header">
+          <h1 id="main-title">ResturRat <small>seat yourself</small></h1>
+        </div>
+          <p id="motto">Restaurant Reservations made easy</p>
+  </div>
 </div>
-</div>
+
 <div class="border-block">
   <div class="container">
     “All you need is love. But a little chocolate now and then doesn't hurt.”  <em>― Charles M. Schulz</em>
   </div>
 </div>
+
+<div class="container search-box ">
+  <div class="col-md-6">
+  <h4> Find Restaurant near: </h4>
+  <%= form_tag restaurants_path, method: :get do %>
+  <%= text_field_tag :search_address, params[:search_address], placeholder: "Address + City" %>
+  <%= submit_tag "Go!" %> <%= link_to "reset location", restaurants_url %>
+  <% end %>
+</div>
+</div>
+
+
+<div class="page-header container">
+  <h1>Restaurants <small>We are currently resulting <%= @restaurants.length %> locations with reservations</small></h1>
+  <p> </p>
+</div>
+
   <div class="container main-view-box">
       <div class="row">
         <!--- This the start of the each -->

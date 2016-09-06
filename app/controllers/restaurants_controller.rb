@@ -25,7 +25,11 @@ class RestaurantsController < ApplicationController
   end
 
   def index
+    if params[:search_address]
+    @restaurants = Restaurant.near(params[:search_address])
+    else
     @restaurants = Restaurant.all
+    end
   end
 
   def show

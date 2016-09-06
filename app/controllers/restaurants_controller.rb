@@ -29,7 +29,13 @@ class RestaurantsController < ApplicationController
   end
 
   def index
-    @restaurants = Restaurant.all
+    if params[:search_address]
+      @restaurants = Restaurant.near(params[:search_address])
+    elsif params[:latitude] && params[:longitude]
+      @restaurants = Resturant.near([params[:latitude], params[:longitude]])
+    else
+      @restaurants = Restaurant.all
+    end
   end
 
   def show

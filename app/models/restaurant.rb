@@ -23,4 +23,8 @@ class Restaurant < ActiveRecord::Base
   def reservations_at(time, date)
     reservations.where(time: time.beginning_of_hour..time.end_of_hour, date: date)
   end
+
+  def display_distance_to(other_restaurant)
+    distance_to(other_restaurant, :km).round(3)
+  end
 end

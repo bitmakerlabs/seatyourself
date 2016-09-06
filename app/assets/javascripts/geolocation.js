@@ -14,8 +14,10 @@ function success(position){
   $.ajax({
     url: '/restaurants',
     method: 'get',
-    dataType: '',
-    data: '',
+    dataType: 'html',
+    data: {latitude: lat, longitude: long},
+  }).done(function(responseData){
+    console.log(responseData);
   })
 }
 

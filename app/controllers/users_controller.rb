@@ -38,6 +38,17 @@ class UsersController < ApplicationController
     @reservations = current_user.reservations
   end
 
+  def update
+    @user = current_user
+
+    if @user.update_attributes(user_params)
+      redirect_to users_path(@user)
+    else
+      render :edit
+    end
+
+  end
+
   private
 
   def user_params

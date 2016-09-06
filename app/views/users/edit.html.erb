@@ -1,4 +1,38 @@
 <div class="container">
+<<<<<<< HEAD
   <h1>Edit Current User</h1>
   <%= render partial: "form_user", locals: {user: @user} %>
+=======
+<h1>Edit account</h1>
+
+<%= form_for(@user, url: users_path(@user), html: {method: "patch"}) do |f| %>
+
+  <p>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </p>
+  <p>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </p>
+   <p>
+     <%= f.label :password_confirmation %>
+     <%= f.password_field :password_confirmation %>
+   </p>
+   <p>
+     <%= f.submit %>
+   </p>
+<% end %>
+
+
+
+>>>>>>> 1ed27bf35863121224edf5be6cc0ce7501afe485
 </div>

@@ -1,0 +1,53 @@
+<!-- <h1>Restaurants#show</h1>
+<p>Find me in app/views/restaurants/show.html.erb</p> -->
+<div class="container">
+
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert"><%= flash[:success] %></div>
+<% end %>
+
+<h1><%= @restaurant.name %></h1>
+<% if current_user != nil %>
+<% if current_user.id == @restaurant.owner_id %>
+<%= link_to 'Edit Resturant Info', edit_restaurant_path %>&nbsp;&nbsp;&nbsp;&nbsp;
+<%= link_to "Delete Resturant", restaurant_path, method: :delete, data: { confirm: "Are you sure you want to delete?"} %>
+<% end %>
+<% end %>
+<hr>
+<div class="row">
+<div class="thumbnail col-md-6">
+  <p>
+    <strong> Address: </strong>    <br/><%= @restaurant.address %><br/>
+    <strong> Phone Number:</strong>  <br/><%= @restaurant.phone_number %><br/>
+    <strong> Available Seating:</strong>  <br/><%= @restaurant.seats %> seats<br/>
+  </p>
+  <p>
+        <strong> Description:</strong><br/>
+    <%= @restaurant.description%>
+  </p>
+</div>
+<div class="col-md-6">
+  <% if @restaurant.image_file_name.nil? %>
+    <img src="http://344apz3bh6di1m0sag1etg3fxyz.wpengine.netdna-cdn.com/wp-content/uploads/2010/02/beef-roast-company.gif" class="rest-pic">
+    <% else %>
+    <%= image_tag @restaurant.image, class: "rest-pic" %>
+    <% end %>
+</div>
+</div>
+<% if current_user != nil %>
+<%= link_to "Make a reservation for this restaurant", new_restaurant_reservation_path(@restaurant.id), class: "btn btn-success" %>
+<% else %>
+<%= link_to "Make a reservation for this restaurant", new_session_url, class: "btn btn-success" %>
+<% end %>
+<hr>
+
+<h4> Other Restaurants Near <%= @restaurant.name %>:</h4>
+<% @nearby_restaurants.each do |restaurant| %>
+<div class="col-md-4 thumbnail">
+  <h4><%=link_to "#{restaurant.name}", restaurant_url(restaurant) %></h4>
+  <strong>Address:</strong> <%= restaurant.address %><br/>
+  <strong>Distance from this restaurant:</strong> <%= restaurant.display_distance_to(@restaurant) %> km
+</div>
+  <% end %>
+</div>
+</div>

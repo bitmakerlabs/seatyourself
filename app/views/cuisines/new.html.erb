@@ -1,0 +1,14 @@
+<div class="container">
+<h1>Add New Cuisine Type</h1>
+<%= link_to "Back to adding a new resturant", new_restaurant_url %>
+<%= form_for @cuisine do |f| %>
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
+<%= link_to 'Back', new_restaurant_path%>
+</div>

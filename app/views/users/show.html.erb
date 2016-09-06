@@ -36,10 +36,12 @@
 <% if Restaurant.where(owner_id: current_user.id).length > 0 %>
   <h3>My Restauraunts</h3>
   <% Restaurant.where(owner_id: current_user.id).each do |restaurant| %>
+  <div>
     <span><%= image_tag restaurant.image, class: "thumb-img" %></span>
     <h4><%= restaurant.name %></h4>
     <%= link_to "View #{restaurant.name} Reservations", restaurant_reservations_path(restaurant.id) %><br/>
-    <p><%= link_to "Delete Restaurant: #{restaurant.name}", restaurants_path, method: :delete, data: { confirm: "Are you sure you want to delete?"} %>
+    <p><%= link_to "Delete Restaurant: #{restaurant.name}", restaurants_path, method: :delete, data: { confirm: "Are you sure you want to delete?"} %></p>
+  </div>
   <% end %>
 <% end %>
 </div>

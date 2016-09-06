@@ -40,15 +40,14 @@
 <%= link_to "Make a reservation for this restaurant", new_session_url, class: "btn btn-success" %>
 <% end %>
 <hr>
-<div class="container">
-  <h3>Reviews</h3>
-</div>
+
 <h4> Other Restaurants Near <%= @restaurant.name %>:</h4>
 <% @nearby_restaurants.each do |restaurant| %>
 <div class="col-md-4 thumbnail">
   <h4><%=link_to "#{restaurant.name}", restaurant_url(restaurant) %></h4>
   <strong>Address:</strong> <%= restaurant.address %><br/>
   <strong>Distance from this restaurant:</strong> <%= restaurant.display_distance_to(@restaurant) %> km
+</div>
   <% end %>
 </div>
 </div>

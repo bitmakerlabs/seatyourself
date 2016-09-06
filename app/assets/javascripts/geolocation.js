@@ -1,10 +1,10 @@
 $(function(){
   $('#find-nearby').on('click', function(){
-    if ("geolocation" in navigator {
+    if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(success, fail);
     } else {
       alert("geolocation not supported on your current browser");
-    })
+    }
   })
 })
 

@@ -3,7 +3,7 @@
 
   <div class="main-header">
         <div class="page-header">
-          <h1 id="main-title">ResturRat <small>seat yourself</small></h1>
+          <h1 id="main-title">RestaurRat <small>seat yourself</small></h1>
         </div>
           <p id="motto">Restaurant Reservations made easy</p>
   </div>
@@ -30,7 +30,7 @@
   <% if flash[:success] %>
     <div class="alert alert-success" role="alert"><%= flash[:success] %></div>
   <% end %>
-  <h1>Restaurants <small>We are currently resulting <%= @restaurants.length %> locations with reservations</small></h1>
+  <h1>Restaurants <small>Found <%= @restaurants.length %> locations</small></h1>
   <p> </p>
 </div>
 

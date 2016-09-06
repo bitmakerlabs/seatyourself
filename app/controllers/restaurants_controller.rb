@@ -30,6 +30,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @nearby_restaurants = @restaurant.nearbys
   end
 
   def edit

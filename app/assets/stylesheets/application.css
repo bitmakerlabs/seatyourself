@@ -159,5 +159,9 @@ textarea {
 float: right;
 display: inline;
 width: 400px;
+margin-left: 5px;
+}
 
+#fix-align {
+  margin-left: 5px;
 }

@@ -20,7 +20,7 @@
   <h4> Find Restaurant near: </h4>
   <%= form_tag restaurants_path, method: :get do %>
   <%= text_field_tag :search_address, params[:search_address], placeholder: "Address + City" %>
-  <%= submit_tag "Go!" %> <%= link_to "reset location", restaurants_url %>
+  <%= submit_tag "Go!" %>  <p id="fix-align"> <button id="find-nearby">Use Current Location</button> <%= link_to "reset location", restaurants_url %></p>
   <% end %>
 </div>
 </div>

@@ -9,19 +9,19 @@ class Restaurant < ActiveRecord::Base
   geocoded_by :address      #this can be Ip as well
   after_validation :geocode, if: :address_changed? #auto-fetch coordinates
 
-  def available?(party_size, time)
+  def available?(party_size, time, date)
     if party_size == nil || time == nil
     else
-      party_size > 0 && available_seats(time) >= party_size
+      party_size > 0 && available_seats(time, date) >= party_size
     end
   end
 
-  def available_seats(time)
-    seats - reservations_at(time).sum(:party_size)
+  def available_seats(time, date)
+    seats - reservations_at(time, date).sum(:party_size)
   end
 
-  def reservations_at(time)
-    reservations.where(time: time.beginning_of_hour..time.end_of_hour)
+  def reservations_at(time, date)
+    reservations.where(time: time.beginning_of_hour..time.end_of_hour, date: date)
   end
 
   def display_distance_to(other_restaurant)

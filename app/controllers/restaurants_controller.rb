@@ -7,8 +7,10 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     if @restaurant.save
+      flash[:success] = "Restaurent Added!"
       redirect_to restaurants_path
     else
+      flash[:alert] = "Sorry, restaurant was not added."
       render 'new'
     end
   end
@@ -17,8 +19,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
 
     if @restaurant.update_attributes(restaurant_params)
+      flash[:success] = "You have succesfully edited your Restaurant info."
       redirect_to @restaurant
     else
+      flash[:alert] = "There was a problem with editing your Restaurant info."
       redirect_to edit_restaurant_path
     end
 
@@ -46,6 +50,7 @@ class RestaurantsController < ApplicationController
   def destroy
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
+    flash[:success] = "Restaurant deleted."
     redirect_to restaurants_path
   end
 

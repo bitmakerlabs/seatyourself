@@ -27,9 +27,15 @@
 
 
 <div class="page-header container">
+  <% if flash[:success] %>
+    <div class="alert alert-success" role="alert"><%= flash[:success] %></div>
+  <% end %>
   <h1>Restaurants <small>We are currently resulting <%= @restaurants.length %> locations with reservations</small></h1>
   <p> </p>
 </div>
+
+
+
 
   <div class="container main-view-box">
       <div class="row">

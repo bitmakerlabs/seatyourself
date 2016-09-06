@@ -10,6 +10,7 @@ class UsersController < ApplicationController
       flash.now[:success] = "You have succesfully created an Account"
       redirect_to root_path
     else
+      flash[:alert] = "There was a problem with creating your Account"
       render :new
     end
   end
@@ -27,8 +28,10 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(user_params)
+      flash[:success] = "You have succesfully edited your Account"
       redirect_to users_path
     else
+      flash[:alert] = "There was a problem with editing your Account"
       redirect_to edit_users_path
     end
   end

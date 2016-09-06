@@ -1,10 +1,18 @@
 <% listing.each do |reservation| %>
-  <h2><%= reservation.restaurant.name %></h2>
-  <p><%= reservation.date.strftime("%B %d, %Y") %><br/>
-  <%= reservation.time.strftime("%l:%M %p") %><br/>
-  Party Size: <%= reservation.party_size %></p>
-  <p>
+<div class="media">
+  <div class="media-left">
+<%= image_tag(reservation.restaurant.image, class: "media-object reso-pic") %>    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%= reservation.restaurant.name %></h4>
+    <p><strong>Reservation Date: </strong><%= reservation.date.strftime("%B %d, %Y") %><br/>
+    <strong>Reservation Time: </strong><%= reservation.time.strftime("%l:%M %p") %><br/>
+    <strong>Party Size:</strong> <%= reservation.party_size %></p>
     <%= link_to "Edit Reservation", edit_restaurant_reservation_path(reservation.restaurant.id, reservation.id) %>&nbsp;&nbsp;
     <%= link_to "Cancel Reservation", restaurant_reservation_path(reservation.restaurant.id, reservation.id), :method => :delete %>
-  </p>
+  </div>
+
+</div>
+
+
 <% end %>

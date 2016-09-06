@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = @restaurant.reservations.build(reservation_params)
-    if @restaurant.available?(@reservation.party_size, @reservation.time)
+    if @restaurant.available?(@reservation.party_size, @reservation.time, @reservation.date)
       if @reservation.save
         redirect_to users_path
       else

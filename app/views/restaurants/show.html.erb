@@ -1,6 +1,11 @@
 <!-- <h1>Restaurants#show</h1>
 <p>Find me in app/views/restaurants/show.html.erb</p> -->
 <div class="container">
+
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert"><%= flash[:success] %></div>
+<% end %>
+
 <h1><%= @restaurant.name %></h1>
 <% if current_user != nil %>
 <% if current_user.id == @restaurant.owner_id %>

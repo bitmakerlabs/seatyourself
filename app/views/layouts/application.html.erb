@@ -2,13 +2,43 @@
 <html>
 <head>
   <title>Seatyourself</title>
+  <link rel='stylesheet' type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Chewy" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<!-- This is the NavBar-->
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          <i class="fa fa-cutlery" aria-hidden="true"></i> <span id="brand-icon">ResturRat</span>
+        </a>
+        <p class="navbar-text navbar-right">
+        <% if current_user %>
+            Hi, <%= link_to "#{current_user.first_name} #{current_user.last_name}", users_path %>.&nbsp;&nbsp;&nbsp;&nbsp; <%=link_to "Log Out", session_path("current"), :method => :delete, class: "logout-right" %>
+        <% else %>
+            <%= link_to "Log In", new_session_path %> or <%= link_to "Sign Up", new_users_path %>
+        <% end %>
+      </p>
+      </div>
+    </div>
+  </nav>
+</div>
 <%= yield %>
-
+<div class="container">
+    <div class="row pull-right">
+      <h3> Find us at</h3>
+      <a href="#"> <i class=" fa fa-facebook">   </i> </a>
+      <a href="#"> <i class="fa fa-twitter">   </i> </a>
+      <a href="#"> <i class="fa fa-google-plus">   </i> </a>
+    </div>
+</div>
+<div class="container">
+    <p class="pull-left">Copyright © Empire-Strikes#TeamJohnny5. All right reserved. </p>
+</div>
 </body>
 </html>

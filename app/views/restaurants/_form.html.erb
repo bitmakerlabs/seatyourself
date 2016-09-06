@@ -1,0 +1,45 @@
+  <%= form_for @restaurant, html: {multipart: true} do |f| %>
+  <%= f.hidden_field :owner_id, :value => current_user.id %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :address %>
+    <%= f.text_area :address %>
+  </p>
+  <p>
+    <%= f.label :phone_number %>
+    <%= f.telephone_field :phone_number %>
+  </p>
+  <p>
+    <%= f.label :Cuisine %>
+    <%= f.collection_select :cuisine_id, Cuisine.all, :id, :name, prompt: "Cuisine type" %>
+    <label id="new-type">
+    <%= link_to "Add Cuisine Type", new_cuisine_path %>
+    </label>
+  </p>
+  <p>
+    <%= f.label :Seats %>
+    <%= f.number_field :seats %>
+  </p>
+  <p>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :opens_at %>
+    <%= f.time_field :opens_at %>
+  </p>
+  <p>
+    <%= f.label :closes_at %>
+    <%= f.time_field :closes_at %>
+  </p>
+  <p>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

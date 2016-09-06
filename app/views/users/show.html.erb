@@ -1,0 +1,47 @@
+<% if flash[:success] %>
+  <div class="alert alert-success" role="alert"><%= flash[:success] %></div>
+<% end %>
+
+<div class="container">
+<h1>Welcome <%= @user.first_name %>  <%= @user.last_name %></h1>
+<hr>
+<div class="row">
+  <img src="http://www.aspirehire.co.uk/aspirehire-co-uk/_img/profile.svg" id="profile-pic" class="thumbnail col-md-3">
+    <div class="thumbnail col-md-6 profile-info">
+      <div class="profile-user-info">
+        <p>
+        <strong>Name:  </strong> <%= @user.first_name %>&nbsp;<%= @user.last_name %>
+        </p>
+        <p>
+        <strong>Email:  </strong>&nbsp;<%= @user.email %>
+        </p>
+      </div>
+    </div>
+</div>
+<%= link_to "Edit Profile", edit_users_url %>&nbsp;&nbsp;<%= link_to "Create Resturant", new_restaurant_url %>
+
+<hr>
+<h3> Current Reservations </h3>
+
+<%= render partial: "/reservations/listing", object: @reservations %>
+
+
+
+
+
+
+
+
+<hr>
+<% if Restaurant.where(owner_id: current_user.id).length > 0 %>
+  <h3>My Restauraunts</h3>
+  <% Restaurant.where(owner_id: current_user.id).each do |restaurant| %>
+  <div>
+    <span><%= image_tag restaurant.image, class: "thumb-img" %></span>
+    <h4><%= restaurant.name %></h4>
+    <%= link_to "View #{restaurant.name} Reservations", restaurant_reservations_path(restaurant.id) %><br/>
+    <p><%= link_to "Delete Restaurant: #{restaurant.name}", restaurants_path, method: :delete, data: { confirm: "Are you sure you want to delete?"} %></p>
+  </div>
+  <% end %>
+<% end %>
+</div>

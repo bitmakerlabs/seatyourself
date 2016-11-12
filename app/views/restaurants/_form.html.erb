@@ -1,0 +1,52 @@
+
+<%= form_for @restaurant do |f| %>
+
+  <% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+
+      <ul>
+        <% @restaurant.errors.full_messages.each do |msg| %>
+         <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name, "What is the Name of your restaurant? " %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :max_seats, "What is the maximum number of seats in your restaurant? " %><br>
+    <%= f.number_field :max_seats %>
+  </p>
+  <p>
+    <%= f.label :location, "Where is your restaurant located? " %><br>
+    <%= f.radio_button(:location, "toronto") %>
+    <%= f.label(:location_toronto, "Toronto") %>
+    <%= f.radio_button(:location, "vancouver") %>
+    <%= f.label(:location_vancouver, "Vancouver")%>
+
+  </p>
+  <p>
+    <%= f.label :cuisine, "What type of food does your restaurant serve? " %><br>
+    <%= f.radio_button(:cuisine, "burgers") %>
+    <%= f.label(:cuisine_burgers, "Burgers") %>
+    <%= f.radio_button(:cuisine, "pizza") %>
+    <%= f.label(:cuisine_pizza, "Pizza") %>
+    <%= f.radio_button(:cuisine, "chinese") %>
+    <%= f.label(:cuisine_chinese, "Chinese") %>
+  </p>
+  <p>
+    <%= f.label :open_time, "What Time Does This Restaurant Open?: " %><br>
+    <%= f.time_field :open_time %>
+  </p>
+  <p>
+    <%= f.label :close_time, "What Time Does This Restaurant Close?: " %><br>
+    <%= f.time_field :close_time %>
+  </p>
+
+
+  <%= f.submit %>
+<% end %>

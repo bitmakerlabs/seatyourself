@@ -1,0 +1,37 @@
+
+<div id="wrapper">
+  <!--start of sidebar-->
+  <div id="sidebar-wrapper">
+    <ul class = "sidebar-nav">
+      <li class="sidebar-brand"><a href="#title-box"><img class="img-responsive img-circle" src="http://placehold.it/350x350" alt="Chania"></a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>  Location</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>  Cusine</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-bitcoin" aria-hidden="true"></span>  Price</a></li>
+      <li><a href="#"><span></span></a></li>
+    </ul>
+  </div>
+  <!--end sidebar-->
+  <%= link_to "New Restaurant", new_restaurant_path %>
+
+
+  <%= form_tag restaurants_path, :method => 'get' do %>
+    <br>
+    <p> Search Restaurants by Name:
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
+  <% @restaurants.each do |restaurant| %>
+    <div class="container-fluid">
+      <div class="row restaurant-box">
+        <div class="col-xs-3">
+          <img src="<%= restaurant.pictures.first.url %>" alt="" class="img-responsive"/>
+        </div>
+        <div class="col-xs-9">
+          <h2><%= link_to "#{restaurant.name}", restaurant %></h2>
+          <p><%= restaurant.location.capitalize %>, <%= restaurant.cuisine.capitalize %> </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

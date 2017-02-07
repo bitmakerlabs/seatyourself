@@ -4,13 +4,13 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
   </p>
+  <!-- <p>
+    <%# f.label :password %>
+    <%# f.password_field :password %>
+  </p> -->
   <p>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.label :password_digest %>
+    <%= f.password_field :password_digest %>
   </p>
   <%= f.submit "Sign Me Up, Sugah!" %>
 <% end %>

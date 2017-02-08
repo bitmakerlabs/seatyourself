@@ -34,10 +34,10 @@ ActiveRecord::Schema.define(version: 20170208194847) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "location"
     t.integer  "category_id"
     t.integer  "opening"
     t.integer  "closing"
-    t.string   "location"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20170208194847) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "email"
+    t.string   "image_url"
   end
 
 end

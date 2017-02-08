@@ -5,6 +5,18 @@
   <%= f.text_field :name %>
 </p>
 <p>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+</p>
+<p>
+  <%= f.label :opening %>
+  <%= select_tag "Opening Time", options_for_select(0..23) %>
+</p>
+<p>
+  <%= f.label :closing %>
+  <%= select_tag "Closing Time", options_for_select(0..23) %>
+</p>
+<p>
   <%= f.label :description %>
   <%= f.text_area :description %>
 </p>

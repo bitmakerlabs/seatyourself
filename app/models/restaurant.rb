@@ -4,6 +4,8 @@ class Restaurant < ApplicationRecord
   has_many :users, through: :reservations
   validates :name, :capacity, :location, :opening, :closing, presence: true
 
+  before_create :bookings
+
   def opening_times(opening, closing)
     array = []
     (opening..closing).each do |x|
@@ -13,5 +15,9 @@ class Restaurant < ApplicationRecord
       end
     end
     array
+  end
+
+  def bookings
+    @booking = Hash.new
   end
 end

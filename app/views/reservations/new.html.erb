@@ -7,11 +7,11 @@
 </div>
 <div>
   <%= f.label :time %>
-  <%= select_tag "Time", options_for_select(@restaurant.opening_times(@restaurant.opening,  @restaurant.closing)) %>
+  <%= f.select :time, options_for_select(@restaurant.opening_times(@restaurant.opening,  @restaurant.closing)) %>
 </div>
 <div>
   <%= f.label :date %>
-  <%= f.date_select :date %>
+  <%= f.date_field :date %>
 </div>
 <%= f.submit "Make My Reservation Happen, Brutha From Another Mutha!" %>
 <% end %>

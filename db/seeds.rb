@@ -45,3 +45,21 @@ Restaurant.create(
   capacity: 10,
   category_id: 3,
 )
+User.create(
+  name: "Joe",
+  password: "asdf",
+)
+Reservation.create(
+  time: "11:00",
+  date: "2017-02-02",
+  party_size: 5,
+  user_id: 1,
+  restaurant_id: 1,
+)
+Reservation.create(
+  time: "11:00",
+  date: "2017-02-02",
+  party_size: 4,
+  user_id: 1,
+  restaurant_id: 1,
+)

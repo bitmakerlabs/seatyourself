@@ -17,19 +17,19 @@
 
   <p>
     <%= f.label :name %>
-    <%= f.text_field :name, value: "Username" %>
+    <%= f.text_field :name, placeholder: "Username" %>
   </p>
   <p>
     <%= f.label :email %>
-    <%= f.text_field :email, value: "reserv@tion.com" %>
+    <%= f.text_field :email, placeholder: "reserv@tion.com" %>
   </p>
   <p>
-    <% f.label :password %>
-    <% f.password_field :password, value: "*******"%>
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "*******"%>
   </p>
   <p>
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, value: "*******"%>
+    <%= f.password_field :password_confirmation, placeholder: "*******"%>
   </p>
   <%= f.submit "Sign Me Up, Sugah!" %>
 <% end %>

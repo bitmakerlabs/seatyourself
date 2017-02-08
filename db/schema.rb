@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20170208194847) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "reservations", force: :cascade do |t|
     t.integer  "time"
     t.date     "date"

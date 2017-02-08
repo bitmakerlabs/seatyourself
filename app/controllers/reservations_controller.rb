@@ -9,4 +9,5 @@ class ReservationsController < ApplicationController
 
   def destroy
   end
+  blablablabla
 end

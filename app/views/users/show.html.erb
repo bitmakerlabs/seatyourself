@@ -1,0 +1,9 @@
+<h1>Hi <%= @user.name %>!</h1>
+<%= image_tag @user.image_url %>
+<h2>You have <%= pluralize(@user.reservations.count, "reservation") %>!</h2>
+
+<% @user.reservations.each do |reso| %>
+  <div class="reso">
+    <h3>You have a reservation at <%= Restaurant.find(reso.restaurant_id).name %> for <%= reso.party_size %> people on <%= reso.date %> @ <%= reso.time %>:00!!!!!!!!</h3>
+  </div>
+<% end %>

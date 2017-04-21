@@ -1,0 +1,35 @@
+<h1>Sign Up</h1>
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is Invalid</h2>
+        <ul>
+          <% @user.errors.full_messages.each do |m| %>
+            <li><%= m %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
+
+
+
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: "Username" %>
+  </p>
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email, placeholder: "reserv@tion.com" %>
+  </p>
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "*******"%>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, placeholder: "*******"%>
+  </p>
+  <%= f.submit "Sign Me Up, Sugah!" %>
+<% end %>

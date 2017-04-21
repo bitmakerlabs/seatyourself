@@ -1,0 +1,12 @@
+<h1>Restaurants!</h1>
+<%= link_to "Make a new restaurant!", new_restaurant_path %>
+<% @restaurants.each do |restaurant| %>
+  <div class="restaurant">
+    <p>Name: <%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %></p>
+    <p>Location: <%= restaurant.location %></p>
+    <p>About: <%= restaurant.description %></p>
+    <p>Opening Hours: <%= restaurant.opening.to_s[0..1] %>:00A.M. - <%= (restaurant.closing - 1200).to_s[0] %>:00P.M.</p>
+    <p>Capacity: <%= restaurant.capacity %></p>
+  </div>
+<% end %>
+<%= link_to "New User", new_user_path %>

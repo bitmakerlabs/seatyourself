@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Seatyourself</title>
+  <title>SeatYourself - Make Reservations at Tthe Best Restaurants</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+  <% flash.each do |name, message| %>
+    <%= content_tag :div, message, class: name %>
+  <% end %>
+
+  <header>
+    <h1>SeatYourself</h1>
+
+    <nav>
+      <ul>
+        <li><%= link_to "Restaurants", restaurants_path %></li>
+        <li><%= link_to "Add restaurant", new_restaurant_path %></li>
+      </ul>
+    </nav>
+
+    <div>
+      <% if current_user %>
+        Hello, <%= current_user.name %> !
+        <%= link_to "Log out", session_path("current"), method: :delete %>
+      <% else %>
+        <%= link_to "Log in", new_session_path %>
+        <%= link_to "Sign up", new_user_path %>
+      <% end %>
+    </div>
+  </header>
+
+
+
 <%= yield %>
+
+  <footer>
+    <hr />
+    This awesome app brought to you by Team Lone Panda!
+  </footer>
 
 </body>
 </html>

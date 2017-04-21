@@ -1,0 +1,8 @@
+<h1>Sign Up</h1>
+
+<% if current_user %>
+  <%# prefer redirect to user_path (dash) below, when we get that working %>
+  <% controller.redirect_to restaurants_path, notice: "You are already registered" %>
+ <% else %>
+  <%= render "form" %>
+<% end %>

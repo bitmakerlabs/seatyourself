@@ -1,0 +1,24 @@
+<%= link_to "Back to Restaurants", restaurants_url %> | <%= link_to "Edit", edit_restaurant_path(@restaurant) %> | <%= link_to "Delete", @restaurant, method: :delete, data: {confirm: "Are you sure you want to delete this restaurant?"}  %>
+
+<p><%= image_tag(@restaurant.image) %></p>
+<p><%= @restaurant.name %></p>
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.description %></p>
+<p><%= @restaurant.menu %></p>
+<% if current_user %>
+  <h4>Make a booking at <%= @restaurant.name %></h4>
+  <%= form_for [@restaurant, @booking] do |f| %>
+
+  <div class="field">
+    <%= f.label :guests %><br />
+    <%= f.number_field :guests, :value => 1, :min => 1 %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br />
+    <%= f.select :time, @restaurant.available_times.map %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+<% end %>

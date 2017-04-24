@@ -1,0 +1,10 @@
+<h3>My Reservations</h3>
+
+<ul>
+  <% @user.bookings.each do |booking| %>
+    <li>
+      <%= link_to booking.guests %>
+      at
+    </li>
+  <% end %>
+</ul>

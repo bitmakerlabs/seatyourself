@@ -1,0 +1,9 @@
+<h1>There are (<%= @restaurants.length %>) restaurants for you to go to!</h1>
+
+<% @restaurants.each do |restaurant| %>
+  <%= link_to image_tag(restaurant.image), "/restaurants/#{restaurant.id}" %>
+  <p><%= link_to restaurant.name, "/restaurants/#{restaurant.id}" %></p>
+  <p><%= restaurant.address %></p>
+  <p><%= restaurant.description %></p>
+<% end %>
+</div>

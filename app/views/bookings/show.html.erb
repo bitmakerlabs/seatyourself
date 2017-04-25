@@ -1,0 +1,28 @@
+<!-- 
+<h1>New Booking</h1>
+
+<%= form_for @booking do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% @booking.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :date %><br/>
+    <%= f.time_field :date %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br/>
+    <%= f.time_field :time %>
+  </div>
+  <div class="field">
+    <%= f.label :guests %><br/>
+    <%= f.number_field :guests %>
+  </div>
+  <div class="actions"><%= f.submit %></div>
+<% end %> -->

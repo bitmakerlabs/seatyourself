@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  guests: 1
+  date: 2017-04-21
+  time: 1
+
+two:
+  guests: 1
+  date: 2017-04-21
+  time: 1

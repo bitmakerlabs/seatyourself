@@ -1,3 +1,13 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,3 +23,120 @@
  *= require_tree .
  *= require_self
  */
+<<<<<<< HEAD
+* {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+a ~ p
+{
+  /*background-color: salmon;*/
+  padding: 0;
+  /*border: solid black 5px;*/
+  color: black;
+}
+
+#content:nth-child(3)child {
+  background-color: yellow;
+}
+
+
+
+li {
+  display: inline-block;
+}
+
+.index_header {
+  background-color: #990000;
+  display: block;
+  margin: 0;
+  background-image: url(https://savvytokyo.com/wp-content/uploads/2015/10/Wine-Glass-Ribeye-cropped.jpg);
+  /*opacity: 0.5;*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left;
+  background-blend-mode: soft-light;
+  overflow: auto;
+  width: 100%;
+  position: relative;
+}
+
+nav {
+  /*text-align: right;*/
+  margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+  margin-left: 20px;
+}
+
+ul {
+  text-align: right;
+  margin-right: 75px;
+  display: block;
+  font-size: 25px;
+}
+
+#login {
+  margin-top: 282px;
+  max-width: 50%;
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  display: inline-block;
+}
+
+#login p {
+  text-decoration: none;
+  color: gold;
+  text-align: right;
+  margin: 10px;
+}
+
+ul a {
+  text-decoration: none;
+  color: gold;
+
+}
+
+h1 {
+  text-align: left;
+}
+
+.title  {
+  font-size: 60px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 200px;
+  display: inline-block;
+  float: left;
+}
+
+.title a {
+  font-size: 75px;
+  font-family: 'Julius Sans One';
+  color: gold;
+  text-decoration: none;
+
+}
+
+#content {
+  display: inline-grid;
+}

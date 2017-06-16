@@ -45,7 +45,8 @@ Restaurant.create(
   open_time: 12,
   close_time: 23,
   reservations_id: 1,
-  owner_id: 1
+  owner_id: 1,
+  url: 'http://i.imgur.com/AuyOIa4b.jpg'
 )
 
 Restaurant.create(
@@ -55,7 +56,8 @@ Restaurant.create(
   open_time: 10,
   close_time: 17,
   reservations_id: 2,
-  owner_id: 2
+  owner_id: 2,
+  url: 'http://i.imgur.com/w8QyKOub.jpg'
 )
 
 Restaurant.create(
@@ -65,7 +67,8 @@ Restaurant.create(
   open_time: 00,
   close_time: 10,
   reservations_id: 3,
-  owner_id: 3
+  owner_id: 3,
+  url: 'http://i.imgur.com/Kv43rafb.jpg'
 )
 
 Reservation.create(

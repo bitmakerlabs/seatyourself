@@ -11,21 +11,23 @@
 
   <p>
     <%= f.label :capacity %>
-    <%= f.integer :capacity %>
+    <%= f.text_field :capacity %>
   </p>
 
   <p>
     <%= f.label :open_time %>
-    <%= f.time_select :open_time, :ignore_date => true %>
+    <%= f.time_field :open_time, :ignore_date => true %>
+    <!-- need to change time_field to select -->
   </p>
 
   <p>
     <%= f.label :close_time %>
-    <%= f.time_select :close_time, :ignore_date => true %>
+    <%= f.time_field :close_time, :ignore_date => true %>
+    <!-- need to change time_field to select -->
   </p>
 
   <p>
-    <%= f.label :url %><br>
+    <%= f.label :url %>
     <%= f.text_field :url %>
   </p>
 

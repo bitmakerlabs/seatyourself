@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyText
+  capacity: 1
+  open_time: 1
+  close_time: 1
+  reservations: one
+  owner: one
+
+two:
+  name: MyString
+  address: MyText
+  capacity: 1
+  open_time: 1
+  close_time: 1
+  reservations: two
+  owner: two

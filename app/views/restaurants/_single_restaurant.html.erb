@@ -3,4 +3,5 @@
   Address: <%= restaurant.address %>
   Capacity: <%= restaurant.capacity %>
   Open from : <%= restaurant.open_time %> to <%= restaurant.close_time %>
+  <%= link_to image_tag(restaurant.url, class: "restaurant"), restaurant_path(restaurant) %>
 </div>

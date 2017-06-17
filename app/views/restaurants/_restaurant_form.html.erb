@@ -1,0 +1,35 @@
+<%= form_for restaurant do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :address %>
+    <%= f.text_area :address %>
+  </p>
+
+  <p>
+    <%= f.label :capacity %>
+    <%= f.integer :capacity %>
+  </p>
+
+  <p>
+    <%= f.label :open_time %>
+    <%= f.time_select :open_time, :ignore_date => true %>
+  </p>
+
+  <p>
+    <%= f.label :close_time %>
+    <%= f.time_select :close_time, :ignore_date => true %>
+  </p>
+
+  <p>
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+  <% end %>

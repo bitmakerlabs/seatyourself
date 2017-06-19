@@ -1,0 +1,8 @@
+<h1><%= "#{@restaurant.name}" %></h1>
+
+
+<p>
+<%= render 'single_restaurant', restaurant: @restaurant %>
+</p>
+
+<%= link_to 'Book Now', new_restaurant_reservation_path(@restaurant.id) %>

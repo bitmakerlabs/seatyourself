@@ -1,0 +1,20 @@
+<h1>Welcome to SeatYourSelf</h1>
+
+<div>
+  <%= form_tag("/search", method: "get") do %>
+   <%= label_tag(:restaurants, "Search For:") %>
+   <%= text_area_tag(:name) %>
+   <%= text_area_tag(:cuisine) %>
+   <%= submit_tag("Search") %>
+  <% end %>
+</div>
+
+
+<h2>Our Picks For You</h2>
+
+<ul><% @restaurants.each do |restaurant| %>
+  <h3><%= link_to restaurant.name, restaurant_path(restaurant.id)%></h3><br />
+  <img src="<%= restaurant.url %>"><br />
+  <p><%= restaurant.summary %></p><br />
+  <% end %>
+</ul>

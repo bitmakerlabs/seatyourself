@@ -1,0 +1,15 @@
+
+<div>
+
+  <% if @restaurants.any? %>
+    <p>The result is</p>
+    <% @restaurants.each do |restaurant| %>
+    <%= render 'single_restaurant', restaurant: restaurant %>
+    <% end %>
+
+  <% else %>
+    <p>No result found</p>
+
+  <% end %>
+
+</div>

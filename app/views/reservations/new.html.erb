@@ -1,2 +1,13 @@
-<h1>Reservations#new</h1>
-<p>Find me in app/views/reservations/new.html.erb</p>
+<h1>Add a Reservation for NAMEHOLD</h1>
+
+<div>
+<%= form_for [@restaurant, @reservation] do |f| %>
+  <p>
+    <%= f.label :reserved_time %> <br>
+    <%= f.datetime_field :reserved_time %>
+  </p>
+
+  <p><%= f.submit 'Make Reservation' %></p>
+
+<% end %>
+</div>

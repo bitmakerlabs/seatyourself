@@ -1,2 +1,12 @@
 <h1>Reservations#index</h1>
 <p>Find me in app/views/reservations/index.html.erb</p>
+
+<ul>
+<% @reservations.each do |reservation| %>
+  <li>
+    Reservation:
+  <%= reservation.restaurant.name %> on
+  <%= reservation.reserved_time.strftime('%A, %B %C, %G at: %I:%M %p') %>
+  </li>
+<% end %>
+</ul>

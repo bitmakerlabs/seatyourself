@@ -1,0 +1,15 @@
+<h1><%= @restaurant.name %></h1>
+<p><%= @restaurant.address %></p>
+<p>Open: <%= @restaurant.open_time %>-<%= @restaurant.close_time %>
+
+<% if session[:user_id] == @restaurant.user_id %>
+  <%= link_to "Edit Restaurant", edit_restaurant_path(@restaurant) %>
+<% end %>
+
+  <% if current_user %>
+    <%= link_to "Book a Reservation", new_restaurant_reservation_path(@restaurant) %>
+  <% else %>
+  <p>You must have an account to book a reservation.</p>
+    <%= link_to "Sign In", new_session_path %>
+    <%= link_to "Sign Up", new_users_path %>
+  <% end %>

@@ -2,6 +2,7 @@ class ReservationsController < ApplicationController
   before_action :find_reservation, only: [:show, :edit, :update, :destroy]
   before_action :new_reservation, only: [:new, :create]
   before_action :find_restaurant
+  before_action :restaurant_id
 
   def index
     @reservations = Reservation.all
@@ -18,7 +19,7 @@ class ReservationsController < ApplicationController
 
   def create
     # new_reservation
-    @reservation.restaurant = @restaurant
+    # restaurant_id
     @reservation.reserved_time = params[:reservation][:reserved_time]
 
     if @reservation.save
@@ -36,6 +37,18 @@ class ReservationsController < ApplicationController
 
   def update
     # find_reservation
+    # restaurant_id
+    @reservation.reserved_time = params[:reservation][:reserved_time]
+
+    if @reservation.save
+      flash[:notice] = "Reservation has been udpated"
+      redirect_to restaurant_reservation_path(find_restaurant, @reservation.id)
+    else
+      flash[:alert] = "Unable to udpate reservation"
+      render :edit
+    endn
+
+    end
   end
 
   def destroy
@@ -54,4 +67,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
   end
 
+  def restaurant_id
+    @reservation.restaurant = @restaurant
+  end
 end

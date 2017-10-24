@@ -51,6 +51,8 @@ class ReservationsController < ApplicationController
 
   def destroy
     # find_reservation
+    @reservation.destroy
+    redirect_to restaurant_reservations_path
   end
 
   def find_reservation

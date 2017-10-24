@@ -30,6 +30,15 @@ before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
 
   def update
     #find_restaurant
+    if @restaurant.update(user_params)
+      flash[:notice] = "Your Restaurant has been updated"
+      redirect_to restaurant_path(@restaurant.id)
+    else
+      flash[:alert] = "Please review the form and fix your errors"
+      render :edit
+    end
+
+
   end
 
   def destroy

@@ -43,6 +43,8 @@ before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
 
   def destroy
     #find_restaurant
+    @restaurant.destroy
+     redirect_to root_path
   end
 
   private

@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
   before_action :find_reservation, only: [:show, :edit, :update, :destroy]
   before_action :new_reservation, only: [:new, :create]
   before_action :find_restaurant
-  before_action :restaurant_id
+  before_action :restaurant_id, only: [:edit, :update, :destroy]
 
   def index
     @reservations = Reservation.all
@@ -46,8 +46,6 @@ class ReservationsController < ApplicationController
     else
       flash[:alert] = "Unable to udpate reservation"
       render :edit
-    endn
-
     end
   end
 

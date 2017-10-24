@@ -14,8 +14,14 @@ before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
   end
 
   def create
-    #new_restaurant
+    @restaurant = Restaurant.new(user_params)
     #find_restaurant
+    if @restaurant.save
+      flash[:notice] = "Your Restaurant has been created"
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -32,9 +38,14 @@ before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
 
   private
 
+  def user_params
+    params.require(:restaurant).permit(:name, :address, :neighborhood, :price_range, :menu, :summary, :time_slots)
+  end
+
   def new_restaurant
     @restaurant = Restaurant.new
   end
+
 
   def find_restaurant
     @restaurant = Restaurant.find(params[:id])

@@ -5,7 +5,7 @@
 <% @reservations.each do |reservation| %>
   <li>
     Reservation:
-  <%= reservation.restaurant.name %> on
+  <%= link_to "#{reservation.restaurant.name}", restaurant_reservation_path(@restaurant.id, reservation.id) %> on
   <%= reservation.reserved_time.strftime('%A, %B %C, %G at: %I:%M %p') %>
   </li>
 <% end %>

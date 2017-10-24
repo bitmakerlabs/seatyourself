@@ -1,4 +1,7 @@
-<h1>Add a Restaurant</h1>
+<h1>Editing <%= @restaurant.name %> </h1>
+
+ <%= link_to "Back to #{@restaurant.name}", restaurant_path(@restaurant.id) %>
+
 
 <div>
 <%= form_for @restaurant  do |f| %>
@@ -38,7 +41,7 @@
 </p>
 
 <p>
-  <%= f.submit 'Create Restaurant' %>
+  <%= f.submit 'Update Restaurant' %>
 </p>
 
 <% end %>

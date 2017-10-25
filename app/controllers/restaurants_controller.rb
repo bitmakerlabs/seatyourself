@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :new_restaurant, only:[:new, :create]
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
-  before_action :not_restaurant_owner, only: [:edit, :update, :destroy] #restrict display unless user is the creator of the restaurant
+  before_action :not_restaurant_owner, only: [:edit, :update, :destroy] # restrict display unless user is the creator of the restaurant
 
   def index; end
 
@@ -62,7 +62,7 @@ class RestaurantsController < ApplicationController
   end
 
   def not_restaurant_owner
-    if !restaurant_owner
+    unless restaurant_owner
       flash[:alert] = "You are not authorized to make any changes to this restaurant"
       redirect_to root_path
     end

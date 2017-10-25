@@ -5,8 +5,8 @@ class ReservationsController < ApplicationController
   before_action :restaurant_id, only: [:edit, :update, :destroy, :new, :create]
 
   def index
-    #find the restaurant first then assing the user as the restauarant user after
-    #compare current_user vs @user if they are the same, show all reservations for the restaurant
+    # find the restaurant first then assing the user as the restauarant user after
+    # compare current_user vs @user if they are the same, show all reservations for the restaurant
     @user = @restaurant.user
     if current_user != @user
       redirect_to root_path
@@ -22,7 +22,7 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    if !logged_in?
+    unless logged_in?
       flash[:notice] = "You must be logged in to make a reservation"
       redirect_to new_session_path
     end

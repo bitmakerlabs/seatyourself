@@ -5,7 +5,15 @@ class ReservationsController < ApplicationController
   before_action :restaurant_id, only: [:edit, :update, :destroy, :new, :create]
 
   def index
-    @reservations = Reservation.all
+    #find the restaurant first then assing the user as the restauarant user after
+    #compare current_user vs @user if they are the same, show all reservations for the restaurant
+    @user = @restaurant.user
+    if current_user != @user
+      redirect_to root_path
+    else
+      @reservations = @restaurant.reservations
+    end
+
   end
 
   def show

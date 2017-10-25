@@ -14,6 +14,7 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.user = current_user
     # find_restaurant
     if @restaurant.save
       flash[:notice] = "Your Restaurant has been created"

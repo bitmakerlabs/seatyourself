@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def require_logged_in
     unless logged_in?
-      flash[:alert] = "Nice try buddy, Log in first you tard!"
+      flash[:alert] = "You must be logged in!"
       redirect_to new_session.url
     end
   end

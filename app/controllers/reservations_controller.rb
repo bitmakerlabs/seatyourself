@@ -21,7 +21,7 @@ class ReservationsController < ApplicationController
     # new_reservation
     # restaurant_id
     @reservation.reserved_time = params[:reservation][:reserved_time]
-
+    @reservation.user = current_user
     if @reservation.save
       flash[:notice] = "Reservation has been saved"
       redirect_to restaurant_reservation_path(find_restaurant, @reservation.id)

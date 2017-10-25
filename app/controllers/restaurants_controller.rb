@@ -2,20 +2,19 @@ class RestaurantsController < ApplicationController
   before_action :new_restaurant, only:[:new, :create]
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
 
-  def index
-  end
+  def index; end
 
   def show
-    #find_restaurant
+    # find_restaurant
   end
 
   def new
-    #new_restaurant
+    # new_restaurant
   end
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    #find_restaurant
+    # find_restaurant
     if @restaurant.save
       flash[:notice] = "Your Restaurant has been created"
       redirect_to root_path
@@ -25,11 +24,11 @@ class RestaurantsController < ApplicationController
   end
 
   def edit
-    #find_restaurant
+    # find_restaurant
   end
 
   def update
-    #find_restaurant
+    # find_restaurant
     if @restaurant.update(restaurant_params)
       flash[:notice] = "Your Restaurant has been updated"
       redirect_to restaurant_path(@restaurant.id)
@@ -38,13 +37,12 @@ class RestaurantsController < ApplicationController
       render :edit
     end
 
-
   end
 
   def destroy
-    #find_restaurant
+    # find_restaurant
     @restaurant.destroy
-     redirect_to root_path
+    redirect_to root_path
   end
 
   def new_restaurant

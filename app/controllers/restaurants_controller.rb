@@ -13,9 +13,9 @@ class RestaurantsController < ApplicationController
   end
 
   def create
+    # find_restaurant
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
-    # find_restaurant
     if @restaurant.save
       flash[:notice] = "Your Restaurant has been created"
       redirect_to root_path

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :current_user, only:[:show]
+
   def new
     @user = User.new
   end
@@ -11,6 +13,15 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       render :new
+    end
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @reservations = @user.reservations
+    if current_user != @user
+      flash[:alert] = "Sorry you cannot access that page"
+      redirect_to root_path
     end
   end
 

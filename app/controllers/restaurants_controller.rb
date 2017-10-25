@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
   before_action :new_restaurant, only:[:new, :create]
   before_action :find_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :not_restaurant_owner, only: [:edit, :update, :destroy] # restrict display unless user is the creator of the restaurant
 
   def index; end
 
@@ -13,9 +14,9 @@ class RestaurantsController < ApplicationController
   end
 
   def create
+    # find_restaurant
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
-    # find_restaurant
     if @restaurant.save
       flash[:notice] = "Your Restaurant has been created"
       redirect_to root_path
@@ -58,5 +59,12 @@ class RestaurantsController < ApplicationController
   # this mehtod passes in the params from the form to the create method
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :neighborhood, :price_range, :menu, :summary, :time_slots)
+  end
+
+  def not_restaurant_owner
+    unless restaurant_owner
+      flash[:alert] = "You are not authorized to make any changes to this restaurant"
+      redirect_to root_path
+    end
   end
 end

@@ -5,7 +5,15 @@ class ReservationsController < ApplicationController
   before_action :restaurant_id, only: [:edit, :update, :destroy, :new, :create]
 
   def index
-    @reservations = Reservation.all
+    # find the restaurant first then assing the user as the restauarant user after
+    # compare current_user vs @user if they are the same, show all reservations for the restaurant
+    @user = @restaurant.user
+    if current_user != @user
+      redirect_to root_path
+    else
+      @reservations = @restaurant.reservations
+    end
+
   end
 
   def show
@@ -14,6 +22,10 @@ class ReservationsController < ApplicationController
   end
 
   def new
+    unless logged_in?
+      flash[:notice] = "You must be logged in to make a reservation"
+      redirect_to new_session_path
+    end
     # new_reservation
   end
 
@@ -21,6 +33,7 @@ class ReservationsController < ApplicationController
     # new_reservation
     # restaurant_id
     @reservation.reserved_time = params[:reservation][:reserved_time]
+    @reservation.user = current_user
 
     if @reservation.save
       flash[:notice] = "Reservation has been saved"

@@ -15,7 +15,10 @@
         <!-- we only want to show this link if the user is logged in -->
 
       <% if logged_in? %>
+
+         <li><%= link_to 'Add a restaurant', new_restaurant_path %> </li>
         <li><%= link_to 'Log Out', session_path(current_user), class: "nav-link", method: :delete %></li>
+
 
       <%else %>
 

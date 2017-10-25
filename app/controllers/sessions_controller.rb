@@ -1,21 +1,27 @@
 class SessionsController < ApplicationController
+
+  def destroy
+    session[:user_id] = nil
+    # to log the user out, which clears the cookie
+    # session.clear
+    redirect_to root_url
+  end
+
   def new
+    # this stays empty becuase we are only showing the login form
   end
 
   def create
     user = User.find_by(email: params[:session][:email])
+
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      flash[:notice] = "Thank you for logging in"
-      redirect_to root_path
+      redirect_to root_url
     else
-      flash[:alert] = "Nice try succa!"
+      flash[:alert] = "Email or Password Incorrect"
       render :new
     end
+
   end
 
-  def destroy
-    session.clear
-    redirect_to root_path
-  end
 end

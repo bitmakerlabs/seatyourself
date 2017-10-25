@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+before_action :current_user, only:[:show]
+
   def new
     @user = User.new
   end
@@ -15,11 +17,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @reservations = Reservation.all
+    @user = User.find(params[:id])
+    @reservations = @user.reservations
+    if current_user != @user
+      flash[:alert] = "Sorry you cannot access that page"
+      redirect_to root_path
+    end
   end
 
   private
-  
+
   def user_params
     params.require(:user).permit(:name, :email, :password)
   end

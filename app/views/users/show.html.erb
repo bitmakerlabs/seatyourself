@@ -1,16 +1,17 @@
 <h1>we will show all items based on who is logged in</h1>
 
-<% if logged_in? && current_user %>
-  <% @reservations.each do |reservation| %>
-      <div>
-      <p>
-        Booked Reservation at: <%= reservation.restaurant.name %>
-      </p>
-      <p>
-        Date and Time of reservation : <%= reservation.reserved_time.strftime('%A, %B %C, %G at: %I:%M %p') %>
-      </p>
-      </div>
+<% if logged_in? && @user == current_user%>
+
+      <% @reservations.each do |reservation| %>
+          <div>
+          <p>
+            Booked Reservation at: <%= reservation.restaurant.name %>
+          </p>
+          <p>
+            Date and Time of reservation : <%= reservation.reserved_time.strftime('%A, %B %C, %G at: %I:%M %p') %>
+          </p>
+          </div>
     <% end %>
-  <% else %>
-    <p>You current do not have any reservations</p>
+<% else %>
+    <p>You current do not have a reservation</p>
 <% end %>

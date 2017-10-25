@@ -14,13 +14,17 @@
   </div>
 
   <div class="book-table">
-<%= link_to 'Book a Table', new_restaurant_reservation_path(@restaurant.id) %>
-<% if logged_in? && restaurant_owner %>
-| <%= link_to 'All Reservations', restaurant_reservations_path(@restaurant.id) %> |
-<%= link_to "Edit", edit_restaurant_path%> | <%= link_to 'Remove Restaurant', restaurant_path, method: :delete, data:{confirm: "Are you sure you want to remove your restaurant"} %>
-<% end %>
+    <%= link_to 'Book a Table', new_restaurant_reservation_path(@restaurant.id) %>
 
+    <% if logged_in? && restaurant_owner %>
+    |
+    <%= link_to 'All Reservations', restaurant_reservations_path(@restaurant.id) %>
+    |
+    <%= link_to "Edit", edit_restaurant_path%>
+    | <%= link_to 'Remove Restaurant', restaurant_path, method: :delete, data:{confirm: "Are you sure you want to remove your restaurant"} %>
+
+    <% end %>
+    
   </div>
 
 </section>
-

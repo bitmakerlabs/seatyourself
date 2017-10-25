@@ -22,9 +22,9 @@
         <%= link_to "Log in", new_session_path%>
       </li>
 
-      <li>
-        <%= link_to 'Log out', session_path(user.id), method: :delete, data:{confirm: "You are about to lose your logged in privaliges"} %>
-      </li>
+      <!-- <li>
+        <%# link_to 'Log Out', session_path(current_user), method: :delete  %>
+      </li> -->
 
     </ul>
 

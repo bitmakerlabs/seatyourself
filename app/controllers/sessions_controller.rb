@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
 
   def destroy
-    session[:user_id] = nil
+    # session[:user_id] = nil
     # to log the user out, which clears the cookie
-    # session.clear
+    session.clear
     redirect_to root_url
   end
 

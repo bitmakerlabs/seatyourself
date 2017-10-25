@@ -1,13 +1,5 @@
 <h1>Add a Reservation for NAMEHOLD</h1>
 
 <div>
-<%= form_for [@restaurant, @reservation] do |f| %>
-  <p>
-    <%= f.label :reserved_time %> <br>
-    <%= f.datetime_field :reserved_time %>
-  </p>
-
-  <p><%= f.submit 'Make Reservation' %></p>
-
-<% end %>
+  <%= render 'reserv_form', reservation: @reservation %>
 </div>

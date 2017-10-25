@@ -1,45 +1,5 @@
 <h1>Add a Restaurant</h1>
 
 <div>
-<%= form_for @restaurant  do |f| %>
-<p>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-</p>
-
-<p>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-</p>
-
-<p>
-  <%= f.label :neighborhood %>
-  <%= f.text_field :neighborhood %>
-</p>
-
-<p>
-  <%= f.label :price_range %>
-  <%= f.select :price_range, ['$', '$$', '$$$'] %>
-</p>
-
-<p>
-  <%= f.label :menu %>
-  <%= f.text_field :menu %>
-</p>
-
-<p>
-  <%= f.label :summary %>
-  <%= f.text_area :summary %>
-</p>
-
-<p>
-  <%= f.label :time_slots %>
-  <%= f.datetime_field :time_slots %>
-</p>
-
-<p>
-  <%= f.submit 'Create Restaurant' %>
-</p>
-
-<% end %>
+  <%= render 'rest_form', restaurant: @restaurant %>
 </div>

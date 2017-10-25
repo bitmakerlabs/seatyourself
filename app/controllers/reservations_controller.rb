@@ -14,6 +14,10 @@ class ReservationsController < ApplicationController
   end
 
   def new
+    if !logged_in?
+      flash[:notice] = "You must be logged in to make a reservation"
+      redirect_to new_session_path
+    end
     # new_reservation
   end
 
@@ -21,6 +25,7 @@ class ReservationsController < ApplicationController
     # new_reservation
     # restaurant_id
     @reservation.reserved_time = params[:reservation][:reserved_time]
+    @reservation.user = current_user
 
     if @reservation.save
       flash[:notice] = "Reservation has been saved"

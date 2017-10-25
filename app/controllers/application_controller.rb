@@ -21,4 +21,11 @@ class ApplicationController < ActionController::Base
       redirect_to new_session.url
     end
   end
+
+  def restaurant_owner
+    current_user == @restaurant.user
+  end
+
+  helper_method :restaurant_owner
+
 end

@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   resources :restaurants do
+    resources :availabilities, only: [:new, :create, :edit, :update]
     resources :reservations
   end
   resources :reservations, only: :index
   resources :users, only: [:new, :create, :show]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :availabilities, only: [:new, :create, :edit, :update]
 
 end

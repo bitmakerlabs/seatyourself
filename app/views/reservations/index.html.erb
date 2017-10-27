@@ -1,0 +1,13 @@
+<h1>List of Reservations for <%= @restaurant.name %></h1>
+<%= link_to "Back to #{@restaurant.name}", restaurant_path(@restaurant.id)  %>
+
+<ul>
+<% @restaurant.reservations.each do |reservation| %>
+  <li>
+  <%= link_to "Reservation:", restaurant_reservation_path(@restaurant.id, reservation.id) %>
+  by: <%= reservation.user.name %> (<%= reservation.user.email%>)
+
+  on <%= reservation.reserved_time.strftime('%A, %B %C, %G at: %I:%M %p') %>
+  </li>
+<% end %>
+</ul>

@@ -1,0 +1,16 @@
+<h1> <%= @reservation.restaurant.name %>'s Reservation </h1>
+
+<div>
+<p>
+  Booked Reservation at: <%= @reservation.restaurant.name %>
+</p>
+
+<p>
+  Date and Time of reservation : <%= @reservation.reserved_time.strftime('%A, %B %C, %G at: %I:%M %p') %>
+</p>
+
+<p>
+  <%= link_to('Edit', edit_restaurant_reservation_path) %> | <%= link_to 'Back to reservations', restaurant_reservations_path(@restaurant.id) %> |
+  <%= link_to('Cancel Reservation', restaurant_reservation_path, method: :delete, data:{confirm: "Are you sure you want to cancel your reservation"})%>
+</p>
+</div>

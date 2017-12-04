@@ -4,5 +4,4 @@ class Restaurant < ApplicationRecord
 
 	validates :capacity, :name, :close_time, :open_time, :user_id, :address, presence: :true
 	validates :capacity, numericality: {only_integer: true}
-	# validates :open_time, :close_time, 
 end

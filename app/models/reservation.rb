@@ -7,17 +7,20 @@ class Reservation < ApplicationRecord
 
   def availability
     capacity = Restaurant.find_by(id: restaurant_id).capacity
-    reservations = Reservation.find(restaurant_id)
+    reservations = Reservation.where( restaurant_id: restaurant_id)
     reservations.each do |reservation|
       dt = reservation.date_time
       if dt.day == date_time.day && dt.month == date_time.month && dt.year == date_time.year
         if dt.hour >= date_time.hour - 1.hour && dt.hour <= date_time.hour + 1.hour
-          capacity >= reservation.party_size
-        end
-        if capacity >= party_size
+          capacity -= reservation.party_size
         end
       end
     end
+        if capacity >= party_size
+          return true
 
+        else
+          return false
+    end
   end
 end

@@ -6,7 +6,7 @@ class Reservation < ApplicationRecord
 	validates :party_size, numericality: {only_integer: true}
 
   def availability
-    capacity = Restaurant.find_by(id: restaurant_id).capacity
+    capacity = Restaurant.find(self.restaurant_id).capacity
     reservations = Reservation.where( restaurant_id: restaurant_id)
     reservations.each do |reservation|
       dt = reservation.date_time

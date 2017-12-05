@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :reservations
   end
   resources :restaurants
+
   resource :sessions, only: [:new, :create, :destroy]
   root to: 'restaurants#index'
 

@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Seatyourself</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+	<title>Seatyourself</title>
+	<%= javascript_include_tag 'application' %>
+	<%= csrf_meta_tags %>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/>
+	<%= stylesheet_link_tag    'application', media: 'all' %>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico" rel="stylesheet">
 </head>
 <body>
+	<div class="container-fluid">
+	<nav class="navbar navbar-default">
+		<span class="navbar-brand"><%= link_to("SeatYourself", "/") %></span>
+			<% if current_user %>
+					<span class="navbar-text">Hello, <%= current_user.name %>!</span>
+			<% end %>
+		<ul class="nav navbar-nav navbar-right">
+			<% if current_user %>
+				<button class="btn"><%= link_to "Log out", sessions_path("current"), :method => :delete, :class => 'nav-link'  %></button>
+			<%else  %>
+				<li class="nav-item"><button class="btn"><%= link_to "Log in", new_sessions_path %></button></li>
+				<li class="nav-item"><button class="btn"><%= link_to "Sign Up", new_user_path %></button></li>
+			<%end  %>
+		</ul>
+	</nav>
 
 <p class = "userinfo">
   <% if current_user %>
@@ -24,7 +42,7 @@
   <% if flash[:alert] %>
     <p class="alert"><%= flash[:alert] %></p>
   <% end %>
-
+<div>
 
 </body>
 </html>

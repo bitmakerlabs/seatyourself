@@ -1,6 +1,9 @@
-<h2>name:<%= @restaurant.name%></h2>
-<h2>capacity:<%= @restaurant.capacity %></h2>
-<h2>Hours of operation:<%= @restaurant.open_time%> - <%= @restaurant.close_time%></h2>
-<% if current_user.id == @restaurant.user_id %>
-	<%= link_to("Edit", edit_restaurant_path(@restaurant.id)) %>
+<%= link_to("Back", restaurants_path)  %>
+
+<%= render 'restaurants/single_restaurant', restaurant: @restaurant %>
+
+<% if current_user != nil %>
+  <% if current_user.id == @restaurant.user_id %>
+	 <%= link_to("Edit", edit_restaurant_path(@restaurant.id)) %>
+  <% end %>
 <% end %>

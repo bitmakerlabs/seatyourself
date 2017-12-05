@@ -1,0 +1,11 @@
+<h1>Make a new reservation</h1>
+
+<%= form_for([@user, @reservation]) do |f|%>
+  <%= f.label :Restaurant %>
+  <%= f.collection_select :restaurant_id, @restaurants, :id, :name, prompt:true %>
+	<%= f.label :party_size %>
+	<%= f.text_field :party_size%>
+  <%= f.label :Reservation_date  %>
+  <%= f.datetime_field :date_time %>
+<%= f.submit %>
+<% end %>

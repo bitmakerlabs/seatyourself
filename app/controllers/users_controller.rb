@@ -6,11 +6,11 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find_by_id(params[:id])
+		@user = User.find(current_user.id)
 	end
 
 	def edit
-		@user = User.find_by_id(params[:id])
+		@user = User.find(current_user.id)
 	end
 
 	def create
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
 		@user.name = params[:user][:name]
 		@user.email = params[:user][:email]
-		
+
 		if @user.save
 			redirect_to user_url
 		else

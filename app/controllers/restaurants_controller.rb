@@ -4,16 +4,16 @@ before_action :load_restaurant, only: [:show, :edit, :update, :destroy]
 before_action :ensure_user_owns_restaurant, only: [:edit, :update, :destroy]
 
 
-def load_restaurant
-  @restaurant = Restaurant.find(params[:id])
-end
+  def load_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
 
-def ensure_user_owns_restaurant
-  unless current_user == @restaurant.user
+  def ensure_user_owns_restaurant
+    unless current_user == @restaurant.user
     flash[:alert] = "Please log in"
     redirect_to new_sessions_url
+    end
   end
-end
 
   def index
     @restaurants = Restaurant.all
@@ -67,4 +67,5 @@ end
     @restaurant.destroy
     redirect_to restaurants_url
   end
+
 end

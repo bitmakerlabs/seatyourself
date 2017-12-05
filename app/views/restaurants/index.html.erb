@@ -1,0 +1,5 @@
+<h1>Restaurants</h1>
+<% @restaurants. each do |current_restaurant| %>
+	<%= render 'single_restaurant', restaurant: current_restaurant %>
+<% end %>
+<%= link_to("New Restaurant", new_restaurant_path)%>

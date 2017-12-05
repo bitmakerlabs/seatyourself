@@ -1,0 +1,7 @@
+<h1>Here are your Reservations, <%= current_user.name %></h1>
+
+
+<% Array(@reservations).each do |reservation|%>
+	<%= reservation.party_size %>
+	<%= reservation.date_time.strftime('%-d %b %Y %l:%M %p') %>
+<% end %>

@@ -1,0 +1,9 @@
+<%= link_to("Back", restaurants_path)  %>
+
+<%= render 'restaurants/single_restaurant', restaurant: @restaurant %>
+
+<% if current_user != nil %>
+  <% if current_user.id == @restaurant.user_id %>
+	 <%= link_to("Edit", edit_restaurant_path(@restaurant.id)) %>
+  <% end %>
+<% end %>

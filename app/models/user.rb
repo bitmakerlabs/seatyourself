@@ -3,6 +3,6 @@ class User < ApplicationRecord
 	has_many :restaurants
 	
 	has_secure_password
-	validates :email, presence: :true
+	validates :email, :name, presence: :true
 	validates :email, uniqueness: :true 
 end

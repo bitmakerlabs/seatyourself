@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :restaurants
 
   resource :sessions, only: [:new, :create, :destroy] 
-
+  root "restaurants#index"
 end

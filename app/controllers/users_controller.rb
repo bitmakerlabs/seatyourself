@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 		@user.password_confirmation = params[:user][:password_confirmation]
 
 		if @user.save
-			redirect_to user_reservations_url(@user.id)
+			redirect_to user_url(@user.id)
 		else
 			render :new
 		end
@@ -31,9 +31,7 @@ class UsersController < ApplicationController
 
 		@user.name = params[:user][:name]
 		@user.email = params[:user][:email]
-		@user.password = params[:user][:password]
-		@user.password_confirmation = params[:user][:password_confirmation]
-
+		
 		if @user.save
 			redirect_to user_url
 		else

@@ -15,12 +15,13 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new
     @restaurant.name = params[:restaurant][:name]
+    @restaurant.address = params[:restaurant][:address]
     @restaurant.capacity = params[:restaurant][:capacity]
     @restaurant.close_time = params[:restaurant][:close_time]
     @restaurant.open_time = params[:restaurant][:open_time]
     @restaurant.user_id = params[:restaurant][:user_id]
 
-    if @entry.save
+    if @restaurant.save
       redirect_to restaurants_url
     else
       render :new
@@ -34,16 +35,25 @@ class RestaurantsController < ApplicationController
 
   def update
     @restaurant = Restaurant.find(params[:id])
+
     @restaurant.name = params[:restaurant][:name]
+    @restaurant.address = params[:restaurant][:address]
     @restaurant.capacity = params[:restaurant][:capacity]
     @restaurant.close_time = params[:restaurant][:close_time]
     @restaurant.open_time = params[:restaurant][:open_time]
     @restaurant.user_id = params[:restaurant][:user_id]
+
+    if @restaurant.save
+      redirect_to restaurants_url
+    else
+      render :new
+    end
+
   end
 
   def destroy
     @restaurant = Restaurant.new
     @restaurant.destroy
-    redirect_to restaurants_path
+    redirect_to restaurants_url
   end
 end

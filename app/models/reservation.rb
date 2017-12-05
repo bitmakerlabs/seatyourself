@@ -4,9 +4,10 @@ class Reservation < ApplicationRecord
 
 	validates :user_id, :restaurant_id, :date_time, :party_size, presence: :true
 	validates :party_size, numericality: {only_integer: true}
+  validate :availability
 
   def availability
-    capacity = Restaurant.find_by(id: restaurant_id).capacity
+    capacity = Restaurant.find(self.restaurant_id).capacity
     reservations = Reservation.where( restaurant_id: restaurant_id)
     reservations.each do |reservation|
       dt = reservation.date_time
@@ -16,11 +17,10 @@ class Reservation < ApplicationRecord
         end
       end
     end
-        if capacity >= party_size
-          return true
-
-        else
-          return false
+      if capacity >= party_size
+        return true
+      else
+        errors.add(:date_time, "No available bookings at that time")
     end
   end
 end

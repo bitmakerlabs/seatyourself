@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
   before_action :ensure_logged_in
   before_action :load_reservation, only: [:show, :edit, :update, :destroy]
   before_action :ensure_user_owns_reservation, except: [:new, :create]
-  
+
   def load_reservation
     @reservation = Reservation.find(params[:id])
   end
@@ -32,13 +32,11 @@ class ReservationsController < ApplicationController
     @reservation.restaurant_id = params[:restaurant][:id]
     @reservation.date_time = params[:date_time]
     @reservation.party_size = params[:party_size]#Still need to iron out
-    if @reservation.availability
-      if @reservation.save
+    if @reservation.save
       flash[:notice] = "Reservation was successfully booked!"
       redirect_to user_reservations_url
     else
       render :new
-      end
     end
   end
 
@@ -50,18 +48,16 @@ class ReservationsController < ApplicationController
     @reservation.restaurant_id = params[:restaurant][:id]
     @reservation.date_time = params[:date_time]
     @reservation.party_size = params[:party_size]
-    if @reservation.availability
-      if @reservation.save
+    if @reservation.save
       flash[:notice] = "Reservation was successfully updated!"
       redirect_to user_reservations_url
     else
       render :new
-      end
     end
   end
 
   def destroy
-    @reservtaion.destroy
+    @reservation.destroy
     flash[:notice] = "You have canceled your reservation"
     redirect_to user_url
   end

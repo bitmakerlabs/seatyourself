@@ -34,13 +34,13 @@ class ReservationsController < ApplicationController
     @reservation.restaurant_id = params[:reservation][:restaurant_id]
     @reservation.date_time = params[:reservation][:date_time]
     @reservation.party_size = params[:reservation][:party_size]#Still need to iron out
-    if @reservation.availability
       if @reservation.save
 
       flash[:notice] = "Reservation was successfully booked!"
-      redirect_to user_url
+      redirect_to user_url(params[:user_id])
     else
-      render :new
+      redirect_to new_user_reservation_url(params[:user_id])
+      flash[:notice] =  "#{@reservation.errors.values.flatten}"
     end
   end
 

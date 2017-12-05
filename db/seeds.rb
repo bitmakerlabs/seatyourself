@@ -13,7 +13,7 @@ User.create!(name: "eric", email: "eric@eric.com" , password_digest: "123456", p
 User.create!(name: "william", email: "will@will.com" , password_digest: "123456", password: "123456", password_confirmation: "123456")
 User.create!(name: "sharron", email: "share@share.com" , password_digest: "123456", password: "123456", password_confirmation: "123456")
 
-t = Time.new(2017, 10, 10 , 17, 0,0)
+t = Time.new(2017, 10, 10, 17, 0,0)
 t2 = t + 5.hours
 Restaurant.create!(name: "Subway", address:" 123 king st", capacity: "20", open_time: t, close_time: t2, user_id:1)
 Restaurant.create!(name: "Mcdonalds", address:" 124 king st", capacity: "20", open_time: t, close_time: t2, user_id:2)

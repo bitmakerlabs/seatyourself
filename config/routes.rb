@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :restaurants
+
+  resources :sessions, only: [:new, :create, :destroy] 
+
 end

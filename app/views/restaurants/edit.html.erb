@@ -1,17 +1,5 @@
-<h1>Restaurants#edit</h1>
+<h1>Edit Restaurant</h1>
 
-<%= form_for @restaurant do |f|%>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<%= f.label :address %>
-	<%= f.text_field :address%>
-	<%= f.label :capacity %>
-	<%= f.text_field :capacity%>
-	<%= f.label :open_time %>
-	<%= f.time_field :open_time%>
-	<%= f.label :close_time %>
-	<%= f.time_field :close_time%>
-	<%= f.label :user_id %>
-	<%= f.text_field :user_id %>
-	<%= f.submit %>
-<% end %>
+<%= link_to("Back", restaurant_path)  %>
+
+<%= render 'restaurant_form', restaurant: @restaurant %>

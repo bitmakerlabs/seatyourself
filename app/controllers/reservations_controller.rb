@@ -28,9 +28,8 @@ class ReservationsController < ApplicationController
     @reservation.user_id = params[:user][:id]
     @reservation.restaurant_id = params[:restaurant][:id]
     @reservation.date_time = params[:date_time]
-    @reservation.party_size = params[:party_size]
-    availability #Still need to iron out
-    if availability
+    @reservation.party_size = params[:party_size]#Still need to iron out
+    if @reservation.availability
       if @reservation.save
       flash[:notice] = "Reservation was successfully booked!"
       redirect_to user_reservations_url
@@ -50,8 +49,7 @@ class ReservationsController < ApplicationController
     @reservation.restaurant_id = params[:restaurant][:id]
     @reservation.date_time = params[:date_time]
     @reservation.party_size = params[:party_size]
-    availability #Still need to iron out
-    if availability
+    if @reservation.availability
       if @reservation.save
       flash[:notice] = "Reservation was successfully updated!"
       redirect_to user_reservations_url

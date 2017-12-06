@@ -40,7 +40,7 @@
 
     <%= form_tag restaurants_path, :method => 'get' do %>
     <p>
-    <%= text_field_tag :search, params[:search] %>
+    <%= text_field_tag :search, params[:search], placeholder: 'Search for food' %>
     <%= submit_tag "SeatYourself?", :name => nil %>
     </p>
     <% end %>

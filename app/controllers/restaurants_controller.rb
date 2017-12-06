@@ -33,6 +33,7 @@ before_action :ensure_user_owns_restaurant, only: [:edit, :update, :destroy]
     @user = current_user
     @restaurants = Restaurant.all
     @reservation = Reservation.new
+    @reservations = Reservation.all
   end
 
   def new

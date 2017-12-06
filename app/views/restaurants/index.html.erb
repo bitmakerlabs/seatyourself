@@ -1,10 +1,6 @@
-<h1>Restaurants#index</h1>
-<% @restaurants. each do |restaurant| %>
-	<div class="restaurant">
-		<h2><%= restaurant.name%></h2>
-		<h2><%= restaurant.open_time.strftime("%l:%M %p")%></h2>
-		<h2><%= restaurant.close_time.strftime("%l:%M %p")%></h2>
-		<%= link_to("view", restaurant_path(restaurant.id)) %>
-	</div>
+
+<h1>Restaurants</h1>
+<% @restaurants. each do |current_restaurant| %>
+	<%= render 'single_restaurant', restaurant: current_restaurant %>
 <% end %>
 <%= link_to("New Restaurant", new_restaurant_path)%>

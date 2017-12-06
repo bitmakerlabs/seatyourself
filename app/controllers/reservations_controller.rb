@@ -32,7 +32,11 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
     @reservation.user_id = current_user.id
     @reservation.restaurant_id = params[:reservation][:restaurant_id]
-    @reservation.date_time = params[:reservation][:date_time]
+    @reservation.date_time = Time.local(params[:reservation]["date_time(1i)"].to_i,
+                                        params[:reservation]["date_time(2i)"].to_i,
+                                        params[:reservation]["date_time(3i)"].to_i,
+                                        params[:reservation]["date_time(4i)"].to_i,
+                                        params[:reservation]["date_time(5i)"].to_i)
     @reservation.party_size = params[:reservation][:party_size]#Still need to iron out
       if @reservation.save
 
@@ -52,7 +56,11 @@ class ReservationsController < ApplicationController
   def update
     @reservation.user_id = current_user.id
     @reservation.restaurant_id = params[:reservation][:restaurant_id]
-    @reservation.date_time = params[:reservation][:date_time]
+    @reservation.date_time = Time.local(params[:reservation]["date_time(1i)"].to_i,
+                                        params[:reservation]["date_time(2i)"].to_i,
+                                        params[:reservation]["date_time(3i)"].to_i,
+                                        params[:reservation]["date_time(4i)"].to_i,
+                                        params[:reservation]["date_time(5i)"].to_i)
     @reservation.party_size = params[:reservation][:party_size]
     if @reservation.save
       flash[:notice] = "Reservation was successfully updated!"

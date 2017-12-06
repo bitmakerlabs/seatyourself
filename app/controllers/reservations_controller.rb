@@ -50,6 +50,7 @@ class ReservationsController < ApplicationController
 
   def edit
     @user = current_user
+    @restaurant = @reservation.restaurant
     @restaurants = Restaurant.all
   end
 

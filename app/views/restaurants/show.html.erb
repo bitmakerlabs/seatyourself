@@ -7,3 +7,7 @@
 	 <%= link_to("Edit", edit_restaurant_path(@restaurant.id)) %>
   <% end %>
 <% end %>
+
+<h4>Make a reservation</h4>
+
+<%= render 'reservations/form', user: @user, reservation: @reservation %>

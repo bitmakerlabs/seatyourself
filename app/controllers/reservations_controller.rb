@@ -5,7 +5,7 @@ class ReservationsController < ApplicationController
 
   def load_reservation
     @user = User.find(current_user.id)
-    @reservation = Reservation.find(params[:id])
+    @reservation = Reservation.find(params[:user_id])
     @restaurants = Restaurant.all
     @restaurant = Restaurant.find(params[:id])
 

@@ -3,8 +3,12 @@
 <% reservations = Reservation.where( user_id: current_user.id) %>
 <ul>
 <% reservations.each do |reservation| %>
-<li>
-	<%= "You have a reservation at #{Restaurant.find_by(id: reservation.restaurant_id).name} on #{reservation.date_time.strftime("%A, %B %-d at %l:%M %P")} for #{reservation.party_size} people" %>  | <%= link_to("Edit", edit_users_reservation_url(reservation.id) ) %>
+<p>
+	<%= "You have a reservation at #{reservation.restaurant.name} on #{reservation.date_time.strftime("%A, %B %-d at %l:%M %P")} for #{reservation.party_size} people" %>
+	<br>
+	<%= link_to("Edit", edit_users_reservation_url(reservation.id) )%>
+	| <%= link_to("Delete", users_reservation_url(reservation.id), method: :delete, data: {confirm: "Are you sure?"}) %>
+</p>
 </li>
-<%end %>`
+<%end %>
 </ul>

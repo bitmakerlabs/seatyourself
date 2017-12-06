@@ -9,7 +9,8 @@
 <ul>
 <% reservations.each do |reservation| %>
 
-<li><%= "You have a reservation at #{Restaurant.find_by(id: reservation.restaurant_id).name} on #{reservation.date_time.strftime("%A")} #{reservation.date_time.strftime("%B")} #{reservation.date_time.day} @ #{reservation.date_time.strftime("%r")} for #{reservation.party_size} people" %>  | Edit </li>
+<li><%= "You have a reservation at #{Restaurant.find_by(id: reservation.restaurant_id).name} on #{reservation.date_time.strftime("%A, %B %-d at %l:%M %P")} for #{reservation.party_size} people" %>  | <%= link_to("Edit", edit_users_reservation_url(reservation.id) ) %>  </li>
+
 <%end %>
 </ul>
 

@@ -4,11 +4,7 @@ class ReservationsController < ApplicationController
   # before_action :ensure_user_owns_reservation, except: [:new, :create]
 
   def load_reservation
-    @user = User.find(current_user.id)
-    @reservation = Reservation.find(params[:user_id])
-    @restaurants = Restaurant.all
-    @restaurant = Restaurant.find(params[:id])
-
+        @reservation = Reservation.find(params[:id])
   end
 
   def ensure_user_owns_reservation
@@ -36,7 +32,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
     @reservation.user_id = current_user.id
     @reservation.restaurant_id = params[:reservation][:restaurant_id]
-    @reservation.date_time = Time.local(params[:reservation]["date_time(1i)"].to_i,
+    @reservation.date_time = Time.utc(params[:reservation]["date_time(1i)"].to_i,
                                         params[:reservation]["date_time(2i)"].to_i,
                                         params[:reservation]["date_time(3i)"].to_i,
                                         params[:reservation]["date_time(4i)"].to_i,
@@ -57,13 +53,14 @@ class ReservationsController < ApplicationController
 
   def edit
     @user = current_user
+    @restaurant = @reservation.restaurant
     @restaurants = Restaurant.all
   end
 
   def update
     @reservation.user_id = current_user.id
     @reservation.restaurant_id = params[:reservation][:restaurant_id]
-    @reservation.date_time = Time.local(params[:reservation]["date_time(1i)"].to_i,
+    @reservation.date_time = Time.utc(params[:reservation]["date_time(1i)"].to_i,
                                         params[:reservation]["date_time(2i)"].to_i,
                                         params[:reservation]["date_time(3i)"].to_i,
                                         params[:reservation]["date_time(4i)"].to_i,

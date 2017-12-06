@@ -5,36 +5,45 @@
 	<%= javascript_include_tag 'application' %>
 	<%= csrf_meta_tags %>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"/>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<%= stylesheet_link_tag    'application', media: 'all' %>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico" rel="stylesheet">
 </head>
 <body>
 	<div class="container-fluid">
-	<nav class="navbar navbar-default">
-		<span class="navbar-brand"><%= link_to("SeatYourself", "/") %></span>
-			<% if current_user %>
-					<span class="navbar-text">Hello, <%= current_user.name.capitalize %>!</span>
-			<% end %>
-		<ul class="nav navbar-nav navbar-right">
-			<% if current_user %>
-				<button class="btn"><%= link_to "Log out", sessions_path("current"), :method => :delete, :class => 'nav-link'  %></button>
-			<%else  %>
-				<li class="nav-item"><button class="btn"><%= link_to "Log in", new_sessions_path %></button></li>
-				<li class="nav-item"><button class="btn"><%= link_to "Sign Up", new_users_path %></button></li>
-			<%end  %>
-		</ul>
-	</nav>
+		<!-- Navbar Start -->
+		<nav class="navbar navbar-default">
+			<!-- Brand -->
+			<span class="navbar-brand"><%= image_tag("seatyourself.png") %><%= link_to("SeatYourself", "/") %></span>
+			<!-- Navbar-items -->
+			<ul class="nav navbar-nav navbar-right">
+				<% if current_user %>
+				<!-- signed in items -->
+					<div class="dropdown navbar-right">
+						<a class="dropdown-toggle navbar-text" data-toggle="dropdown">Hello, <%= current_user.name.capitalize  %>! <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li class="dropdown-item"><%= link_to "Your Profile", users_url%></li>
+							<li class="dropdown-item"><%= link_to "Reservations", users_reservations_url%></li>
+							<li class="dropdown-item"><%= link_to "Restaurants", restaurants_url%></li>
+							<li class="dropdown-item"><%= link_to "Log out", sessions_path("current"), :method => :delete%></li>
+						</ul>
+					</div>
+				<%else  %>
+				<!-- Signed out items -->
+					<li class="nav-item"><button class="btn btn-primary"><%= link_to "Sign in", new_sessions_path %></button></li>
+					<li class="nav-item"><button class="btn"><%= link_to "Sign Up", new_users_path %></button></li>
+				<%end  %>
+			</ul>
+			<!-- Navbar End -->
+		</nav>
+   <%= yield %>
 
-<%= yield %>
-
-<% if flash[:notice] %>
-    <p class="notice"><%= flash[:notice].join(", ") %></p>
-  <% end %>
-  <% if flash[:alert] %>
-    <p class="alert"><%= flash[:alert] %></p>
-  <% end %>
-<div>
-
+    <% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice].join(", ") %></p>
+    <% end %>
+    <% if flash[:alert] %>
+      <p class="alert"><%= flash[:alert] %></p>
+    <% end %>
+   </div>
 </body>
 </html>

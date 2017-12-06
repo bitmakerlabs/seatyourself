@@ -50,10 +50,10 @@ class ReservationsController < ApplicationController
   end
 
   def update
-    @reservation.user_id = params[:user][:id]
-    @reservation.restaurant_id = params[:restaurant][:id]
-    @reservation.date_time = params[:date_time]
-    @reservation.party_size = params[:party_size]
+    @reservation.user_id = current_user.id
+    @reservation.restaurant_id = params[:reservation][:restaurant_id]
+    @reservation.date_time = params[:reservation][:date_time]
+    @reservation.party_size = params[:reservation][:party_size]
     if @reservation.save
       flash[:notice] = "Reservation was successfully updated!"
       redirect_to users_url

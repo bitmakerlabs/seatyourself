@@ -45,6 +45,8 @@ class ReservationsController < ApplicationController
   end
 
   def edit
+    @user = current_user
+    @restaurants = Restaurant.all
   end
 
   def update

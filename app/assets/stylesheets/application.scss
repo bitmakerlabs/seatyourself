@@ -17,8 +17,12 @@
  	padding:0px;
  	font-family: 'Open Sans', sans-serif;
  }
+ .row{
+ 	margin:0;
+ }
  nav{
  	border-radius:0px;
+ 	border-bottom: 1px solid black;
  	.btn-primary{
  		color:white;
  	}

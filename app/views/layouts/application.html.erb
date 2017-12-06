@@ -37,6 +37,7 @@
 			</ul>
 			<!-- Navbar End -->
 		</nav>
+
     <%= form_tag restaurants_path, :method => 'get' do %>
     <p>
     <%= text_field_tag :search, params[:search] %>
@@ -53,5 +54,6 @@
 		<p class="alert"><%= flash[:alert] %></p>
 		<% end %>
 	<div>
+
 </body>
 </html>

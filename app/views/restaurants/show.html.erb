@@ -7,5 +7,6 @@
 	 <%= link_to("Edit", edit_restaurant_url(@restaurant.id)) %>
   <% end %>
   <br>
-  <%= link_to "Make a Reservation", new_users_reservation_path({:id => @restaurant.id }) %>
 <% end %>
+
+<%= link_to "Make a Reservation", new_users_reservation_path({:id => @restaurant.id }) %>

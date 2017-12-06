@@ -20,7 +20,7 @@
 				<% if current_user %>
 				<!-- signed in items -->
 					<div class="dropdown navbar-right">
-						<a class="dropdown-toggle navbar-text" data-toggle="dropdown">Hello, <%= current_user.name %>! <span class="caret"></span></a>
+						<a class="dropdown-toggle navbar-text" data-toggle="dropdown">Hello, <%= current_user.name.capitalize  %>! <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li class="dropdown-item"><%= link_to "Your Profile", users_url%></li>
 							<li class="dropdown-item"><%= link_to "Reservations", users_reservations_url%></li>

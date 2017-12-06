@@ -1,11 +1,16 @@
 <h1>Make a new reservation</h1>
 
-<%= form_for([@user, @reservation], url: "/users/reservations")  do |f|%>
+<%= form_for([@user, @reservation], url: users_reservations_path)  do |f|%>
   <%= f.label :Restaurant %>
   <%= f.collection_select :restaurant_id, @restaurants, :id, :name, prompt:true, :selected =>params[:id] %>
 	<%= f.label :party_size %>
 	<%= f.text_field :party_size%>
   <%= f.label :Reservation_date  %>
-  <%= f.datetime_field :date_time %>
+  <%= f.datetime_select :date_time,
+  :start_year => Date.current.year,
+  :end_year => Date.current.year + 1,
+  :default => Time.now,
+  :ampm => true,
+  :minute_step =>15 %>
 <%= f.submit %>
 <% end %>

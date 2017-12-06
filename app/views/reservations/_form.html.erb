@@ -1,8 +1,6 @@
-<h1>Make a new reservation</h1>
-
-<%= form_for([@user, @reservation], url: users_reservations_path)  do |f|%>
+<%= form_for([user, reservation], url:users_reservation_path) do |f|%>
   <%= f.label :Restaurant %>
-  <%= f.collection_select :restaurant_id, @restaurants, :id, :name, prompt:true, :selected =>params[:id] %>
+  <%= f.collection_select :restaurant_id, @restaurants, :id, :name, {:selected => @restaurant.id}, prompt:true %>
 	<%= f.label :party_size %>
 	<%= f.text_field :party_size%>
   <%= f.label :Reservation_date  %>

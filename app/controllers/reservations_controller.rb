@@ -29,9 +29,10 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @reservation = Reservation.new
     @reservation.user_id = current_user.id
-    @reservation.restaurant_id = params[:reservation][:restaurant_id]
+    @reservation.restaurant_id = @restaurant.id
     @reservation.date_time = Time.utc(params[:reservation]["date_time(1i)"].to_i,
                                         params[:reservation]["date_time(2i)"].to_i,
                                         params[:reservation]["date_time(3i)"].to_i,
@@ -43,11 +44,8 @@ class ReservationsController < ApplicationController
       flash[:notice] = "Reservation was successfully booked!"
       redirect_to users_url
     else
-      redirect_to new_users_reservation_url
-
-
-        flash[:notice] = @reservation.errors.full_messages
-
+      render "restaurants/show"
+      flash[:notice] = @reservation.errors.full_messages.each { |error| puts "#{error.to_s}"}
 
     end
   end
@@ -59,8 +57,9 @@ class ReservationsController < ApplicationController
   end
 
   def update
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @reservation.user_id = current_user.id
-    @reservation.restaurant_id = params[:reservation][:restaurant_id]
+    @reservation.restaurant_id = @restaurant.id
     @reservation.date_time = Time.utc(params[:reservation]["date_time(1i)"].to_i,
                                         params[:reservation]["date_time(2i)"].to_i,
                                         params[:reservation]["date_time(3i)"].to_i,
@@ -71,8 +70,8 @@ class ReservationsController < ApplicationController
       flash[:notice] = "Reservation was successfully updated!"
       redirect_to users_url
     else
-      redirect_to edit_users_reservation_url(@reservation.id)
-      flash[:notice] =  "#{@reservation.errors.values.flatten}"
+      render :edit
+      flash[:notice] =  @reservation.errors.full_messages
     end
   end
 

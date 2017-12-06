@@ -58,7 +58,7 @@ class ReservationsController < ApplicationController
       flash[:notice] = "Reservation was successfully updated!"
       redirect_to users_url
     else
-      redirect_to new_users_reservation_url
+      redirect_to edit_users_reservation_url(@reservation.id)
       flash[:notice] =  "#{@reservation.errors.values.flatten}"
     end
   end

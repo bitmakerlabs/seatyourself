@@ -6,6 +6,11 @@
 	<%= f.label :party_size %>
 	<%= f.text_field :party_size%>
   <%= f.label :Reservation_date  %>
-  <%= f.datetime_field :date_time %>
+  <%= f.datetime_select :date_time,
+  :start_year => Date.current.year,
+  :end_year => Date.current.year + 1,
+  :default => Time.now,
+  :ampm => true,
+  :minute_step =>15 %>
 <%= f.submit %>
 <% end %>

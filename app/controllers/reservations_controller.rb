@@ -47,8 +47,6 @@ class ReservationsController < ApplicationController
       render "restaurants/show"
       flash[:notice] = @reservation.errors.full_messages.each { |error| puts "#{error.to_s}"}
 
-
-      # "Error: #{@reservation.errors.values.flatten}"
     end
   end
 

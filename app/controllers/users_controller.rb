@@ -24,7 +24,9 @@ class UsersController < ApplicationController
 		@user.password_confirmation = params[:user][:password_confirmation]
 
 		if @user.save
-			redirect_to users_url(@user.id)
+			user = User.find_by(email: params[:user][:email])
+			session[:user_id] = user.id
+			redirect_to root_url
 		else
 			render :new
 		end

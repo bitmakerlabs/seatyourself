@@ -4,11 +4,7 @@ class ReservationsController < ApplicationController
   # before_action :ensure_user_owns_reservation, except: [:new, :create]
 
   def load_reservation
-    @user = User.find(current_user.id)
-    @reservation = Reservation.find(params[:user_id])
-    @restaurants = Restaurant.all
-    @restaurant = Restaurant.find(params[:id])
-
+        @reservation = Reservation.find(params[:id])
   end
 
   def ensure_user_owns_reservation

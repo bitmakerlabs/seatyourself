@@ -37,14 +37,17 @@ class ReservationsController < ApplicationController
                                         params[:reservation]["date_time(3i)"].to_i,
                                         params[:reservation]["date_time(4i)"].to_i,
                                         params[:reservation]["date_time(5i)"].to_i)
-    @reservation.party_size = params[:reservation][:party_size]#Still need to iron out
+    @reservation.party_size = params[:reservation][:party_size]
       if @reservation.save
 
       flash[:notice] = "Reservation was successfully booked!"
       redirect_to users_url
     else
       redirect_to new_users_reservation_url
-      flash[:notice] =  "#{@reservation.errors.values.flatten}"
+      flash[:notice] = @reservation.errors.full_messages.each { |error| puts "#{error.to_s}"}
+
+
+      # "Error: #{@reservation.errors.values.flatten}"
     end
   end
 

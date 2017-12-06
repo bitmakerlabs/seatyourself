@@ -1,5 +1,12 @@
 
 <h1>Restaurants</h1>
+<br>
+<% if current_user != nil %>
+  <%= link_to "See Reservations", users_path(:id) %>
+  <%end %>
+  <br>
+<%= link_to "Make a Reservation", new_users_reservation_path %>
+
 <% @restaurants.each do |current_restaurant| %>
 	<%= render 'single_restaurant', restaurant: current_restaurant %>
 <% end %>

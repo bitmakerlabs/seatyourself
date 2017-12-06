@@ -4,10 +4,13 @@
 
 <% if current_user != nil %>
   <% if current_user.id == @restaurant.user_id %>
-	 <%= link_to("Edit", edit_restaurant_path(@restaurant.id)) %>
+	 <%= link_to("Edit", edit_restaurant_url(@restaurant.id)) %>
   <% end %>
+  <br>
 <% end %>
+
 
 <h4>Make a reservation</h4>
 
 <%= render 'reservations/form', user: @user, reservation: @reservation %>
+

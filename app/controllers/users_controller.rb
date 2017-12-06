@@ -6,13 +6,13 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = User.find(current_user.id)
+		@user = current_user
     @restaurants = Restaurant.all
 
 	end
 
 	def edit
-		@user = User.find(current_user.id)
+		@user = current_user
 	end
 
 	def create
@@ -24,28 +24,28 @@ class UsersController < ApplicationController
 		@user.password_confirmation = params[:user][:password_confirmation]
 
 		if @user.save
-			redirect_to user_url(@user.id)
+			redirect_to users_url(@user.id)
 		else
 			render :new
 		end
 	end
 
 	def update
-		@user = User.find_by_id(params[:id])
+		@user = current_user
 
 		@user.name = params[:user][:name]
 		@user.email = params[:user][:email]
 
 		if @user.save
-			redirect_to user_url
+			redirect_to users_url
 		else
 			render :edit
 		end
 	end
 
 	def destroy
-		@user = User.find_by_id(params[:id])
+		@user = current_user
 		@user.destroy
-		redirect_to new_user_url
+		redirect_to new_users_url
 	end
 end

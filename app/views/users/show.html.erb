@@ -9,19 +9,25 @@
 	</div>
 </div>
 
+<div class="row">
+	<div class="col-sm-12">
+		<h3 class="reservation-text">Reservations</h3>
+	</div>
+	<div class="col-sm-3">
+	<small><%= link_to "Make a Reservation", new_users_reservation_path %></small>
+	</div>
+</div>
 
-
-
-<h3>Reservations</h3>
-<% reservations = Reservation.where( user_id: @user.id) %>
-<ul>
-<% reservations.each do |reservation| %>
-<p>
-	<%= "You have a reservation at #{reservation.restaurant.name} on #{reservation.date_time.strftime("%A, %B %-d at %l:%M %P")} for #{reservation.party_size} people" %>
-	<br>
-	<%= link_to("Edit", edit_restaurant_reservation_url(reservation.restaurant_id, reservation)) %>
+<div class="row">
+	<% reservations = Reservation.where( user_id: @user.id) %>
+	<% reservations.each do |reservation| %>
+		<div class="col-sm-12">
+			<%= "You have a reservation at #{reservation.restaurant.name} on #{reservation.date_time.strftime("%A, %B %-d at %l:%M %P")} for #{reservation.party_size} people" %>
+			<br>
+			<%= link_to("Edit", edit_restaurant_reservation_url(reservation.restaurant_id, reservation)) %>
 	| <%= link_to("Delete", restaurant_reservation_url(reservation.restaurant_id, reservation), method: :delete, data: {confirm: "Are you sure?"}) %>
-</p>
-</li>
-<%end %>
-</ul>
+		</div>
+	
+	<%end %>
+</div>
+

@@ -9,6 +9,7 @@ class Reservation < ApplicationRecord
   def availability
 		puts "!!!! #{self.inspect} !!!!"
     restaurant = Restaurant.find_by(id: restaurant_id)
+    if restaurant
     capacity = restaurant.capacity
     reservations = Reservation.where( restaurant_id: restaurant_id)
 		if date_time.hour <= restaurant.close_time.hour && date_time.hour >= restaurant.open_time.hour
@@ -28,5 +29,6 @@ class Reservation < ApplicationRecord
     else
       errors.add(:date_time, "Restaurant closed for that time")
   end
+end
 end
 end

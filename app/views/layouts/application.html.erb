@@ -18,7 +18,7 @@
 			<!-- Navbar search -->
 			<%= form_tag restaurants_path, :method => 'get', :class => "navbar-form navbar-left", :role => "search" do %>
 			    
-			    <%= text_field_tag :search, params[:search], :class => "form-control" %>
+			    <%= text_field_tag :search, params[:search], placeholder: 'Search for food', :class => "form-control" %>
 			    <%= submit_tag "Seat Yourself", :name => nil, :class => "btn" %>
 			    
 		    <% end %>
@@ -30,7 +30,7 @@
 						<a class="dropdown-toggle navbar-text" data-toggle="dropdown">Hello, <%= current_user.name.capitalize  %>! <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li class="dropdown-item"><%= link_to "Your Profile", users_url%></li>
-							<li class="dropdown-item"><%= link_to "Reservations", users_reservations_url%></li>
+							<li class="dropdown-item"><%= link_to "Reservations", users_url %></li>
 							<li class="dropdown-item"><%= link_to "Restaurants", restaurants_url%></li>
 							<li class="dropdown-item"><%= link_to "Log out", sessions_path("current"), :method => :delete%></li>
 						</ul>
@@ -45,16 +45,13 @@
 			<!-- Navbar End -->
 		</nav>
 
-    
-		<%= yield %>
-
 		<% if flash[:notice] %>
-		<p class="notice"><%=  flash[:notice]%>
-</p>
+		<p class="notice"><%=  flash[:notice]%></p>
 		<% end %>
 		<% if flash[:alert] %>
 		<p class="alert"><%= flash[:alert] %></p>
 		<% end %>
+    <%= yield %>
 	<div>
 
 </body>

@@ -10,15 +10,16 @@ class Reservation < ApplicationRecord
 		# puts "!!!! #{self.inspect} !!!!"
     restaurant = Restaurant.find_by(id: restaurant_id)
     if restaurant
-      capacity = restaurant.capacity
-      reservations = Reservation.where( restaurant_id: restaurant_id)
-  		if date_time.hour <= restaurant.close_time.hour && date_time.hour >= restaurant.open_time.hour
-      reservations.each do |reservation|
-        dt = reservation.date_time
-        if dt.day == date_time.day && dt.month == date_time.month && dt.year == date_time.year
-          if dt.hour >= date_time.hour - 1.hour && dt.hour <= date_time.hour + 1.hour
-            capacity -= reservation.party_size
-          end
+
+    capacity = restaurant.capacity
+    reservations = Reservation.where( restaurant_id: restaurant_id)
+		if date_time.hour <= restaurant.close_time.hour && date_time.hour >= restaurant.open_time.hour
+    reservations.each do |reservation|
+      dt = reservation.date_time
+      if dt.day == date_time.day && dt.month == date_time.month && dt.year == date_time.year
+        if dt.hour >= date_time.hour - 1.hour && dt.hour <= date_time.hour + 1.hour
+          capacity -= reservation.party_size
+
         end
       end
       if capacity >= party_size
@@ -31,4 +32,7 @@ class Reservation < ApplicationRecord
       end
     end
   end
+end
+
+end
 end

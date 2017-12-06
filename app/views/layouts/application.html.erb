@@ -14,7 +14,7 @@
 	<nav class="navbar navbar-default">
 		<span class="navbar-brand"><%= link_to("SeatYourself", "/") %></span>
 			<% if current_user %>
-					<span class="navbar-text">Hello, <%= current_user.name %>!</span>
+					<span class="navbar-text">Hello, <%= current_user.name.capitalize %>!</span>
 			<% end %>
 		<ul class="nav navbar-nav navbar-right">
 			<% if current_user %>

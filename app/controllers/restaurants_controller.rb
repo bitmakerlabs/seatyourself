@@ -21,6 +21,9 @@ before_action :ensure_user_owns_restaurant, only: [:edit, :update, :destroy]
   end
 
   def show
+    @user = current_user
+    @restaurants = Restaurant.all
+    @reservation = Reservation.new
   end
 
   def new

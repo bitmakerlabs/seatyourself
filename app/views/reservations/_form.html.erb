@@ -1,0 +1,10 @@
+<%= form_for([user, reservation], url: "/users/reservations") do |f|%>
+  <%= f.label :Restaurant %>
+  <%= f.collection_select :restaurant_id, @restaurants, :id, :name, {:selected => @restaurant.id}, prompt:true %>
+	<%= f.label :party_size %>
+	<%= f.text_field :party_size%>
+  <%= f.label :Reservation_date  %>
+
+  <%= f.datetime_field :date_time %>
+<%= f.submit %>
+<% end %>

@@ -9,4 +9,8 @@
   <br>
 <% end %>
 
-<%= link_to "Make a Reservation", new_users_reservation_path({:id => @restaurant.id }) %>
+
+<h4>Make a reservation</h4>
+
+<%= render 'reservations/form', user: @user, reservation: @reservation %>
+

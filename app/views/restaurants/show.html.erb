@@ -4,6 +4,8 @@
 
 <% if current_user != nil %>
   <% if current_user.id == @restaurant.user_id %>
-	 <%= link_to("Edit", edit_restaurant_path(@restaurant.id)) %>
+	 <%= link_to("Edit", edit_restaurant_url(@restaurant.id)) %>
   <% end %>
+  <br>
+  <%= link_to "Make a Reservation", new_users_reservation_path({:id => @restaurant.id }) %>
 <% end %>

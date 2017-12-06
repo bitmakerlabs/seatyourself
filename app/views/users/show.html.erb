@@ -5,7 +5,6 @@
 <% reservations = Reservation.where( user_id: @user.id) %>
 <ul>
 <% reservations.each do |reservation| %>
-<li><%= "You have a reservation at #{Restaurant.find_by(id: reservation.restaurant_id).name} at #{reservation.date_time} for #{reservation.party_size} people" %>| <%= link_to("Edit", "/users/#{params[:user_id]}/reservations/#{params[:id]}/edit" ) %> </li>
+<li><%= "You have a reservation at #{Restaurant.find_by(id: reservation.restaurant_id).name} at #{reservation.date_time} for #{reservation.party_size} people" %>| <%= link_to("Edit", edit_users_reservation_path(reservation.id) ) %> </li>
 <%end %>
 </ul>
-

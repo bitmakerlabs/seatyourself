@@ -4,7 +4,13 @@ class Reservation < ApplicationRecord
 
 	validates :user_id, :restaurant_id, :date_time, :party_size, presence: :true
 	validates :party_size, numericality: {only_integer: true}
+  validate :date_cannot_be_in_past
   validate :availability
+
+  def date_cannot_be_in_past
+    errors.add(:date_time, "can't be in the past") if date_time < Time.now
+  end
+
 
   def availability
 		# puts "!!!! #{self.inspect} !!!!"

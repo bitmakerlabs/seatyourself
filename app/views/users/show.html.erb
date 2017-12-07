@@ -1,0 +1,9 @@
+
+<h1> This is <%= current_user.email %> </h1>
+
+<% @user.reservations.each_with_index do |r,i|%>
+
+  <p><%= i+1 %>: <%= r.time_slot%> <%= r.restaurant.name %></p><br>
+  <%= link_to("Edit", edit_restaurant_reservation_path(r.restaurant.id, r.id)) %>
+
+<% end  %>

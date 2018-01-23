@@ -56,3 +56,8 @@ Could have
 1. As a customer, when I go to my profile, I want to see my loyalty points.
 1. As a restaurant owner, when I go to my restaurant's edit page, I can set the maximum capacity of my restaurant.
 1. As a restaurant owner, when I go to my restaurant's edit page, I can set the minimum and maximum party size that a reservation can be made for.
+
+ASSUMPTIONS:
+1. All restaurants have same schedule every day of the week
+2. All bookings start on intervals of set_time (ie 20 minute meals, 60 minute meals, etc.)
+3. Table sizes and arrangement are irrelevant - any number of people up to capacity can fit

@@ -11,11 +11,12 @@ class UsersController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
 
     @user.kind = "user"
-
+# Differentiating from kinds will come later
     if @user.save
       redirect_to root_url
     else
       render :new
     end
   end
+
 end

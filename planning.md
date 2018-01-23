@@ -25,18 +25,19 @@
 
 Need to have:
 
-1. As a visitor, when I go to the homepage, I am presented with a list of restaurants.
-1. As a visitor, when I click on a restaurant, I am presented with:
+1. ~~As a visitor, when I go to the homepage, I am presented with a list of restaurants.~~
+1. ~~As a visitor, when I click on a restaurant, I am presented with:
   - address
   - neighbourhood
   - price range
   - summary
   - menu
-  - a list of available time slots
+  - a list of available time slots~~
 1. As a customer, when I go to a restaurant's page, I can make a reservation for the time and party size of my choice.
 1. As a customer, if I try to make a reservation outside of a restaurant's opening hours, the reservation will not be made and I will be shown a message indicating why.
 1. As a customer, if I try to make a reservation at a time when a restaurant is already at max capacity, the reservation will not be made and I will be shown a message indicating why.
 1. As a customer, if I try to make a reservation for a date in the past, the reservation will not be made and I will be shown a message indicating why
+1. On home page each restaurant has address, price range
 
 
 Should have
@@ -62,3 +63,4 @@ ASSUMPTIONS:
 2. All bookings start on intervals of set_time (ie 20 minute meals, 60 minute meals, etc.)
 3. Table sizes and arrangement are irrelevant - any number of people up to capacity can fit
 1. All bookings last for 1 hour.
+1. Can only book for current day.

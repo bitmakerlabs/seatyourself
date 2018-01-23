@@ -61,3 +61,4 @@ ASSUMPTIONS:
 1. All restaurants have same schedule every day of the week
 2. All bookings start on intervals of set_time (ie 20 minute meals, 60 minute meals, etc.)
 3. Table sizes and arrangement are irrelevant - any number of people up to capacity can fit
+1. All bookings last for 1 hour.

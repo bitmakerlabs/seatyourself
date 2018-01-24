@@ -42,8 +42,8 @@ Need to have:
 
 Should have
 1. As a visitor, I do not have the option of making a reservation.
-1. As a visitor, I want to sign up for a customer account so that I can make reservations online.
-1. As a user I can login and logout.
+1. ~~As a visitor, I want to sign up for a customer account so that I can make reservations online.~~
+1. ~~As a user I can login and logout.~~
 1. As a customer I can go to a page to see a list of the reservations I’ve booked.
 1. As a customer, when I make a reservation, I want to be shown a confirmation message with the details of my reservation.
 1. As a restaurant owner, when I go to my restaurant's edit page, I can set the opening and closing times of my restaurant.

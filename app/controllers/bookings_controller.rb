@@ -8,7 +8,8 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     if @booking.save
-      
+      flash[:notice] = "Reservation made at #{@restaurant.name} on #{@booking.time.month}/#{@booking.time.day} at #{@booking.time.hour}"
+      redirect_to root_path
     end
   end
 

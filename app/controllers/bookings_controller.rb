@@ -1,6 +1,11 @@
 class BookingsController < ApplicationController
   before_action :ensure_logged_in, only: :create
 
+  def index
+    @user = User.find(session[:user_id])
+    @bookings = @user.bookings
+  end
+
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @booking = @restaurant.bookings.new(booking_params)

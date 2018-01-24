@@ -9,5 +9,12 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def ensure_restaurant_owner
+    if session[:user_id] != @restaurant.user_id
+      flash[:alert] = "This is not your restaurant"
+      redirect_to root_path
+    end
+  end
+
   helper_method :current_user
 end

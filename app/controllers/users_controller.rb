@@ -9,14 +9,16 @@ class UsersController < ApplicationController
     @user.email = params[:user][:email]
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
-    @user.kind = params[:user][:kind]
-# Differentiating from kinds will come later
+    @user.kind = params[:user_kind]
+
     if @user.save
+      session[:user_id] = @user.id
       if @user.kind == "owner"
         redirect_to restaurant_form_url
       else
         redirect_to root_url
     else
+      flash.now[:alert] = @user.errors.full_messages
       render :new
     end
   end

@@ -17,6 +17,15 @@
     <%= f.password_field :password_confirmation %>
   </p>
 
+  <p>
+    Are you a:
+    <input type="radio" id="owner" name="user_kind" value="owner" />
+    <label for="owner">Restaurant Owner</label>
+
+    <input type="radio" id="customer" name="user_kind" value="customer" />
+    <label for="customer">Customer</label>
+  </p>
+
   <%= f.submit 'Sign Up' %>
 
 <% end %>

@@ -1,6 +1,6 @@
 <h1>Create Your Restaurant</h1>
 
-<%= form_for @restaurant do |f| %>
+<%= form_for [@user, @restaurant] do |f| %>
 
   <p>
     <%= f.label :name %>
@@ -26,6 +26,12 @@
     <%= f.label :price %>
     <%= f.number_field :price %>
   </p>
+
+  <p>
+    <%= f.label :capacity %>
+    <%= f.number_field :capacity %>
+  </p>
+
 
   <%= f.submit 'Create' %>
 

@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:notice] = ["Reservation made at #{@restaurant.name} on #{@booking.day.month}/#{@booking.day.day} at #{@booking.time}"]
-      redirect_to root_path
+      redirect_to restaurant_path(@restaurant)
     end
   end
 

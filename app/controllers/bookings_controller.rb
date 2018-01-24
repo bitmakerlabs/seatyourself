@@ -1,5 +1,10 @@
 class BookingsController < ApplicationController
 
+  def index
+    @user = User.find(session[:user_id])
+    @bookings = @user.bookings
+  end
+
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @booking = @restaurant.bookings.new(booking_params)

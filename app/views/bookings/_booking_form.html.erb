@@ -1,11 +1,11 @@
 <%= form_for [restaurant, booking] do |f| %>
   <p>
-    <%= f.label :time, "Date" %>
-    <%= f.date_field :time %>
+    <%= f.label :day, "Date" %>
+    <%= f.date_select :day %>
   </p>
   <p>
-    <%= label_tag (:at) %>
-    <%= time_field_tag :hour %>
+    <%= f.label (:time) %>
+    <%= f.number_field :time %>
   </p>
   <p>
     <%= f.label :n_people, "How many people?" %>

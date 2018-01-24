@@ -3,3 +3,5 @@
 <p>Opens at: <%= @restaurant.open_time.localtime.hour %> </p>
 <p>Closes at: <%= @restaurant.close_time.localtime.hour %> </p>
 <p>Price: <%= @restaurant.price %>/5</p>
+
+<%= render 'bookings/booking_form', restaurant: @restaurant, booking: @booking %>

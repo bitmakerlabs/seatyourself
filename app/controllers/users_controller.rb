@@ -17,6 +17,7 @@ class UsersController < ApplicationController
         redirect_to restaurant_form_url
       else
         redirect_to root_url
+      end
     else
       flash.now[:alert] = @user.errors.full_messages
       render :new

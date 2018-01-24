@@ -1,3 +1,5 @@
+<p><%= booking.errors.messages[:n_people][0] %></p>
+
 <%= form_for [restaurant, booking] do |f| %>
   <p>
     <%= f.label :day, "Date" %>

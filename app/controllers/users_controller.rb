@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to root_url
     else
-      flash[:alert] = @user.errors.full_messages
+      flash.now[:alert] = @user.errors.full_messages
       render :new
     end
   end

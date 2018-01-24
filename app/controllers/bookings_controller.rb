@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :ensure_logged_in, only: :create
 
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
@@ -13,6 +14,15 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:day, :n_people, :time)
+  end
+
+  private
+
+  def ensure_logged_in
+    unless session[:user_id]
+      flash[:alert] = ["You must be logged in to create a reservation"]
+      redirect_to restaurant_path(params[:restaurant_id])
+    end
   end
 
 end

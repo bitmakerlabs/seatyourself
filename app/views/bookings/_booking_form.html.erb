@@ -5,7 +5,8 @@
   </p>
   <p>
     <%= f.label (:time) %>
-    <%= f.number_field :time %>
+    <%= f.select :time, options_for_select(
+      restaurant.open_time.localtime.hour..restaurant.close_time.localtime.hour) %>
   </p>
   <p>
     <%= f.label :n_people, "How many people?" %>

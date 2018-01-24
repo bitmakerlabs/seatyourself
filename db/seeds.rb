@@ -11,10 +11,10 @@ user3 = User.create(email: "danny@chang.com", kind: "owner", password: "password
 
 user1.create_restaurant(name: "Jeff's Burrito Joint", description: "Good burritos",
   open_time: Time.new(2018, 1, 23, 13), close_time: Time.new(2018, 1, 23, 23), capacity: 20,
-  price: 3)
+  price: 3, address: "123 Some St. Toronto, ON")
 user2.create_restaurant(name: "Scott's Rib House", description: "Cheap, mediocre ribs.",
   open_time: Time.new(2018, 1, 23, 11), close_time: Time.new(2018, 1, 23, 22), capacity: 30,
-  price: 1)
+  price: 1, address: "245 Another Rd. Toronto, ON")
 user3.create_restaurant(name: "Danny's Poutine and Fish-fry", description: "Fried fish and potatoes",
   open_time: Time.new(2018, 1, 23, 7), close_time: Time.new(2018, 1, 23, 21), capacity: 200,
-  price: 4)
+  price: 4, address: "536 Random Ave. Toronto, ON")

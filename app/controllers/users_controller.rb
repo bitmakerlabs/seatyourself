@@ -13,7 +13,10 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_url
+      if @user.kind == "owner"
+        redirect_to restaurant_form_url
+      else
+        redirect_to root_url
     else
       flash.now[:alert] = @user.errors.full_messages
       render :new

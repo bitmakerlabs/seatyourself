@@ -1,0 +1,32 @@
+<h1>Create Your Restaurant</h1>
+
+<%= form_for @restaurant do |f| %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </p>
+
+  <p>
+    <%= f.label :open_time %>
+    <%= f.time_field :open_time %>
+  </p>
+
+  <p>
+    <%= f.label :close_time %>
+    <%= f.time_field :close_time %>
+  </p>
+
+  <p>
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </p>
+
+  <%= f.submit 'Create' %>
+
+<% end %>

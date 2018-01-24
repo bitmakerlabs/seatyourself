@@ -24,7 +24,7 @@
 
   <p>
     <%= f.label :price %>
-    <%= f.number_field :price %>
+    <%= f.select :price, options_for_select(1..5) %>
   </p>
 
   <p>

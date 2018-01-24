@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user.kind = params[:user_kind]
 
     if @user.save
+      session[:user_id] = @user.id
       redirect_to root_url
     else
       flash.now[:alert] = @user.errors.full_messages

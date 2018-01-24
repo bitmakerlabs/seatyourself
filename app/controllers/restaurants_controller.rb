@@ -23,7 +23,7 @@ class RestaurantsController < ApplicationController
     @restaurant.open_time = params[:restaurant][:open_time]
     @restaurant.close_time = params[:restaurant][:close_time]
     @restaurant.price = params[:restaurant][:price]
-    @restaurant.capcity = params[:restaurant][:capacity]
+    @restaurant.capacity = params[:restaurant][:capacity]
     @restaurant.user_id = @user.id
     if @restaurant.save
       redirect_to restaurants_url

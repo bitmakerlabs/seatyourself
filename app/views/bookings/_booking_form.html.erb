@@ -1,5 +1,8 @@
-<p><%= booking.errors.messages[:n_people][0] %></p>
-
+<% if booking.errors.any? %>
+  <% booking.errors.messages[:custom_message].each do |msg| %>
+  <p><%= msg %></p>
+  <% end %>
+<% end %>
 <%= form_for [restaurant, booking] do |f| %>
   <p>
     <%= f.label :day, "Date" %>

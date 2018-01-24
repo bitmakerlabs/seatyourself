@@ -1,0 +1,17 @@
+<%= form_for [restaurant, booking] do |f| %>
+  <p>
+    <%= f.label :time, "Date" %>
+    <%= f.date_field :time %>
+  </p>
+  <p>
+    <%= label_tag (:at) %>
+    <%= time_field_tag :hour %>
+  </p>
+  <p>
+    <%= f.label :n_people, "How many people?" %>
+    <%= f.number_field :n_people %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

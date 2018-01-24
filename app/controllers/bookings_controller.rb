@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
   private
 
   def ensure_logged_in
-    unless session[:user_id]
+    unless current_user
       flash[:alert] = ["You must be logged in to create a reservation"]
       redirect_to restaurant_path(params[:restaurant_id])
     end

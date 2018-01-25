@@ -9,5 +9,13 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  helper_method :current_user
+  def time_to_am_pm(time)
+    if time > 12
+      return "#{time - 12}:00PM"
+    else
+      return "#{time}:00AM"
+    end
+  end
+
+  helper_method :current_user, :time_to_am_pm
 end

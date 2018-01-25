@@ -4,7 +4,8 @@ class UsersController < ApplicationController
     if current_user.kind == "owner"
       @loyalty = {}
       @restaurant = current_user.restaurant
-      @restaurant.bookings.each do |booking|
+      @bookings = @restaurant.bookings.sort_by{|booking_sort| booking_sort[:day]}
+      @bookings.each do |booking|
         @loyalty[booking.user.email] = booking.user.loyalty_points
       end
       @loyalty = @loyalty.sort_by {|key, value| value}.reverse.to_h

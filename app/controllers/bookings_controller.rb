@@ -3,7 +3,7 @@ class BookingsController < ApplicationController
 
   def index
     @user = User.find(session[:user_id])
-    @bookings = @user.bookings
+    @bookings = @user.bookings.sort_by{|booking| booking[:day]}
   end
 
   def create

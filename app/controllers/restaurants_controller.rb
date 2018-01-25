@@ -2,8 +2,17 @@ class RestaurantsController < ApplicationController
 
   before_action :ensure_restaurant_owner, only: [:edit, :update, :destroy]
 
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :price, :term)
+  end
+
   def index
     @restaurants = Restaurant.all
+    @restaurants = if params[:term]
+      Restaurant.where('name LIKE ?', "%#{params[:term]}%")
+    else
+      Restaurant.all
+    end
   end
 
   def show
@@ -76,5 +85,6 @@ class RestaurantsController < ApplicationController
       times_array.pop
     return times_array
   end
+
 
 end

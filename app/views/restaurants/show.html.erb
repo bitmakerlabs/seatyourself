@@ -1,9 +1,23 @@
-<h1><%= @restaurant.name %></h1>
-<p> <%= @restaurant.description %> </p>
-<p>Opens at: <%= @restaurant.open_time.localtime.hour %> </p>
-<p>Closes at: <%= @restaurant.close_time.localtime.hour %> </p>
-<p>Price: <%= @restaurant.price %>/5</p>
+<div class = "wrapper">
+  <div class = "show">
+    <h1><%= @restaurant.name %></h1>
+    <div class ="show1">
+      <h2>description</h2>
+      <p> <%= @restaurant.description %> </p>
+      <p>Opens at: <%= @restaurant.open_time.localtime.hour %> </p>
+      <p>Closes at: <%= @restaurant.close_time.localtime.hour %> </p>
+      <p>Price: <%= @restaurant.price %>/5</p>
+    </div>
 
-<%= link_to 'edit', edit_user_restaurant_path(current_user, @restaurant) %>
+    <div class ="show2">
+      <h2>Make Your Reservation</h2>
+      <% if session[:user_id] %>
+        <% if @restaurant.user_id == current_user.id %>
+          <%= link_to 'edit', edit_user_restaurant_path(current_user, @restaurant) %>
+        <% end %>
+      <% end %>
+    </div>
 
-<%= render 'bookings/booking_form', restaurant: @restaurant, booking: @booking %>
+    <%= render 'bookings/booking_form', restaurant: @restaurant, booking: @booking %>
+  </div>
+</div>

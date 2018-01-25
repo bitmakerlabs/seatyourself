@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 /* styles for header */
 header {
   background-image: url(background.jpeg);
@@ -43,4 +46,14 @@ header nav a {
 .show1, .show2 {
   float: left;
   width: 50%;
+}
+
+/* styles for restaurant form */
+.restaurant_form {
+  text-align: right;
+  width: 55%;
+}
+
+.restaurant_edit h1{
+  text-align: center;
 }

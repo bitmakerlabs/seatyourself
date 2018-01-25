@@ -1,3 +1,8 @@
+<% if booking.errors.any? %>
+  <% booking.errors.messages[:custom_message].each do |msg| %>
+  <p><%= msg %></p>
+  <% end %>
+<% end %>
 <%= form_for [restaurant, booking] do |f| %>
   <p>
     <%= f.label :day, "Date" %>
@@ -5,7 +10,8 @@
   </p>
   <p>
     <%= f.label (:time) %>
-    <%= f.number_field :time %>
+    <%= f.select :time, options_for_select(
+      restaurant.open_time.localtime.hour..restaurant.close_time.localtime.hour) %>
   </p>
   <p>
     <%= f.label :n_people, "How many people?" %>

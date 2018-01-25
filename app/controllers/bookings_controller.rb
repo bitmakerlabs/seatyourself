@@ -1,5 +1,10 @@
 class BookingsController < ApplicationController
-  before_action :ensure_logged_in, only: :create
+  before_action :ensure_logged_in, only: [:create, :index]
+
+  def index
+    @user = User.find(session[:user_id])
+    @bookings = @user.bookings
+  end
 
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
@@ -7,8 +12,12 @@ class BookingsController < ApplicationController
     @booking.user = current_user
 
     if @booking.save
-      flash[:notice] = ["Reservation made at #{@restaurant.name} on #{@booking.day.month}/#{@booking.day.day} at #{@booking.time}"]
-      redirect_to restaurant_path(@restaurant)
+       points = @booking.user.increment(:loyalty_points, by = 100)
+       points.save
+      flash[:notice] = ["Reservation made at #{@restaurant.name} on #{@booking.day.strftime("%B %d, %Y")} at #{@booking.time_to_am_pm}"]
+      redirect_to user_bookings_path(current_user)
+    else
+      render "restaurants/show"
     end
   end
 
@@ -20,9 +29,11 @@ class BookingsController < ApplicationController
 
   def ensure_logged_in
     unless current_user
-      flash[:alert] = ["You must be logged in to create a reservation"]
+      flash[:alert] = ["You must be logged in to create or view reservations"]
       redirect_to restaurant_path(params[:restaurant_id])
     end
   end
+
+
 
 end

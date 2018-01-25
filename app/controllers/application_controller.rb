@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
    end
 
   def time_to_am_pm(time)
-    if time > 12
+    if time >= 12
       return "#{time - 12}:00PM"
     else
       return "#{time}:00AM"

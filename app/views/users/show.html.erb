@@ -8,7 +8,7 @@
 
   <ul>
     <% @bookings.each do |booking| %>
-      <li><%= booking.day.strftime("%a, %B %d") %> | <%= booking.time_to_am_pm %> | Party Size: <%= booking.n_people %> for <%= booking.user.email %></li>
+      <li><%= booking.day.strftime("%a, %B %d") %> | <%= time_to_am_pm(booking.time) %> | Party Size: <%= booking.n_people %> for <%= booking.user.email %></li>
     <% end %>
   </ul>
 

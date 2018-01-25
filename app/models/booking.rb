@@ -12,8 +12,10 @@ class Booking < ApplicationRecord
   end
 
   def cannot_be_in_the_past
-    if self.day < Time.now.midnight
+    if self.day < Date.today
       errors.add(:custom_message, "Date cannot be in the past.")
+    elsif self.day == Date.today && self.time <= Time.now.hour
+        errors.add(:custom_message, "Date cannot be in the past.")
     end
   end
 

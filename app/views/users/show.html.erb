@@ -13,9 +13,7 @@
 
 <h4>Customers By Loyalty</h4>
 <ul>
-<% @loyalty.each do |hash| %>
-<% hash.each do |key, value| %>
+<% @loyalty.each do |key, value| %>
 <li><%= key %> | Points: <%= value %></li>
-<% end %>
 <% end %>
 </ul>

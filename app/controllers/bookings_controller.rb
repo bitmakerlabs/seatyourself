@@ -37,7 +37,7 @@ class BookingsController < ApplicationController
 
   def convert_time_string_to_integer(time_string)
     mini_array = time_string.split(":00")
-    if mini_array[1] == "PM"
+    if mini_array[1] == "PM" && mini_array[0] != 12
       return mini_array[0].to_i + 12
     else
       return mini_array[0].to_i

@@ -1,0 +1,23 @@
+
+<h1>Restaurants</h1>
+  <%= link_to "See Reservations"   %> |
+  <%= link_to("New Restaurant", new_restaurant_path)%>
+  <%= link_to("Back", restaurants_path)  %>
+  <%= link_to("Log in", sessions_new_path) %>
+  <%= link_to("Create New User", new_user_path) %>
+
+
+  <% @restaurants.each do |restaurant| %>
+    <div>
+  <%= link_to(restaurant.name, new_restaurant_reservation_path(restaurant.id))  %>
+     <%= restaurant.address %>
+     <%= restaurant.capacity %>
+     <%= restaurant.menu %>
+     <%= restaurant.summary %>
+    <%=  restaurant.price %>
+<%=  restaurant.owner_id %>
+<%=  restaurant.open_time %>
+<%=  restaurant.close_time %>
+
+    </div>
+  <% end %>

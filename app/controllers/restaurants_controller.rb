@@ -1,5 +1,7 @@
 class RestaurantsController < ApplicationController
 
+  before_action :ensure_restaurant_owner, only: [:edit, :update, :destroy]
+
   def index
     @restaurants = Restaurant.all
   end
@@ -32,6 +34,7 @@ class RestaurantsController < ApplicationController
 
   def edit
     @restaurant = Restaurant.find(params[:id])
+    @user = current_user
   end
 
   def update
@@ -53,6 +56,14 @@ class RestaurantsController < ApplicationController
 
   def destroy
 
+  end
+
+  def ensure_restaurant_owner
+    @restaurant = Restaurant.find(params[:id])
+    if session[:user_id] != @restaurant.user_id
+      flash[:alert] = ["This is not your restaurant"]
+      redirect_to root_path
+    end
   end
 
 end

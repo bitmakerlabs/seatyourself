@@ -9,6 +9,13 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def ensure_restaurant_owner
+     if session[:user_id] != @restaurant.user_id
+       flash[:alert] = "This is not your restaurant"
+       redirect_to root_path
+     end
+   end
+
   def time_to_am_pm(time)
     if time > 12
       return "#{time - 12}:00PM"
@@ -17,5 +24,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :current_user, :time_to_am_pm
+  helper_method :current_user, :time_to_am_pm, :ensure_restaurant_owner
+
 end

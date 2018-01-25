@@ -4,4 +4,6 @@
 <p>Closes at: <%= time_to_am_pm(@restaurant.close_time.localtime.hour) %> </p>
 <p>Price: <%= @restaurant.price %>/5</p>
 
+<%= link_to 'edit', edit_user_restaurant_path(current_user, @restaurant) %>
+
 <%= render 'bookings/booking_form', restaurant: @restaurant, booking: @booking %>

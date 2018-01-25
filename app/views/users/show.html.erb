@@ -10,3 +10,12 @@
     <li><%= booking.day.strftime("%a, %B %d") %> | <%= booking.time_to_am_pm %> | Party Size: <%= booking.n_people %> for <%= booking.user.email %></li>
   <% end %>
 </ul>
+
+<h4>Customers By Loyalty</h4>
+<ul>
+<% @loyalty.each do |hash| %>
+<% hash.each do |key, value| %>
+<li><%= key %> | Points: <%= value %></li>
+<% end %>
+<% end %>
+</ul>

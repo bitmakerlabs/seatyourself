@@ -73,6 +73,7 @@ class RestaurantsController < ApplicationController
       restaurant.close_time.localtime.hour).each do |hour|
         times_array << time_to_am_pm(hour)
       end
+      times_array.pop
     return times_array
   end
 

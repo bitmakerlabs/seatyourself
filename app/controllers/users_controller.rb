@@ -1,5 +1,15 @@
 class UsersController < ApplicationController
 
+  def show
+    @loyalty = []
+    @user = User.find(params[:id])
+    @restaurant = current_user.restaurant
+    @restaurant.bookings.each do |booking|
+      @loyalty << {booking.user.email => booking.user.loyalty_points}
+    end
+    @loyalty = @loyalty.uniq
+  end
+
   def new
     @user = User.new
   end

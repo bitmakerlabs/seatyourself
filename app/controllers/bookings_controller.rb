@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @booking = @restaurant.bookings.new(booking_params)
+    @booking.time = convert_time_string_to_integer(params[:booking][:time])
     @booking.user = current_user
 
     if @booking.save
@@ -22,7 +23,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:day, :n_people, :time)
+    params.require(:booking).permit(:day, :n_people)
   end
 
   private
@@ -34,6 +35,13 @@ class BookingsController < ApplicationController
     end
   end
 
-
+  def convert_time_string_to_integer(time_string)
+    mini_array = time_string.split(":00")
+    if mini_array[1] == "PM"
+      return mini_array[0].to_i + 12
+    else
+      return mini_array[0].to_i
+    end
+  end
 
 end

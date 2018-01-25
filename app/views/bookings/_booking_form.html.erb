@@ -10,8 +10,7 @@
   </p>
   <p>
     <%= f.label (:time) %>
-    <%= f.select :time, options_for_select(
-      restaurant.open_time.localtime.hour..restaurant.close_time.localtime.hour) %>
+    <%= f.select :time, options_for_select(@booking_times_array) %>
   </p>
   <p>
     <%= f.label :n_people, "How many people?" %>

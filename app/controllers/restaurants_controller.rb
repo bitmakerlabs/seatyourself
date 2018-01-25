@@ -10,6 +10,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @bookings = @restaurant.bookings
     @booking = Booking.new
+    @booking_times_array = booking_times_array(@restaurant)
   end
 
   def new
@@ -64,6 +65,15 @@ class RestaurantsController < ApplicationController
       flash[:alert] = ["This is not your restaurant"]
       redirect_to root_path
     end
+  end
+
+  def booking_times_array(restaurant)
+    times_array = []
+    (restaurant.open_time.localtime.hour..
+      restaurant.close_time.localtime.hour).each do |hour|
+        times_array << time_to_am_pm(hour)
+      end
+    return times_array
   end
 
 end

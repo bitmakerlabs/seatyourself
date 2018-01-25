@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @restaurant.bookings.each do |booking|
       @loyalty[booking.user.email] = booking.user.loyalty_points
     end
-    @loyalty.sort_by {|key, value| value}.to_h
+    @loyalty = @loyalty.sort_by {|key, value| value}.reverse.to_h
   end
 
   def new

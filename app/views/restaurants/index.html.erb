@@ -1,0 +1,22 @@
+
+<h1>Restaurants</h1>
+  <%= link_to "See Reservations"   %> |
+  <%= link_to("New Restaurant", new_restaurant_path)%>
+  <%= link_to("Back", restaurants_path)  %>
+
+
+  <% @restaurants.each do |restaurant| %>
+    <div>
+     <%= restaurant.name %>
+     <%= restaurant.address %>
+     <%= restaurant.capacity %>
+     <%= restaurant.menu %>
+     <%= restaurant.summary %>
+    <%=  restaurant.price %>
+<%=  restaurant.owner_id %>
+<%=  restaurant.open_time %>
+<%=  restaurant.close_time %>
+
+
+    </div>
+  <% end %>

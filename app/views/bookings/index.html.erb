@@ -4,6 +4,6 @@
 
 <ul>
   <% @bookings.each do |booking| %>
-    <li>A table for <%= booking.n_people %> seats at <%= booking.restaurant.name %> for <%= booking.time_to_am_pm %>  on <%= booking.day.strftime("%B %d, %Y") %></li>
+    <li>A table for <%= booking.n_people %> seats at <%= link_to booking.restaurant.name, restaurant_path(booking.restaurant) %> for <%= booking.time_to_am_pm %>  on <%= booking.day.strftime("%B %d, %Y") %></li>
   <% end %>
 </ul>

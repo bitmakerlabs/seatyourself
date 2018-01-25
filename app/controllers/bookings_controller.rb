@@ -15,9 +15,10 @@ class BookingsController < ApplicationController
     if @booking.save
       points = @booking.user.increment(:loyalty_points, by = 100)
       points.save
-      flash[:notice] = ["Reservation made at #{@restaurant.name} on #{@booking.day.strftime("%B %d, %Y")} at #{@booking.time_to_am_pm}"]
+      flash[:notice] = ["Reservation made at #{@restaurant.name} on #{@booking.day.strftime("%B %d, %Y")} at #{time_to_am_pm(@booking.time)}"]
       redirect_to user_bookings_path(current_user)
     else
+      @booking_times_array = booking_times_array(@restaurant)
       render "restaurants/show"
     end
   end

@@ -17,13 +17,26 @@ class ApplicationController < ActionController::Base
    end
 
   def time_to_am_pm(time)
-    if time >= 12
+    if time > 12
       return "#{time - 12}:00PM"
+    elsif time == 12
+      return "#{time}:00PM"
     else
       return "#{time}:00AM"
     end
   end
 
-  helper_method :current_user, :time_to_am_pm, :ensure_restaurant_owner
+  def booking_times_array(restaurant)
+    times_array = []
+    (restaurant.open_time.localtime.hour..
+      restaurant.close_time.localtime.hour).each do |hour|
+        times_array << time_to_am_pm(hour)
+      end
+      times_array.pop
+    return times_array
+  end
+
+  helper_method :current_user, :time_to_am_pm,
+    :ensure_restaurant_owner, :booking_times_array
 
 end

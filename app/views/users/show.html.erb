@@ -1,19 +1,24 @@
 <h1>Welcome <%= current_user.email %>!</h1>
 
-<h2>Restaurant: <%= current_user.restaurant.name %></h2>
-<h3>Max Capacity: <%= current_user.restaurant.capacity %></h3>
+<% if current_user.kind == "owner" %>
+  <h2>Restaurant: <%= current_user.restaurant.name %></h2>
+  <h3>Max Capacity: <%= current_user.restaurant.capacity %></h3>
 
-<h4>Upcoming reservations for <%= current_user.restaurant.name %>:</h4>
+  <h4>Upcoming reservations for <%= current_user.restaurant.name %>:</h4>
 
-<ul>
-  <% @restaurant.bookings.each do |booking| %>
-    <li><%= booking.day.strftime("%a, %B %d") %> | <%= booking.time_to_am_pm %> | Party Size: <%= booking.n_people %> for <%= booking.user.email %></li>
-  <% end %>
-</ul>
+  <ul>
+    <% @restaurant.bookings.each do |booking| %>
+      <li><%= booking.day.strftime("%a, %B %d") %> | <%= booking.time_to_am_pm %> | Party Size: <%= booking.n_people %> for <%= booking.user.email %></li>
+    <% end %>
+  </ul>
 
-<h4>Customers By Loyalty</h4>
-<ul>
-<% @loyalty.each do |key, value| %>
-<li><%= key %> | Points: <%= value %></li>
+  <h4>Customers By Loyalty</h4>
+    <ul>
+      <% @loyalty.each do |key, value| %>
+        <li><%= key %> | Points: <%= value %></li>
+      <% end %>
+    </ul>
+
+<% else %>
+  <h2>You currently have <%= current_user.loyalty_points %> loyalty points!</h2>
 <% end %>
-</ul>

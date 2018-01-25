@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
 
   def show
-    @loyalty = {}
-    @restaurant = current_user.restaurant
-    @restaurant.bookings.each do |booking|
-      @loyalty[booking.user.email] = booking.user.loyalty_points
+    if current_user.kind == "owner"
+      @loyalty = {}
+      @restaurant = current_user.restaurant
+      @restaurant.bookings.each do |booking|
+        @loyalty[booking.user.email] = booking.user.loyalty_points
+      end
+      @loyalty = @loyalty.sort_by {|key, value| value}.reverse.to_h
     end
-    @loyalty = @loyalty.sort_by {|key, value| value}.reverse.to_h
   end
 
   def new

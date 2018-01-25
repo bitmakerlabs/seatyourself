@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
 
   def show
-    @loyalty = []
-    @user = User.find(params[:id])
+    @loyalty = {}
     @restaurant = current_user.restaurant
     @restaurant.bookings.each do |booking|
-      @loyalty << {booking.user.email => booking.user.loyalty_points}
+      @loyalty[booking.user.email] = booking.user.loyalty_points
     end
-    @loyalty = @loyalty.uniq
+    @loyalty.sort_by {|key, value| value}.to_h
   end
 
   def new

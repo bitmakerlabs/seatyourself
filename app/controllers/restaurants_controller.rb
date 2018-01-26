@@ -2,9 +2,6 @@ class RestaurantsController < ApplicationController
 
   before_action :ensure_restaurant_owner, only: [:edit, :update, :destroy]
 
-  def restaurant_params
-    params.require(:restaurant).permit(:name, :price, :term)
-  end
 
   def index
     @restaurants = Restaurant.all

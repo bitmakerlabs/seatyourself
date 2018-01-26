@@ -3,7 +3,7 @@
 }
 /* styles for header */
 header {
-  background-image: url(background.jpeg);
+  background-image: url(background.jpg);
   height: 40vh;
 }
 
@@ -13,7 +13,7 @@ header nav{
 
 header nav a {
   text-decoration: none;
-  color: black;
+  color: white;
   padding: 20px;
   font-size: 30px;
   margin-right: 50px;
@@ -56,4 +56,9 @@ header nav a {
 
 .restaurant_edit h1{
   text-align: center;
+}
+
+/* styles for footer */
+footer {
+  background-image: url(footer-bg.png);
 }

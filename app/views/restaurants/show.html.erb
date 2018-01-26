@@ -4,8 +4,8 @@
     <div class ="show1">
       <h2>Description</h2>
       <p> <%= @restaurant.description %> </p>
-      <p>Opens at: <%= @restaurant.open_time.localtime.hour %> </p>
-      <p>Closes at: <%= @restaurant.close_time.localtime.hour %> </p>
+      <p>Opens at: <%=time_to_am_pm(@restaurant.open_time.localtime.hour) %> </p>
+      <p>Closes at: <%= time_to_am_pm(@restaurant.close_time.localtime.hour) %> </p>
       <p>Price: <%= @restaurant.price %>/5</p>
     </div>
 

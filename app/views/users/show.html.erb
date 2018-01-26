@@ -1,7 +1,7 @@
 <h1>Welcome <%= current_user.email %>!</h1>
 
 <% if current_user.kind == "owner" %>
-  <h2>Restaurant: <%= current_user.restaurant.name %></h2>
+  <h2>Restaurant: <%= link_to current_user.restaurant.name, restaurant_path(@restaurant) %></h2>
   <h3>Max Capacity: <%= current_user.restaurant.capacity %></h3>
 
   <h4>Upcoming reservations for <%= current_user.restaurant.name %>:</h4>

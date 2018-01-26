@@ -6,7 +6,7 @@
       <p> <%= @restaurant.description %> </p>
       <p>Opens at: <%=time_to_am_pm(@restaurant.open_time.localtime.hour) %> </p>
       <p>Closes at: <%= time_to_am_pm(@restaurant.close_time.localtime.hour) %> </p>
-      <p>Price: <%= @restaurant.price %>/5</p>
+      <p>Price: <%= "$"*@restaurant.price %>/5</p>
     </div>
 
     <div class ="show2">

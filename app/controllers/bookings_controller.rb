@@ -15,9 +15,10 @@ class BookingsController < ApplicationController
     if @booking.save
       points = @booking.user.increment(:loyalty_points, by = 100)
       points.save
-      flash[:notice] = ["Reservation made at #{@restaurant.name} on #{@booking.day.strftime("%B %d, %Y")} at #{@booking.time_to_am_pm}"]
+      flash[:notice] = ["Reservation made at #{@restaurant.name} on #{@booking.day.strftime("%B %d, %Y")} at #{time_to_am_pm(@booking.time)}"]
       redirect_to user_bookings_path(current_user)
     else
+      @booking_times_array = booking_times_array(@restaurant)
       render "restaurants/show"
     end
   end
@@ -37,7 +38,7 @@ class BookingsController < ApplicationController
 
   def convert_time_string_to_integer(time_string)
     mini_array = time_string.split(":00")
-    if mini_array[1] == "PM"
+    if mini_array[1] == "PM" && mini_array[0] != 12
       return mini_array[0].to_i + 12
     else
       return mini_array[0].to_i

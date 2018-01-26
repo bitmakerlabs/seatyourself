@@ -36,6 +36,12 @@
     </nav>
     <% end %>
 
+  <%= form_tag(restaurants_path, method: :get) do %>
+    <%= text_field_tag :term, params[:term] %>
+    <%= submit_tag 'Search', name: nil %>
+  <% end %>
+
+
   </header>
 
 

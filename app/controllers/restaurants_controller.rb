@@ -2,8 +2,17 @@ class RestaurantsController < ApplicationController
 
   before_action :ensure_restaurant_owner, only: [:edit, :update, :destroy]
 
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :price, :term)
+  end
+
   def index
     @restaurants = Restaurant.all
+    @restaurants = if params[:term]
+      Restaurant.where('name LIKE ?', "%#{params[:term]}%")
+    else
+      Restaurant.all
+    end
   end
 
   def show
@@ -65,16 +74,6 @@ class RestaurantsController < ApplicationController
       flash[:alert] = ["This is not your restaurant"]
       redirect_to root_path
     end
-  end
-
-  def booking_times_array(restaurant)
-    times_array = []
-    (restaurant.open_time.localtime.hour..
-      restaurant.close_time.localtime.hour).each do |hour|
-        times_array << time_to_am_pm(hour)
-      end
-      times_array.pop
-    return times_array
   end
 
 end

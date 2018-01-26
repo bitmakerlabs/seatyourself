@@ -21,17 +21,19 @@
         <% end %>
       </ul>
     <% end %>
+    <nav>
 
-    <%= link_to "Home", restaurants_path %>
+      <%= link_to "Home", restaurants_path %>
 
-    <% if current_user %>
-      Signed in as <%= current_user.email %>
-      <%= link_to "My Profile", user_path(current_user) %>
-      <%= link_to "My Bookings", user_bookings_path(current_user) %>
-      <%= link_to "Logout", session_path("current"), method: :delete %>
-    <% else %>
-      <%= link_to "Login", new_session_path %>
-      <%= link_to "Sign Up", new_user_path%>
+      <% if current_user %>
+        Signed in as <%= current_user.email %>
+        <%= link_to "My Profile", user_path(current_user) %>
+        <%= link_to "My Bookings", user_bookings_path(current_user) %>
+        <%= link_to "Logout", session_path("current"), method: :delete %>
+      <% else %>
+        <%= link_to "Login", new_session_path %>
+        <%= link_to "Sign Up", new_user_path%>
+    </nav>
     <% end %>
 
     <%= form_tag(restaurants_path, method: :get) do %>
@@ -42,6 +44,10 @@
 
 
 <%= yield %>
+
+<footer>
+  
+</footer>
 
 </body>
 </html>

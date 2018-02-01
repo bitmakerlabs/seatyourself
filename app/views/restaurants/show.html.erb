@@ -1,0 +1,25 @@
+<%= link_to("Back", restaurants_path)  %>
+
+<%= render 'restaurants/single_restaurant', restaurant: @restaurant %>
+
+<% if current_user != nil %>
+  <% if current_user.id == @restaurant.user_id %>
+	 <%= link_to("Edit", edit_restaurant_url(@restaurant.id)) %>
+   <%if @reservations %>
+   <% @reservations.each do |reservation| %>
+   <ul>
+   <% if reservation.restaurant_id == @restaurant.id %>
+   <li>Reservation on  <%=reservation.date_time.strftime("%A, %B %-d at %l:%M %P")%> for <%= reservation.party_size %> people</li>
+   <%end %>
+ </ul>
+   <%end %>
+  <% end %>
+  <%end %>
+  <br>
+<% end %>
+
+
+<h4>Make a reservation</h4>
+
+
+<%= render 'reservations/form', restaurant: @restaurant, reservation: @reservation %>

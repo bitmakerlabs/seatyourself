@@ -1,0 +1,32 @@
+<h1>Restaurants Show Page</h1>
+
+<%= link_to("Back to Restaurants", restaurants_path(@restaurant)) %> | <%= link_to("Edit", edit_restaurant_path(@restaurant)) %> | <%= link_to("Delete", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure you want to delete this restaurant?"})  %>
+
+<%= render 'restaurant', restaurant: @restaurant %>
+
+<%= form_for(@reservation) do |f| %>
+  <%= f.hidden_field :restaurant_name, :value => @restaurant.restaurant_name %>
+  <p>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+  </p>
+
+  <p>
+    <%= f.label :time %>
+    <%= f.number_field :time %>
+  </p>
+
+  <p>
+    <%= f.label :number_of_people %>
+    <%= f.number_field :number_of_people %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

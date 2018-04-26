@@ -1,7 +1,10 @@
 class ReservationsController < ApplicationController
 
-  def show
+  def create
+    @reservation = Reservation.new
 
+    @reservation.time = params[:reservation][:time]
+    @reservation.date = params[:reservation][:date]
   end
 
   def index

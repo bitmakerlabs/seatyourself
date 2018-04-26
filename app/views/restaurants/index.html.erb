@@ -4,8 +4,7 @@
 
 <!-- # displayed all the restaurants with links to theri respective show pages -->
 <% @restaurants.each do |restaurant| %>
-    <%= restaurant %>
-    <%= link_to 'Restaurants Show Page', restaurant_path(restaurant.id) %>
+    <%=  render 'single_restaurant', a_restaurant: restaurant%>  
 <% end %>
 
 <%= link_to 'Restaurants Show Page', restaurant_path(1) %>

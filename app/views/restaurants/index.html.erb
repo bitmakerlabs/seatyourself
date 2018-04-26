@@ -1,0 +1,11 @@
+<h1>Home Page</h1>
+
+<!-- # Needs styling and seeds -->
+
+<!-- # displayed all the restaurants with links to theri respective show pages -->
+<% @restaurants.each do |restaurant| %>
+    <%= restaurant %>
+    <%= link_to 'Restaurants Show Page', restaurant_path(restaurant.id) %>
+<% end %>
+
+<%= link_to 'Restaurants Show Page', restaurant_path(1) %>

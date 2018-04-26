@@ -7,6 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <h1><%= link_to 'SYADB Table Reservation Software', root_path %></h1>
+    <nav>
+        <%= link_to 'Sign in', new_session_path %>
+        <%= link_to 'Sign up', new_user_path %>
+
+
+        <!-- # if the user is customer display  -->
+
+        <%= link_to 'My Reservations', reservations_path %>
+
+        <!-- # if the user is owner display the link above and the one below  -->
+
+        <%= link_to 'My Restaurants', user_path %>
+
+
+    </nav>
+  </header>
 
 <%= yield %>
 

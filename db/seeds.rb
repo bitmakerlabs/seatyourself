@@ -8,10 +8,10 @@
 
 
 users = User.create([
-                    { name: 'Behram', email:'behram@gmail.com', phone: 4161114444, role: 'user', password:'password', password_confirmation: 'password' },
-                    { name: 'Sean', email:'sean@gmail.com', phone: 4163334444, role: 'user', password:'password', password_confirmation: 'password' },
-                    { name: 'Hasan', email:'hasan@gmail.com', phone: 4162224444, role: 'owner', password:'password', password_confirmation: 'password' },
-                    { name: 'Karen', email:'karen@gmail.com', phone: 4165554444, role: 'user', password:'password', password_confirmation: 'password' }
+                    { name: 'Behram', email:'behram@gmail.com', phone: 4161114444, password:'password', password_confirmation: 'password' },
+                    { name: 'Sean', email:'sean@gmail.com', phone: 4163334444, password:'password', password_confirmation: 'password' },
+                    { name: 'Hasan', email:'hasan@gmail.com', phone: 4162224444, password:'password', password_confirmation: 'password' },
+                    { name: 'Karen', email:'karen@gmail.com', phone: 4165554444, password:'password', password_confirmation: 'password' }
                     ])
 
 # restaurants = User.create([
@@ -19,4 +19,3 @@ users = User.create([
 #                     { name: 'Sean', email:'sean@gmail.com', phone: 4163334444, role: 'user', password:'password', password_confirmation: 'password' },
 #                     { name: 'Hassan', email:'hassan@gmail.com', phone: 4162224444, role: 'owner', password:'password', password_confirmation: 'password' },
 #                     { name: 'Karen', email:'karen@gmail.com', phone: 4165554444, role: 'user', password:'password', password_confirmation: 'password' }
-                    

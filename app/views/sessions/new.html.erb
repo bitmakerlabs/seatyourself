@@ -1,1 +1,16 @@
 <h1>Login Form</h1>
+
+<%= form_for @user, url: new_session_url do |f| %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password_digest %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_digest %>
+
+  <%= f.submit :submit %>
+
+<% end %>

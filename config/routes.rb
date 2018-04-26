@@ -5,7 +5,7 @@ root "restaurants#index"
 
 resource :user, only: %i[new show create]
 resources :reservations, only: %i[create index destroy]
-resources :restaurants, only: %i[index show]
+resources :restaurants, only: %i[index show new create]
 resource :session, only: %i[create new destroy]
 
 

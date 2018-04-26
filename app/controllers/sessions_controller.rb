@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
     #   render :new
     # end
 
+    @user = User.find_by(email: params[:session][:email])
   end
 
   def destroy

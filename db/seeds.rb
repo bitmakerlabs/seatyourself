@@ -16,8 +16,8 @@ users = User.create([
                     ])
 
 restaurants = Restaurant.create([
-                    { name: 'Papa Seans', address:'123 Street, Toronto', neighbourhood: 'China Town', price_range: 2, summary:'Come to papa seans, the best  place in town for your pizza', menu: 'https://b.zmtcdn.com/data/menus/327/16633327/bbd69482f3cabf965a591cc184086e38.jpg?output-format=webp', user_id: 2 },
-                    {  name: 'Behrams Biryani', address:'555 Gucci Avenue, Mississauga', neighbourhood: 'Dundas', price_range: 5, summary:'Get the best rice you can eat in the heart of Mississauga', menu: 'https://b.zmtcdn.com/data/menus/047/17852047/c9860c608d5da5e66b2948881691af9e.jpg?output-format=webp', user_id: 1 }
+                    { name: 'Papa Seans', address:'123 Street, Toronto', neighbourhood: 'China Town', price_range: 2, summary:'Come to papa seans, the best  place in town for your pizza', menu: 'https://b.zmtcdn.com/data/menus/327/16633327/bbd69482f3cabf965a591cc184086e38.jpg', user_id: 2 },
+                    {  name: 'Behrams Biryani', address:'555 Gucci Avenue, Mississauga', neighbourhood: 'Dundas', price_range: 5, summary:'Get the best rice you can eat in the heart of Mississauga', menu: 'https://b.zmtcdn.com/data/menus/047/17852047/c9860c608d5da5e66b2948881691af9e.jpg', user_id: 1 }
                     ])
 
 reservations = Reservation.create([{ time: 9, date: Date.new(2018,9,2), user_id:4, restaurant_id:1},

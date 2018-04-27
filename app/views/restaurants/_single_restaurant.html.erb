@@ -1,6 +1,10 @@
-<img src="<%=a_restaurant.picture%>" style="width:500px;height:600px;">
-<h2> Name: <%=link_to a_restaurant.name, restaurant_path(a_restaurant) %> </h2>
-<h3> Summary: <%= a_restaurant.summary%> </h3>
-<h3> Address: <%= a_restaurant.address%> </h3>
-<h3> Neighbourhood: <%= a_restaurant.neighbourhood %> </h3>
-<h3>Price Range: <%= a_restaurant.price_range %></h3>
+<div class="single_restaurant">
+  <img class="picture" src="<%=a_restaurant.picture%>">
+  <div class="info">
+    <h2 class="name"><%=link_to a_restaurant.name, restaurant_path(a_restaurant) %> </h2>
+    <h3 class="summary"> Summary: <%= a_restaurant.summary%> </h3>
+    <h3 class="address"> Address: <%= a_restaurant.address%> </h3>
+    <h3 class="neighbourhood"> Neighbourhood: <%= a_restaurant.neighbourhood %> </h3>
+    <h3 class="price_range">Price Range: <%= a_restaurant.price_range %></h3>
+  </div>
+</div>

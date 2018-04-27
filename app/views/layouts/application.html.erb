@@ -10,23 +10,32 @@
   <header>
     <h1><%= link_to 'SYADB Table Reservation Software', root_path %></h1>
     <nav>
-        <%= link_to 'Sign in', new_session_path %>
-        <%= link_to 'Sign up', new_user_path %>
+        <h5>
+          <%= link_to 'Sign in', new_session_path %> |
+          <%= link_to 'Sign up', new_user_path %> |
 
 
-        <!-- # if the user is customer display  -->
+          <!-- # if the user is customer display  -->
 
-        <%= link_to 'My Reservations', reservations_path %>
+          <%= link_to 'My Reservations', reservations_path %> |
 
-        <!-- # if the user is owner display the link above and the one below  -->
+          <!-- # if the user is owner display the link above and the one below  -->
 
-        <%= link_to 'My Restaurants', user_path %>
-
+          <%= link_to 'My Restaurants', user_path %>
+        </h5>
 
     </nav>
   </header>
 
-<%= yield %>
+  <section class="content">
+
+    <%= yield %>
+
+  </section>
+
+  <footer>
+    <h3>Hasan | John | Karen | Sean | Behram</h3>
+  </footer>
 
 </body>
 </html>

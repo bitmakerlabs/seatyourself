@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :ensure_logged_in, except: [:index]
+  
   # before action that loads_restaurant
   # before action ensure_user_owns_restaurant
   #
@@ -13,22 +13,33 @@ class RestaurantsController < ApplicationController
   #   end
   # end
 
+  before_action :ensure_logged_in, except: [:show, :index]
+  before_action :load_restaurant, only: [:show]
+  before_action :ensure_user_owns_restaurant, only: [:show, :create]
+
+
+  # shows the home page
   def index
     @restaurants = Restaurant.all
   end
 
+  # shows indiviual page
   def show
 
     #replace line 23 with loads_restaurant
-    @restaurant = Restaurant.find_by(id: params[:id])
+    load_restaurant
 
     @reservation = Reservation.new
+
+    #need restaurant instance variable in reservation controller, how to access?
   end
 
+  # shows a page with a form
   def new
     @restaurant = Restaurant.new
   end
 
+  # submits form information and creates a new restaurant
   def create
     @restaurant = Restaurant.new
 
@@ -44,6 +55,10 @@ class RestaurantsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def load_restaurant
+    @restaurant = Restaurant.find_by(id: params[:id])
   end
 
 end

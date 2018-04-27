@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 
+  # goes to sign up page
   def new
     @user = User.new
   end
 
+  # sign up user
   def create
     @user = User.new
     @user.name = params[:user][:name]
@@ -14,6 +16,14 @@ class UsersController < ApplicationController
 
     if @user.save
 
+      session[:user_id] = @user.id
+      redirect_to root_url
+
+    else
+      render :new
+    end
+
+
       session[:user_id] = @user_id
       redirect_to root_path
     else
@@ -21,7 +31,16 @@ class UsersController < ApplicationController
     end
   end
 
+  # goes to 'My Restaurants' owned and managed by Restaurant Owner
   def show
 
+      if current_user
+      @restaurants = User.find_by(id: session[:user_id]).restaurants
+
+      else
+        redirect_to restaurants_path
+      end
+     #
+    # sessions[:id] - replace the 1 with this
   end
 end

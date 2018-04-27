@@ -2,8 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.signup-form {
-    h3 {
+.signup {
+  
+}
+
+.my-restaurants {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  grid-gap: 1em;
+
+  .picture {
+    width: 100%;
+  }
+
+  .info {
+    padding: 1.5em;
+
+    .name {
+      margin: 0.5em 0;
+    }
+
+    .neighbourhood, .price_range, .summary, .address {
       font-size: 0.75em;
     }
+  }
 }

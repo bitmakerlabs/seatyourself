@@ -1,5 +1,14 @@
+
 <%= form_for reservation do |f| %>
-  <h3><%= f.label :time %> <%= f.time_field :time %></h3>
+
+  <!-- <%= a_restaurant.id %> -->
+
+  <%= f.hidden_field(:restaurant_id, :value => a_restaurant.id) %>
+
+  <h3><%= f.label :time %> <%= f.time_select :time, discard_minute: true %></h3>
 
   <h3><%= f.label :date %> <%= f.date_field :date %></h3>
+
+  <h3><%= f.submit %></h3>
+
 <% end %>

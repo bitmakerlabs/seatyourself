@@ -1,5 +1,16 @@
 <h1 class="label">Sign Up</h1>
 
-<div class="signup-form">
+<% if @user.errors.any? %>
+<div class="errors">
+  <ul>
+    <% @user.errors.full_messages.each do |m| %>
+      <li><%= m %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="signup form">
+
   <%= render "user_form", user: @user %>
 </div>

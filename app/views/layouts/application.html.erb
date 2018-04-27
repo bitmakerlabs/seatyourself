@@ -11,6 +11,7 @@
     <h1><%= link_to 'SYADB Table Reservation Software', root_path %></h1>
     <nav>
         <h5>
+
           <% if current_user %>
           Welcome <%= current_user.name  %> |
             <%= link_to 'Log out', session_path, method: "delete" %> |
@@ -20,19 +21,24 @@
           <% end %>
 
 
-
-
-
           <!-- # if the user is customer display  -->
 
-          <%= link_to 'My Reservations', reservations_path %> |
 
           <!-- # if the user is owner display the link above and the one below  -->
+          <% if current_user %>
+            <%= link_to '| My Reservations', reservations_path %>
+            <%  if current_user.restaurants  %>
+          <%= link_to '| My Restaurants', user_path %>
+            <% end %>
+          <% end %>
 
-          <%= link_to 'My Restaurants', user_path %>
         </h5>
 
     </nav>
+
+    <%= flash[:alert] %>
+    <%= flash[:notice] %>
+
   </header>
 
   <section class="content">

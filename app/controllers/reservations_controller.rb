@@ -24,6 +24,8 @@ class ReservationsController < ApplicationController
   # goes to 'My Reservations' page that lists user's reservations
   def index
 
+    @reservations = Reservation.all
+
   end
 
   # deletes reservation

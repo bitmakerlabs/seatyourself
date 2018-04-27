@@ -1,19 +1,19 @@
 <%= form_for user, url: new_user_url do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <h3><%= f.label :name %>
+      <%= f.text_field :name %></h3>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+  <h3><%= f.label :email %>
+      <%= f.text_field :email %></h3>
 
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
+  <h3><%= f.label :phone %>
+      <%= f.text_field :phone %></h3>
 
-  <%= f.label :password %>
-  <%= f.text_field :password_digest %>
+  <h3><%= f.label :password %>
+      <%= f.text_field :password_digest %></h3>
 
-  <%= f.label :password_confirmation %>
-  <%= f.text_field :password_digest %>
+  <h3><%= f.label :password_confirmation %>
+      <%= f.text_field :password_digest %></h3>
 
-  <%= f.submit :submit %>
+  <h3><%= f.submit :submit %></h3>
 
 <% end %>

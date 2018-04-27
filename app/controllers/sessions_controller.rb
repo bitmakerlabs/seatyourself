@@ -1,10 +1,12 @@
 class SessionsController < ApplicationController
 
+  # goes to login page
   def new
 
 
   end
 
+  # logs in user
   def create
 
     #     user = User.find_by(email: params[:session][:email])
@@ -18,6 +20,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
   end
 
+  # logs out user 
   def destroy
 
     # session[:user_id] = nil

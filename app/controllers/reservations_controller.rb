@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
 
+  # makes new reservation for user
   def create
     @reservation = Reservation.new
 
@@ -17,10 +18,12 @@ class ReservationsController < ApplicationController
 
   end
 
+  # goes to 'My Reservations' page that lists user's reservations
   def index
 
   end
 
+  # deletes reservation
   def destroy
 
   end

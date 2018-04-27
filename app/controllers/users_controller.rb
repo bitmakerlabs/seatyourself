@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
     @user = User.new
   end
@@ -11,8 +12,13 @@ class UsersController < ApplicationController
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
 
-    @user.save
+    if @user.save
 
+      session[:user_id] = @user_id
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show

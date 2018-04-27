@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-
+  before_action :ensure_logged_in, except: [:index]
   # before action that loads_restaurant
   # before action ensure_user_owns_restaurant
   #

@@ -10,6 +10,7 @@ class ReservationsController < ApplicationController
     @reservation.time = params[:reservation]["time(4i)"]
     @reservation.date = params[:reservation][:date]
     @reservation.restaurant_id = params[:reservation][:restaurant_id]
+    @reservation.number_of_tables = params[:reservation][:number_of_tables]
     # @restaurant.customer_id = current_customer.id
     # @reservation.restaurant_id = Restaurant.find_by(id: params[:id])
 

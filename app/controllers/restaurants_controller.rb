@@ -23,6 +23,8 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find_by(id: params[:id])
 
     @reservation = Reservation.new
+
+    #need restaurant instance variable in reservation controller, how to access?
   end
 
   def new

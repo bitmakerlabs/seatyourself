@@ -14,12 +14,27 @@ class UsersController < ApplicationController
     @user.password = params[:user][:password]
     @user.password_confirmation = params[:user][:password_confirmation]
 
-    @user.save
+    if @user.save
+
+      session[:user_id] = @user.id
+      redirect_to root_url
+
+    else
+      render :new
+    end
 
   end
 
   # goes to 'My Restaurants' owned and managed by Restaurant Owner
   def show
 
+      if current_user
+      @restaurants = User.find_by(id: session[:user_id]).restaurants
+
+      else
+        redirect_to restaurants_path
+      end
+     #
+    # sessions[:id] - replace the 1 with this
   end
 end

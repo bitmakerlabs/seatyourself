@@ -1,9 +1,12 @@
 class User < ApplicationRecord
   has_secure_password
+# comes with some basic validations
 
-  has_secure_password
+  # validate minimum length
+  # validations
 
   has_many :reservations
   has_many :restaurants, through: :reservations
   has_many :restaurants
+  
 end

@@ -6,10 +6,7 @@
       <br>
 <% @reservations.each do |reservation| %>
 
-
-
-    <li>at <%= reservation.time %>00 on <%= reservation.date %> - <%= reservation.restaurant.name %> </li>
-
+    <li>Table for <%= reservation.number_of_tables %> at <%= reservation.time %>00 on <%= reservation.date %> - <%= reservation.restaurant.name %> </li>
 
 <% end %>
 </ul>

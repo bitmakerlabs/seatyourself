@@ -11,9 +11,13 @@
 
      -->
 
-<h1 class="label">New Reservation</h1>
 
-<div class="new-reservation-form">
+
+<div class="show-restaurant">
+  <%= render 'single_restaurant', a_restaurant: @restaurant%>
+</div>
+
+<div class="new-reservation form">
+  <h1 class="label">New Reservation</h1>
   <%= render '/reservations/reservation_form', reservation: @reservation %>
-  <%=  render 'single_restaurant', a_restaurant: @restaurant%>
 </div>

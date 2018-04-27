@@ -33,11 +33,19 @@ h5 > a{
     }
   }
 
+  .menu {
+    display: none;
+  }
+
 }
 
-.new-restaurant-form {
-
-  h3 {
-    font-size: 0.75em;
+.show-restaurant  {
+  img {
+    width: 100%;
   }
+}
+
+.new-restaurant {
+
+
 }

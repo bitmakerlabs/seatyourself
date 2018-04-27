@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  
+
   # before action that loads_restaurant
   # before action ensure_user_owns_restaurant
   #
@@ -15,7 +15,6 @@ class RestaurantsController < ApplicationController
 
   before_action :ensure_logged_in, except: [:show, :index]
   before_action :load_restaurant, only: [:show]
-  before_action :ensure_user_owns_restaurant, only: [:show, :create]
 
 
   # shows the home page

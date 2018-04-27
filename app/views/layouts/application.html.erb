@@ -13,10 +13,13 @@
         <h5>
 
           <% if current_user %>
-            <%= link_to 'Logout', session_path, method: :delete %>
+          Welcome <%= current_user.name  %> |
+            <%= link_to 'Log out', session_path, method: "delete" %> |
           <% else %>
-            <p> <%= link_to 'Sign in', new_session_path %> | <%= link_to 'Sign up', new_user_path %></p>
+            <%= link_to 'Sign in', new_session_path %> |
+              <%= link_to 'Sign up', new_user_path %> |
           <% end %>
+
 
           <!-- # if the user is customer display  -->
 

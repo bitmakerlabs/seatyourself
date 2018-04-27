@@ -1,5 +1,8 @@
 class ReservationsController < ApplicationController
 
+  before_action :ensure_logged_in
+
+
   # makes new reservation for user
   def create
     @reservation = Reservation.new

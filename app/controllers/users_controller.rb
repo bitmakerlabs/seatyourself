@@ -23,6 +23,12 @@ class UsersController < ApplicationController
       render :new
     end
 
+
+      session[:user_id] = @user_id
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   # goes to 'My Restaurants' owned and managed by Restaurant Owner

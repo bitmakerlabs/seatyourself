@@ -1,4 +1,5 @@
 <%= form_for user, url: user_path do |f| %>
+
   <h3><%= f.label :name %>
       <%= f.text_field :name %></h3>
 
@@ -6,7 +7,7 @@
       <%= f.email_field :email %></h3>
 
   <h3><%= f.label :phone %>
-      <%= f.text_field :phone %></h3>
+    <%= f.text_field :phone %></h3>
 
   <h3><%= f.label :password %>
       <%= f.password_field :password %></h3>
@@ -14,6 +15,6 @@
   <h3><%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %></h3>
 
-  <h3><%= f.submit :submit %></h3>
+  <%= f.submit :submit %>
 
 <% end %>

@@ -9,6 +9,8 @@
 
   <h3><%= f.label :date %> <%= f.date_field :date %></h3>
 
+  <h3>Tables: <%= f.select :number_of_tables, (1..5) %></h3>
+
   <h3><%= f.submit %></h3>
 
 <% end %>

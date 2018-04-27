@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 
+  # goes to sign up page
   def new
     @user = User.new
   end
 
+  # sign up user
   def create
     @user = User.new
     @user.name = params[:user][:name]
@@ -23,6 +25,7 @@ class UsersController < ApplicationController
 
   end
 
+  # goes to 'My Restaurants' owned and managed by Restaurant Owner
   def show
 
       if current_user

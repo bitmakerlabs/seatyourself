@@ -16,6 +16,8 @@ class RestaurantsController < ApplicationController
     load_restaurant
 
     @reservation = Reservation.new
+
+    #need restaurant instance variable in reservation controller, how to access?
   end
 
   # shows a page with a form

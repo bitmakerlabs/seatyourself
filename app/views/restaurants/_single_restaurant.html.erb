@@ -3,7 +3,6 @@
     <img class="picture" src="<%=a_restaurant.picture%>">
     <img class="menu" src="<%=a_restaurant.menu%>" <br>
   </div>
-
   <div class="info">
     <h2 class="name"><%=link_to a_restaurant.name, restaurant_path(a_restaurant) %> </h2>
     <h3 class="summary"> Summary: <%= a_restaurant.summary%> </h3>
@@ -11,5 +10,4 @@
     <h3 class="neighbourhood"> Neighbourhood: <%= a_restaurant.neighbourhood %> </h3>
     <h3 class="price_range">Price Range: <%= a_restaurant.price_range %></h3>
   </div>
-
 </div>

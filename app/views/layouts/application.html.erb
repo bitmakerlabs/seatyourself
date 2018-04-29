@@ -7,8 +7,49 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <h1><%= link_to 'Table Reservation Software', root_path %></h1>
+    <nav>
+        <h5>
 
-<%= yield %>
+          <% if current_user %>
+          Welcome <%= current_user.name  %> |
+            <%= link_to 'Log out', session_path, method: "delete" %>
+          <% else %>
+            <%= link_to 'Sign in', new_session_path %> |
+              <%= link_to 'Sign up', new_user_path %> |
+          <% end %>
+
+
+          <!-- # if the user is customer display  -->
+
+
+          <!-- # if the user is owner display the link above and the one below  -->
+          <% if current_user %>
+            <%= link_to '| My Reservations', reservations_path %>
+            <%  if current_user.restaurants  %>
+          <%= link_to '| My Restaurants', user_path %>
+            <% end %>
+          <% end %>
+
+        </h5>
+
+    </nav>
+
+    <%= flash[:alert] %>
+    <%= flash[:notice] %>
+
+  </header>
+
+  <section class="content">
+
+    <%= yield %>
+
+  </section>
+
+  <footer>
+    <h3>Hasan | John | Karen | Sean | Behram</h3>
+  </footer>
 
 </body>
 </html>

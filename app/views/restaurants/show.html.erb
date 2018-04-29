@@ -1,0 +1,24 @@
+<!-- # Display Menu, Name, Address, Neighbourhood, Price Range, Summary, Picture
+      # we need a partial_view form for adding new reservations
+
+    # Define global variables in the restaurant controller
+    # Display them in this view
+    # create a new partial_view in side the reservation view folder
+    # display the new reservation partial view in this (show.html.erb) view
+
+
+     -->
+
+<h1>Restaurant Show Page</h1>
+
+<div class="show-restaurant">
+
+
+
+  <%= render 'single_restaurant', a_restaurant: @restaurant%>
+
+  <div class="new-reservation form">
+    <h1 class="label">New Reservation</h1>
+    <%= render '/reservations/reservation_form', reservation: @reservation, a_restaurant: @restaurant %>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<h1 class="label">Login</h1>
+
+
+
+<div class="error">
+  <%= flash[:notice] %>
+</div>
+
+</div>
+
+
+<div class="login form">
+
+  <%= form_for :session, url: session_path do |f| %>
+
+    <h3><%= f.label :email %>
+        <%= f.text_field :email %></h3>
+
+    <h3><%= f.label :password %>
+        <%= f.password_field :password %></h3>
+
+    <h3><%= f.submit :submit %></h3>
+
+  <% end %>
+
+</div>

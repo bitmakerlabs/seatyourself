@@ -1,0 +1,20 @@
+<h1>My Restaurants</h1>
+
+<div class="my-restaurants">
+  <% @restaurants.each do |restaurant| %>
+
+    <%=  render 'restaurants/single_restaurant', a_restaurant: restaurant %>
+
+    <ol>
+
+
+    <h1>Reservations</h1>  
+    <% restaurant.reservations.each do |reservation| %>
+
+        <li>Time: <%= reservation.time %> Date: <%= reservation.date %> </li>
+
+    <% end %>
+    </ol>
+
+  <% end %>
+</div>

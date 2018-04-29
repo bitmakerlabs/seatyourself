@@ -1,0 +1,17 @@
+<%= form_for restaurant do |f| %>
+  <h3><%= f.label :name %>    <%= f.text_field :name %></h3>
+
+  <h3><%= f.label :picture %>  <%= f.text_field :picture %></h3>
+
+  <h3><%= f.label :address %>  <%= f.text_field :address %></h3>
+
+  <h3><%= f.label :neighbourhood %>  <%= f.text_field :neighbourhood %></h3>
+
+  <h3><%= f.label :price_range %>  <%= select_tag(:price_range, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]])) %></h3>
+
+  <h3><%= f.label :summary %>  <%= f.text_field :summary %></h3>
+
+  <h3><%= f.label :menu %>  <%= f.text_field :menu %></h3>
+
+  <h3><%= f.submit :submit %></h3>
+<% end %>

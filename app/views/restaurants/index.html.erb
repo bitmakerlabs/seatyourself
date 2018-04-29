@@ -1,0 +1,12 @@
+<!-- <h1>Home Page</h1> -->
+
+<!-- # Needs styling and seeds -->
+
+<!-- # displayed all the restaurants with links to theri respective show pages -->
+
+<h5><%= link_to 'Create a New Restaurant', new_restaurant_path %></h5>
+<div class="index-restaurant">
+  <% @restaurants.each do |restaurant| %>
+    <%=  render 'single_restaurant', a_restaurant: restaurant%>
+  <% end %>
+</div>

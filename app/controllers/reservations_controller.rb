@@ -17,7 +17,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to reservations_path
     else
-      redirect_to restaurant_path
+      redirect_to restaurant_path(params[:reservation][:restaurant_id])
     end
 
   end

@@ -6,6 +6,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
   end
 
+  def show
+    load_restaurant
+  end 
+
   def create
     @restaurant = Restaurant.new
 
@@ -34,7 +38,7 @@ class RestaurantsController < ApplicationController
       redirect_to restaurant_path
     else
       render :edit
-    end 
+    end
   end
 
   def edit

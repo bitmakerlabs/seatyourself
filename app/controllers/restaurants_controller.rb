@@ -24,6 +24,11 @@ class RestaurantsController < ApplicationController
 
   def update
     load_restaurant
+
+    @restaurant.name = params[:restaurant][:name]
+    @restaurant.phone_number = params[:restaurant][:phone_number]
+    @restaurant.capacity = params[:restaurant][:capacity]
+    @restaurant.address = params[:restaurant][:address]
   end
 
   def edit
@@ -31,6 +36,9 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
+    load_restaurant
+    @restaurant.destroy
+    redirect_to restaurants_path
   end
 
   def load_restaurant

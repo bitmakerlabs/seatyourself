@@ -25,8 +25,7 @@ class RestaurantsController < ApplicationController
     end
   end
 
-
-  def update
+  def edit
     load_restaurant
 
     @restaurant.name = params[:restaurant][:name]
@@ -41,9 +40,13 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  def edit
+  def update
+    @restaurant.main_picture = params[:restaurant][:main_picture]
+    @restaurant.uploads = params[:restaurant][:uploads] || []
     load_restaurant
   end
+
+
 
   def destroy
     load_restaurant

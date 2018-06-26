@@ -2,24 +2,42 @@ class RestaurantsController < ApplicationController
   def index
   end
 
-  def create
+  def new
+    @restaurant = Restaurant.new
   end
 
-  def new
+  def create
+    @restaurant = Restaurant.new
+
+    @restaurant.name = params[:restaurant][:name]
+    @restaurant.phone_number = params[:restaurant][:phone_number]
+    @restaurant.capacity = params[:restaurant][:capacity]
+    @restaurant.address = params[:restaurant][:address]
+
+    if @restaurant.save
+      redirect_to '/restaurants'
+    else
+      render :new
+    end
   end
+
 
   def update
+    load_restaurant
   end
 
   def edit
+    load_restaurant
   end
 
   def destroy
   end
 
-
+  def load_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
 
   def ensure_user_owns_restaurant
   end
 
-end 
+end

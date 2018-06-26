@@ -29,6 +29,12 @@ class RestaurantsController < ApplicationController
     @restaurant.phone_number = params[:restaurant][:phone_number]
     @restaurant.capacity = params[:restaurant][:capacity]
     @restaurant.address = params[:restaurant][:address]
+
+    if @restaurant.save
+      redirect_to restaurant_path
+    else
+      render :edit
+    end 
   end
 
   def edit

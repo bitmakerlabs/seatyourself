@@ -6,6 +6,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
   end
 
+  def show
+    load_restaurant
+  end 
+
   def create
     @restaurant = Restaurant.new
 
@@ -23,6 +27,17 @@ class RestaurantsController < ApplicationController
 
   def edit
     load_restaurant
+
+    @restaurant.name = params[:restaurant][:name]
+    @restaurant.phone_number = params[:restaurant][:phone_number]
+    @restaurant.capacity = params[:restaurant][:capacity]
+    @restaurant.address = params[:restaurant][:address]
+
+    if @restaurant.save
+      redirect_to restaurant_path
+    else
+      render :edit
+    end
   end
 
   def update
@@ -34,6 +49,9 @@ class RestaurantsController < ApplicationController
 
 
   def destroy
+    load_restaurant
+    @restaurant.destroy
+    redirect_to restaurants_path
   end
 
   def load_restaurant

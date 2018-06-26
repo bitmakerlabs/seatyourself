@@ -8,3 +8,5 @@
   <h3><%= @restaurant.summary %></h3>
   <h3><%= @restaurant.menu %></h3>
   <h3><%= @restaurant.time_slots %></h3>
+
+<%= link_to "make a reservation!", new_restaurant_reservation_path(@restaurant) %>

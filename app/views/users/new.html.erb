@@ -10,39 +10,5 @@
   </ul>
 <% end %>
 
-<%= form_for @user do |f| %>
 
-  <div class="signup">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name, placeholder: 'First Name' %>
-  </div>
-
-  <div class="signup">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name, placeholder: 'Last Name' %>
-  </div>
-
-  <div class="signup">
-    <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number, placeholder: '(123)-123-1234' %>
-  </div>
-  <div class="signup">
-    <%= f.label :email %><br>
-    <%= f.text_field :email, placeholder: 'example@123.com' %>
-  </div>
-
-  <div class="signup">
-    <%= f.label :password %><br>
-    <%= f.password_field :password, placeholder: 'Password'%>
-  </div>
-
-  <div class="signup">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation, placeholder: 'Re-enter Password' %>
-  </div>
-
-  <div class="signup">
-  <%= f.submit 'Sign Up' %>
-    </div>
-
-<% end %>
+<%= render 'form_users', user: @user%>

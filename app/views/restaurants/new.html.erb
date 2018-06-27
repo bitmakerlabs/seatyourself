@@ -13,10 +13,20 @@
   <%= f.label :capacity %><br>
   <%= f.text_field :capacity %>
 </p>
-<p>
+
   <%= f.label :address %><br>
   <%= f.text_field :address %>
 </p>
+
+<p>
+  <%= f.label :main_picture,"Profile Photo"%><br>
+  <%= f.file_field :main_picture%>
+</p>
+<p>
+  <%= f.label :uploads,"Restaurant Photos"%><br>
+  <%= f.file_field :uploads, multiple: true%>
+</p>
+<p>
 
 
 

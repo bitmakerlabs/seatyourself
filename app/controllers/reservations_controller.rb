@@ -15,7 +15,8 @@ class ReservationsController < ApplicationController
     @reservation.restaurant_id = @restaurant.id
 
     if @reservation.save
-      redirect_to root_url
+      flash[:notice] = "Reservation successfully made."
+      redirect_to restaurant_url(@restaurant)
     else
       render :new
     end

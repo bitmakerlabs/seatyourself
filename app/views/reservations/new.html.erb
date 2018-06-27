@@ -1,3 +1,11 @@
+<% if @reservation.errors.messages.length > 0  %>
+  <div class="errors">
+    <% @reservation.errors.messages.each do |attribute, errors| %>
+      <p><%= attribute.capitalize %> <%= errors[0].capitalize %></p>
+    <% end %>
+  </div>
+<% end %>
+
 <%= form_for [@restaurant, @reservation] do |f| %>
 
 <%= f.label :date %>

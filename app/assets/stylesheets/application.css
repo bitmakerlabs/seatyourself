@@ -18,16 +18,13 @@
    font-family: 'Roboto', sans-serif;
    box-sizing: border-box;
    color: rgba(255, 255, 255, 0.8);
-
  }
 
-
-
-
  body {
-   background-image: url('https://www.thechediandermatt.com/images/content/mood/Big/The-Chedi-Andermatt-RESTAURANT-Main-Dining-03.jpg');
+   /* background-image: url('https://www.thechediandermatt.com/images/content/mood/Big/The-Chedi-Andermatt-RESTAURANT-Main-Dining-03.jpg'); */
    background-repeat: no-repeat;
-   
+   box-sizing: border-box;
+   background-color: grey;
  }
 
 .welcome {
@@ -39,10 +36,12 @@
      color:brown;
    }
 
-   .welcome span {
-     color: rgba(255,215,0,0.7);
+.welcome span {
+    color: rgba(255,215,0,0.7);
 
    }
+
+
 .user_info  {
   color:blue;
   background-color:rgba(255,255,255,0.7);
@@ -63,4 +62,9 @@ section {
 }
 .signup input {
   font-size: 1em;
+}
+
+.individual_restaurant{
+  background-color: white;
+  color: black;
 }

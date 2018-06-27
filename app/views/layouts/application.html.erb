@@ -9,9 +9,11 @@
 <nav>
   <% if current_user %>
     <p><%= link_to "Logout", session_path, method: :delete %></p>
+    <p><%= link_to "Home", restaurants_path %></p>
   <% else %>
     <p><%= link_to "Signup", new_users_path %></p>
     <p><%= link_to "Sign In", new_session_path %></p>
+    <p><%= link_to "Restaurants", restaurants_path %></p>
   <% end %>
 
 </nav>

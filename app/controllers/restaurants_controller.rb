@@ -1,4 +1,6 @@
 class RestaurantsController < ApplicationController
+  before_action :ensure_logged_in, except: [:show, :index]
+  before_action :ensure_user_owns_restaurant, only: [:edit, :destroy, :update]
 
 
   def index
@@ -6,7 +8,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @reservation = Restaurant.find(params[:id])
+    load_restaurant
   end
 
   def new
@@ -17,49 +19,73 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
 
     @restaurant.name = params[:restaurant][:name]
+    @restaurant.price_range = params[:restaurant][:price_range]
+    @restaurant.neighbourhood = params[:restaurant][:neighbourhood]
+    @restaurant.phone_number = params[:restaurant][:phone_number]
+    @restaurant.capacity = params[:restaurant][:capacity]
+    @restaurant.address = params[:restaurant][:address]
+    @restaurant.main_picture = params[:restaurant][:main_picture]
+    @restaurant.uploads = params[:restaurant][:uploads] || []
+    @restaurant.user_id = current_user.id
+
+    if @restaurant.save
+      redirect_to restaurants_path
+    else
+      render :new
+    end
+  end
+
+  def edit
+    load_restaurant
+  end
+
+
+  def update
+    load_restaurant
+
+    @restaurant.name = params[:restaurant][:name]
+    @restaurant.price_range = params[:restaurant][:price_range]
+    @restaurant.neighbourhood = params[:restaurant][:neighbourhood]
     @restaurant.phone_number = params[:restaurant][:phone_number]
     @restaurant.capacity = params[:restaurant][:capacity]
     @restaurant.address = params[:restaurant][:address]
     @restaurant.main_picture = params[:restaurant][:main_picture]
     @restaurant.uploads = params[:restaurant][:uploads] || []
 
-      if @restaurant.save
-        redirect_to restaurants_url
-      else
-        render :new
-      end
-  end
 
-  def edit
-    @restaurant = Restaurant.find(params[:id])
-  end
-
-
-  def update
-    @restaurant = Restaurant.find(params[:id])
-
-    @restaurant.name = params[:restaurant][:name]
-    @restaurant.phone_number = params[:restaurant][:phone_number]
-    @restaurant.capacity = params[:restaurant][:capacity]
-    @restaurant.address = params[:restaurant][:address]
-    @restaurant.uploads = params[:restaurant][:uploads] || []
-
-
-    if @restaurant.updates(params_capture)
-        reirect_to restaurant_path(@restaurant)
+    if @restaurant.save
+      redirect_to restaurant_path(@restaurant)
     else
-        render :edit
+      render :edit
     end
   end
 
 
   def destroy
-    @restaurant = Restaurant.find(params[:id])
+    load_restaurant
 
     @restaurant.destroy
     redirect_to restaurants_path
   end
 
+  private
+  def load_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
+
+  def ensure_user_owns_restaurant
+    load_restaurant
+    if @restaurant.user_id != current_user.id
+      flash[:alert] = "Sorry you do not have access to the restaurant."
+      redirect_to restaurant_path(@restaurant.id)
+    end
+  end
+
+  def picture(restaurant)
+    if restaurant.main_picture.present?
+      image_tag restaurant.main_picture
+    end
+  end 
 
 
 end

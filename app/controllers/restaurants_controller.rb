@@ -6,7 +6,7 @@ class RestaurantsController < ApplicationController
   end
 
   def show
-    @reservation = Restaurant.find(params[:id])
+    load_restaurant
   end
 
   def new
@@ -23,20 +23,20 @@ class RestaurantsController < ApplicationController
     @restaurant.main_picture = params[:restaurant][:main_picture]
     @restaurant.uploads = params[:restaurant][:uploads] || []
 
-      if @restaurant.save
-        redirect_to restaurants_url
-      else
-        render :new
-      end
+    if @restaurant.save
+      redirect_to restaurants_path
+    else
+      render :new
+    end
   end
 
   def edit
-    @restaurant = Restaurant.find(params[:id])
+    load_restaurant
   end
 
 
   def update
-    @restaurant = Restaurant.find(params[:id])
+    load_restaurant
 
     @restaurant.name = params[:restaurant][:name]
     @restaurant.phone_number = params[:restaurant][:phone_number]
@@ -60,6 +60,10 @@ class RestaurantsController < ApplicationController
     redirect_to restaurants_path
   end
 
+  private
+  def load_restaurant
+    @reservation = Restaurant.find(params[:id])
+  end
 
 
 end

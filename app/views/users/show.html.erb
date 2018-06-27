@@ -1,0 +1,10 @@
+<h1>Profile</h1>
+
+<h2>
+ <% @resos.each do |reso| %>
+   <p>Name: <%= reso.restaurant.name %></p>
+   <p>Date: <%= reso.date %></p>
+   <p>Time: <%= reso.time %></p>
+   <p>Party-size: <%= reso.partysize %></p>
+ <% end %>
+</h2>

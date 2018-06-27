@@ -4,9 +4,6 @@ class UsersController < ApplicationController
  end
 
  def create
-   submitted_email =                   params[:user][:email]
-   submitted_password =                params[:user][:password]
-   submitted_password_confirmation =   params[:user][:password_confirmation]
 
    @user = User.new
 

@@ -1,3 +1,14 @@
 <h1> Welcome to opentable v.2</h1>
 
-<%= @restaurants %>
+<section>
+
+<% @restaurants.each do |restaurant| %>
+<p>Name: <%=restaurant.name%><br>
+Address: <%=restaurant.address%><br>
+Phone: <%=restaurant.phone_number%><br>
+Total Capacity: <%=restaurant.capacity%></p>
+<%end%>
+
+
+
+</section>

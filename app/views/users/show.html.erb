@@ -1,0 +1,11 @@
+<h2>Resrvations</h2>
+
+<p>Reservation for <%= current_user.first_name %></p>
+
+<%= current_user.reservations.each do |reservation| %>
+<p> <%=reservation.restaurant.name %><br>
+    <%=reservation.date %><br>
+    <%=reservation.time %></p>
+    <%=reservation.party_size %></p>
+
+<% end %>

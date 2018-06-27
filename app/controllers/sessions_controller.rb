@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
       redirect_to root_url
     else
-      render :new_users_path
+      render :new
     end
 
   end

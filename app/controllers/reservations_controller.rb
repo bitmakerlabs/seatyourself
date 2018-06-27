@@ -1,21 +1,22 @@
 class ReservationsController < ApplicationController
 
   def new
-   @reservation = Reservation.new
+   @reso = Reservation.new
    @restaurant = Restaurant.find(params[:restaurant_id])
  end
 
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @reservation = Reservation.new
+    @reso = Reservation.new
 
-    @reservation.date = params[:reservation][:date]
-    @reservation.time = params[:reservation][:time]
-    @reservation.user_id = session[:user_id]
-    @reservation.restaurant_id = @restaurant.id
+    @reso.date = params[:reservation][:date]
+    @reso.time = params[:reservation][:time]
+    @reso.user_id = session[:user_id]
+    @reso.restaurant_id = @restaurant.id
 
-    if @reservation.save
-      redirect_to root_url
+    if @reso.save
+      flash[:notice] = "Reservation successfully made."
+      redirect_to restaurant_url(@restaurant)
     else
       render :new
     end

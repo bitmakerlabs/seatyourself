@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+
+  def show
+    @resos = User.find(params[:id]).reservations
+
+  end
+
  def new
    @user = User.new
  end

@@ -2,7 +2,7 @@ class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :restaurant
 
-  validates :partysize, :date, :time, presence: true
+  validates :partysize, :date, presence: true
 
   validate :date_not_in_past
 

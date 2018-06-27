@@ -1,0 +1,26 @@
+<%= form_for restaurant do |f| %>
+
+<p><%= f.label :name %></p>
+<p><%= f.text_field :name %></p>
+
+<p><%= f.label :address %></p>
+<p><%= f.text_field :address %></p>
+
+<p><%= f.label :neighbourhood %></p>
+<p><%= f.text_field :neighbourhood %></p>
+
+<p><%= f.label :price_range %></p>
+<p><%= f.number_field :neighbourhood %></p>
+
+<p><%= f.label :summary %></p>
+<p><%= f.text_area :summary %></p>
+
+<p><%= f.label :menu %></p>
+<p><%= f.text_area :menu %></p>
+
+<p><%= f.label :time_slots %></p>
+<p><%= f.datetime :time_slots %></p>
+
+
+<p><%= f.submit %></p>
+<% end %>

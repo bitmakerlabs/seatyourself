@@ -1,16 +1,10 @@
 <h1> Welcome to opentable v.2</h1>
 
 <section>
-<% @restaurants.each do |restaurant| %>
-  <p>
-  Name: <%=link_to(restaurant.name, restaurant_path(restaurant.id))%><br>
-  Address: <%=restaurant.address%><br>
-  Phone: <%=restaurant.phone_number%><br>
-  Total Capacity: <%=restaurant.capacity%>
-  </p>
-<% end %>
-
-<%= link_to "New restaurant", new_restaurant_path %>
-
-
+  <% @restaurants.each do |restaurant| %>
+    <p class="name"><%=link_to(restaurant.name, restaurant_path(restaurant.id))%></p>
+    <p>Address: <%=restaurant.address%></p>
+    <p>Phone: <%=restaurant.phone_number%></p>
+    <p>Total Capacity: <%=restaurant.capacity%></p>
+  <% end %>
 </section>

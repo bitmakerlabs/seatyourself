@@ -15,16 +15,15 @@
  */
 
  html {
-   font-family: 'Roboto', sans-serif;
+   font-family: 'Open Sans', sans-serif;
    box-sizing: border-box;
    color: rgba(255, 255, 255, 0.8);
  }
 
  body {
-   /* background-image: url('https://www.thechediandermatt.com/images/content/mood/Big/The-Chedi-Andermatt-RESTAURANT-Main-Dining-03.jpg'); */
+   background-image: url('https://www.thechediandermatt.com/images/content/mood/Big/The-Chedi-Andermatt-RESTAURANT-Main-Dining-03.jpg');
    background-repeat: no-repeat;
    box-sizing: border-box;
-   background-color: grey;
  }
 
 .welcome {
@@ -43,18 +42,36 @@
 
 
 .user_info  {
-  color:blue;
+  color: ;
   background-color:rgba(255,255,255,0.7);
   font-size: 1em;
   display: block;
-  text-align: center;
+  text-align: left;
   margin: 0 auto;
 
 }
 
 section {
-  background-color:rgba(255,255,255,0.3);
+  background-color: rgba(255,255,255,0.3);
+  display: inline-block;
+  padding: 2em;
+  margin-left: 6em;
+  margin-right: 6em;
+}
 
+.name a {
+  text-decoration: none;
+  color: white;
+  font-size: 5em;
+}
+
+.name a:hover{
+  color: black;
+  font-weight: bold;
+}
+
+section .name:hover {
+  text-decoration-color:
 }
 
 .signup {

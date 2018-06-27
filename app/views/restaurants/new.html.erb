@@ -1,38 +1,50 @@
 <h2>Create New Restaurants</h2>
 
 <%=form_for @restaurant do |f| %>
-<p>
-  <%= f.label :name %><br>
-  <%= f.text_field :name %>
-</p>
-<p>
-  <%= f.label :phone_number %><br>
-  <%= f.text_field :phone_number %>
-</p>
-<p>
-  <%= f.label :capacity %><br>
-  <%= f.text_field :capacity %>
-</p>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :phone_number %><br>
+    <%= f.text_field :phone_number %>
+  </p>
+  <p>
+    <%= f.label :capacity %><br>
+    <%= f.text_field :capacity %>
+  </p>
+  <p>
+    <label for='neighbourhood_select'>Neighbourhood:</label>
+    <select f.neighbourhood = 'neighbourhood_select'>
+      <options value="Downtown">Downtown </option>
 
-  <%= f.label :address %><br>
-  <%= f.text_field :address %>
-</p>
+    </select>
+  </p>
+  <p>
+    Price Range </br>
+    <%= f.radio_button(:price_range, 1) %>
+    <%= f.label(:price_range, "$") %>
+    <%= f.radio_button(:price_range, 2) %>
+    <%= f.label(:price_range, "$$") %>
+    <%= f.radio_button(:price_range, 3) %>
+    <%= f.label(:price_range, "$$$") %>
 
-<p>
-  <%= f.label :main_picture,"Profile Photo"%><br>
-  <%= f.file_field :main_picture%>
-</p>
-<p>
-  <%= f.label :uploads,"Restaurant Photos"%><br>
-  <%= f.file_field :uploads, multiple: true%>
-</p>
-<p>
-
-
-
-<p>
-   <%= f.submit "Save" %>
- </p>
+  </p>
+  <p>
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :main_picture,"Profile Photo"%><br>
+    <%= f.file_field :main_picture%>
+  </p>
+  <p>
+    <%= f.label :uploads,"Restaurant Photos"%><br>
+    <%= f.file_field :uploads, multiple: true%>
+  </p>
+  <p>
+    <%= f.submit "Save" %>
+  </p>
 
  <% end %>
 <%= link_to 'Back', restaurants_path %>

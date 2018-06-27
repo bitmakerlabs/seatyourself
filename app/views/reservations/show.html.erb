@@ -1,0 +1,8 @@
+<h1>Reservation Information Page</h1>
+<%="Reservation booked for: #{@reservation.user.first_name} #{@reservation.user.last_name}" %>
+<%="Phone number: #{@reservation.user.phone_number}" %>
+<%="Email: #{@reservation.user.email}"%>
+<%="Reservation Time: #{@reservation.time}"%>
+<%="Reservation Date: #{@reservation.date}"%>
+<%="Reservation Party Size: #{@reservation.party_size}"%>
+<%=link_to "To Edit Reservation", ""%>

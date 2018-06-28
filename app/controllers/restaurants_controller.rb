@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
   before_action :ensure_user_owns_restaurant, only: [:edit, :destroy, :update]
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.search(params[:term])
   end
 
   def show
@@ -20,6 +20,9 @@ class RestaurantsController < ApplicationController
 
     @restaurant.name = params[:restaurant][:name]
     @restaurant.price_range = params[:restaurant][:price_range]
+    @restaurant.cuisine = params[:restaurant][:cuisine]
+    @restaurant.open = params[:restaurant][:open]
+    @restaurant.close = params[:restaurant][:close]
     @restaurant.neighbourhood = params[:restaurant][:neighbourhood]
     @restaurant.phone_number = params[:restaurant][:phone_number]
     @restaurant.capacity = params[:restaurant][:capacity]
@@ -42,14 +45,22 @@ class RestaurantsController < ApplicationController
 
   def update
     load_restaurant
-
+    @restaurant.cuisine = params[:restaurant][:cuisine]
     @restaurant.name = params[:restaurant][:name]
     @restaurant.price_range = params[:restaurant][:price_range]
+    @restaurant.open = params[:restaurant][:open]
+    @restaurant.close = params[:restaurant][:close]
     @restaurant.neighbourhood = params[:restaurant][:neighbourhood]
     @restaurant.phone_number = params[:restaurant][:phone_number]
     @restaurant.capacity = params[:restaurant][:capacity]
     @restaurant.address = params[:restaurant][:address]
+    if params[:restaurant][:main_picture]
+      @restaurant.main_picture = params[:restaurant][:main_picture]
+    end
 
+    if params[:restaurant][:uploads]
+      @restaurant.uploads = params[:restaurant][:uploads] || []
+    end
 
     if @restaurant.save
       redirect_to restaurant_path(@restaurant)
@@ -79,10 +90,5 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  def picture(restaurant)
-    if restaurant.main_picture.present?
-      image_tag restaurant.main_picture
-    end
-  end
 
 end

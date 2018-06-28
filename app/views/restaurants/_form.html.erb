@@ -1,16 +1,17 @@
-<% if restaurant.errors.any? %>
-  <ul>
-  <% restaurant.errors.full_messages.each do |msg| %>
-    <span class="error">*<%= msg %></span>
-  <% end %>
-  </ul>
-<% end %>
-
 <%=form_for restaurant do |f| %>
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </p>
+  <p>
+    <%= f.label :opening_time %><br>
+    <%= f.time_field :open %>
+  </p>
+  <p>
+    <%= f.label :closing_time %><br>
+    <%= f.time_field :close %>
+  </p>
+
   <p>
     <%= f.label :phone_number %><br>
     <%= f.text_field :phone_number %>
@@ -24,23 +25,34 @@
     <%= f.text_field :address %>
   </p>
   <p>
-    <%= f.label :neighbourhood %><br>
-    <%= f.text_field :neighbourhood %>
-  </p>
-  <p>
-    <%= f.label :price_range %><br>
-    <%= f.text_field :price_range %>
+    <%= f.label :neighbourhood %>
+    <%= f.select(:neighbourhood, [['Downtown', 'Downtown'], ['Uptown','Uptown']]) %>
   </p>
 
   <p>
-    <%= f.label :main_picture %><br>
-    <%= f.file_field :main_picture %>
-  </p>
-  <p>
-    <%= f.label :uploads %><br>
-    <%= f.file_field :uploads, multiple: true %>
+    <%= f.label :cuisine %><br>
+    <%= f.text_field :cuisine %>
   </p>
 
+  <p>
+    Price Range </br>
+    <%= f.radio_button(:price_range, "$") %>
+    <%= f.label(:price_range, "$") %>
+    <%= f.radio_button(:price_range, "$$") %>
+    <%= f.label(:price_range, "$$") %>
+    <%= f.radio_button(:price_range, "$$$") %>
+    <%= f.label(:price_range, "$$$") %>
+  </p>
+  <p>
+    <%= image_tag @restaurant.main_picture if @restaurant.main_picture.attached? -%><br />
+    <%= f.label :main_picture,"Profile Photo"%><br>
+    <%= f.file_field :main_picture%>
+  </p>
+  <p>
+    <%= f.label :uploads,"Menu Photos"%><br>
+    <%= f.file_field :uploads, multiple: true%>
+
+  </p>
   <p>
      <%= f.submit "Save" %>
    </p>

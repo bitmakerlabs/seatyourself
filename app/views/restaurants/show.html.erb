@@ -1,10 +1,12 @@
 
 <div class="individual_restaurant">
   <h1><%= @restaurant.name%></h1>
-  <%= image_tag @restaurant.main_picture %>
-  <%= @restaurant.address %> <br />
-  <%= @restaurant.neighbourhood %> <br />
-  <%= @restaurant.price_range %>
+
+  <%= image_tag @restaurant.main_picture %><br />
+  Address: <%= @restaurant.address %> <br />
+  Neighbourhood: <%= @restaurant.neighbourhood %> <br />
+  Price range <%= @restaurant.price_range %>
+
 <ul>
  <%@reservations.each do |reservation | %>
 <li>
@@ -14,6 +16,7 @@ Customer Phone :<%= reservation.user.phone_number %> | Party Size: <%= reservati
 </li>
  <%end%>
 </ul>
+
   <div class="menu">
     <% @restaurant.uploads.each do |upload|%>
     <%= image_tag upload %>
@@ -23,5 +26,4 @@ Customer Phone :<%= reservation.user.phone_number %> | Party Size: <%= reservati
   <%= link_to "Back to restaurants", restaurants_path %> |
   <%= link_to "Edit restaurant", edit_restaurant_path(@restaurant.id) %> |
   <%= link_to "Delete", restaurant_path(@restaurant.id), method: :delete, data: {confirm: 'Are you sure you want to delete the restaurant?'} %>
-
 </div>

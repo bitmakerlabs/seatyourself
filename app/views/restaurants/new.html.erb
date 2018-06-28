@@ -14,11 +14,8 @@
     <%= f.text_field :capacity %>
   </p>
   <p>
-    <label for='neighbourhood_select'>Neighbourhood:</label>
-    <select f.neighbourhood = 'neighbourhood_select'>
-      <options value="Downtown"> Downtown </option>
+    <%= f.select(:neighbourhood, [['Downtown', 'Downtown'], ['Uptown','Uptown']]) %>
 
-    </select>
   </p>
   <p>
     Price Range </br>

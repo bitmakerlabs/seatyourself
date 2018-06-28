@@ -9,7 +9,46 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
+ *= require_normlize-rails
  *= require_tree .
  *= require_self
  */
+
+html {
+  max-width: 100%;
+}
+.nav_bar_top {
+  display: block;
+  background-image: url(Mister-t.png);
+  background-size: cover;
+  height: 400px;
+  top: 0;
+  width: 100%;
+  color: #ffffff;
+}
+
+.nav-link {
+  background-color: #000000;
+  padding: 1em;
+  border: 1px solid #ffffff;
+  display: inline-flex;
+  align-items: center
+  text-decoration: none;
+  color: lightgrey;
+}
+
+.main_banner {
+  width: 100%;
+}
+
+.restaurant_card {
+  background-color: orange;
+  border: 5px solid white;
+  height: 30em;
+  display: flex;
+  flex-direction: row;
+}
+ img {
+   width: 20em;
+   height: 15em;
+ }

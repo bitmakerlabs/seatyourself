@@ -1,8 +1,6 @@
 <h1>Index Page</h1>
 <% @restaurants.each do |restaurant| %>
-  <div class="restaurant_card"
-    <h2><%= link_to image_tag(restaurant.picture), restaurant_path(restaurant), :class => "main_page_photo" %></h2>
+    <h2><%= link_to image_tag(restaurant.picture), restaurant_path(restaurant) %></h2>
     <h2><%= restaurant.name %></h2>
     <h3><%= restaurant.neighbourhood %></h3>
-  </div>
 <% end %>

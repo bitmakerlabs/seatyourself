@@ -1,0 +1,23 @@
+<h1>Book A Reservation</h1>
+ You are signed is as.. : <%=current_user.first_name %> <%= current_user.last_name %>
+<%= form_for [@restaurant, @reservation] do |f| %>
+<p>
+<%=f.label :date %><br>
+<%=f.date_field :date %><br>
+</p>
+<p>
+<%=f.label :time %><br>
+<%=f.time_select :time
+  %> <br>
+</p>
+
+<p>
+<%=f.label :party_size %><br>
+<%=f.number_field :party_size %><br>
+</p>
+
+<p>
+   <%= f.submit "Save" %>
+ </p>
+
+ <% end %>

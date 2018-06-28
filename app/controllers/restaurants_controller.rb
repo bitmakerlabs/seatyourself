@@ -79,14 +79,10 @@ class RestaurantsController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
-=======
   def picture(restaurant)
     if restaurant.main_picture.present?
       image_tag restaurant.main_picture
     end
   end
 
-
->>>>>>> fc22d881d2eecb65e4a971beaaa497c10d0f5eaa
 end

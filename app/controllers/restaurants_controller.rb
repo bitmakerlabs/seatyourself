@@ -1,6 +1,10 @@
 class RestaurantsController < ApplicationController
   def index
-    @restaurants = Restaurant.all
+    @restaurants = if params[:term]
+                    Restaurant.where('name LIKE ?', "%#{params[:term]}%")
+                  else
+                    Restaurant.all
+                  end
   end
 
   def show
@@ -10,6 +14,8 @@ class RestaurantsController < ApplicationController
   def new
     @restaurant = Restaurant.new
   end
+
+
 
   def create
     @restaurant = Restaurant.new
@@ -34,6 +40,10 @@ class RestaurantsController < ApplicationController
       render :new
       flash[:alert] = "Something went wrong"
     end
+  end
+
+  def restaurant_params
+    params.require(:restaurants).permit(:name, :address, :neighbourhood, :price_range, :summary, :menu, :time_slot, :user_id)
   end
 
 end

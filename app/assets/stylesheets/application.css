@@ -83,6 +83,11 @@ section .name:hover {
 }
 
 .individual_restaurant{
-  background-color: white;
+  background-color: rgba(255,255,255, 0.3);
   color: black;
+}
+
+.individual_restaurant img {
+  width: 200px;
+  grid
 }

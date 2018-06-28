@@ -9,11 +9,13 @@ class ReservationsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @reso = Reservation.new
 
+    time = params[:reservation]["time(2i)"]
+
     @reso.date = params[:reservation][:date]
-    @reso.time = params[:reservation][:time]
+    @reso.time = time
     @reso.partysize = params[:reservation][:partysize]
     @reso.user_id = session[:user_id]
-    @reso.restaurant_id = @restaurant.id 
+    @reso.restaurant_id = @restaurant.id
 
     if @reso.save
       flash[:notice] = "Reservation successfully made."

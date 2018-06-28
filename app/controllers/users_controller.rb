@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
   def show
-    @resos = User.find(params[:id]).reservations
-
+    @resos = User.find(current_user).reservations
+    @user = User.find(current_user)
+    @user_restaurants = User.find(current_user).owned_restaurants
   end
 
  def new

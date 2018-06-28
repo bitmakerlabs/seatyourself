@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <nav class="nav_bar_top">
-  <ul class="nav_bar_item"
   <% if current_user %>
+  <div class="user">
+    <p>current user: <%= current_user.email %></p>
+  </div>
+  <ul class="nav_bar_item"
     <li><%= link_to "Logout", session_path, method: :delete, :class => "nav-link" %></li>
     <li><%= link_to "New Restaurant", new_restaurant_path, :class => "nav-link" %></li>
     <li><%= link_to "Home", restaurants_path, :class => "nav-link" %></li>

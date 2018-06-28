@@ -27,6 +27,10 @@ html {
   color: #ffffff;
 }
 
+.nav_bar_top li {
+  list-style: none;
+}
+
 .nav-link {
   background-color: #000000;
 

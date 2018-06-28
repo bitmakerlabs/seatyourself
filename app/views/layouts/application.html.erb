@@ -10,6 +10,7 @@
 
   <ul>
     <% if current_user %>
+      <p>Signed-in as : <%= current_user.email %></p>
       <li><%= link_to "Logout", session_path, method: :delete, :class => "nav-link" %></li>
       <li><%= link_to "New Restaurant", new_restaurant_path, :class => "nav-link" %></li>
       <li><%= link_to "Home", restaurants_path, :class => "nav-link" %></li>
@@ -19,12 +20,13 @@
       <li><%= link_to "Sign In", new_session_path, :class => "nav-link" %></li>
       <li><%= link_to "Restaurants", restaurants_path,  :class => "nav-link" %></li>
     <% end %>
+
     <%= form_tag(restaurants_path, method: :get) do %>
     <%= text_field_tag :term, params[:term] %>
     <%= submit_tag 'GET FOOD', name: nil %>
     <%end %>
   </ul>
-  
+
 </nav>
 
 <body>

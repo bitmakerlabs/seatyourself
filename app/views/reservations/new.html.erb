@@ -3,14 +3,11 @@
 <%= form_for [@restaurant, @reservation] do |f| %>
 <p>
 <%=f.label :date %><br>
-<%=f.date_select :date  %><br>
+<%=f.date_field :date %><br>
 </p>
 <p>
 <%=f.label :time %><br>
-<%=f.time_field :time,
-      value: "%H:%M",
-      min: 'hh:mm:ss',
-      max: 'hh:mm:ss'
+<%=f.time_select :time
   %> <br>
 </p>
 

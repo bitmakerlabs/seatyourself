@@ -16,12 +16,15 @@ class ReservationsController < ApplicationController
 
     def create
         @reservation = Reservation.new
-        @reservation.date       = params[:reservation][:date]
-        @reservation.time       = params[:reservation][:time]
+        @reservation.date = params[:reservation][:date]
+        @reservation.time = params[:reservation][:time]
         @reservation.party_size = params[:reservation][:party_size]
+        @reservation.restaurant_id = params[:restaurant_id]
+
+
         @reservation.user       = current_user
         if @reservation.save
-            redirect_to restaurant_reservation_url(@reservation.id)
+            redirect_to user_path(current_user)
         else
             render :new
         end

@@ -11,7 +11,9 @@
     <%= image_tag upload %>
     <% end  %>
   </div>
+  <%= link_to "Reserve", new_restaurant_reservation_url(@restaurant.id) %> |
+  <%= link_to "Back to restaurants", restaurants_path %> |
+  <%= link_to "Edit restaurant", edit_restaurant_path(@restaurant.id) %> |
+  <%= link_to "Delete", restaurant_path(@restaurant.id), method: :delete, data: {confirm: 'Are you sure you want to delete the restaurant?'} %>
 
-  <%= link_to "Back to restaurants", restaurants_path %>
-  <%= link_to "Edit restaurant", edit_restaurant_path(@restaurant.id) %>
 </div>

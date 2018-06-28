@@ -1,4 +1,4 @@
-<h1> Welcome to opentable v.2</h1>
+<h1> Welcome to SeatYourself</h1>
 
 <section>
 <% @restaurants.each do |restaurant| %>
@@ -8,6 +8,7 @@
   Phone: <%=restaurant.phone_number%><br>
   Total Capacity: <%=restaurant.capacity%>
   </p>
+  <p><%= link_to "Reserve", new_restaurant_reservation_url(restaurant.id) %> </p>
 <% end %>
 
 <%= link_to "New restaurant", new_restaurant_path %>

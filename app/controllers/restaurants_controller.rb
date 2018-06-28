@@ -1,14 +1,14 @@
 class RestaurantsController < ApplicationController
+  before_action :load_restaurant, only: [:show]
   before_action :ensure_logged_in, except: [:show, :index]
   before_action :ensure_user_owns_restaurant, only: [:edit, :destroy, :update]
-
 
   def index
     @restaurants = Restaurant.search(params[:term])
   end
 
   def show
-    load_restaurant
+    @reservations = @restaurant.reservations
   end
 
   def new

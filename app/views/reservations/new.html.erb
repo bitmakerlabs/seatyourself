@@ -1,5 +1,5 @@
 <h1>Book A Reservation</h1>
- You are signed is as.. : <%=current_user.first_name %> <%= current_user.last_name %>
+ You are signed is as: <%=current_user.first_name %> <%= current_user.last_name %>
 <%= form_for [@restaurant, @reservation] do |f| %>
 <p>
 <%=f.label :date %><br>
@@ -7,8 +7,7 @@
 </p>
 <p>
 <%=f.label :time %><br>
-<%=f.time_field :time
-  %> <br>
+<%=f.time_select :time, start_hour: @restaurant.open.hour , end_hour: @restaurant.close.hour %> <br>
 </p>
 
 <p>

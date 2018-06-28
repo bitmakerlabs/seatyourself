@@ -1,6 +1,5 @@
 class ReservationsController < ApplicationController
 
-
     def index
         @reservations = Reservation.all
     end
@@ -31,6 +30,7 @@ class ReservationsController < ApplicationController
             render :new
         end
     end
+
     def edit
         @reservation = Reservation.find(params[:id])
     end
@@ -47,16 +47,13 @@ class ReservationsController < ApplicationController
             render :edit
         end
     end
+
     def destroy
         @reservation.destroy
     end
+
     def load_reservations
         @reservation = Reservation.find(params[:id])
     end
-    def ensure_user_owns_reservation
-        unless current_user == @reservation.user
-            flash[:alert] = " You are not the owner of the reservation! "
-            redirect_to new_session_url
-        end
-    end
+    
 end

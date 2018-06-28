@@ -21,6 +21,8 @@ class RestaurantsController < ApplicationController
     @restaurant.name = params[:restaurant][:name]
     @restaurant.price_range = params[:restaurant][:price_range]
     @restaurant.cuisine = params[:restaurant][:cuisine]
+    @restaurant.open = params[:restaurant][:open]
+    @restaurant.close = params[:restaurant][:close]
     @restaurant.neighbourhood = params[:restaurant][:neighbourhood]
     @restaurant.phone_number = params[:restaurant][:phone_number]
     @restaurant.capacity = params[:restaurant][:capacity]
@@ -46,6 +48,8 @@ class RestaurantsController < ApplicationController
 
     @restaurant.name = params[:restaurant][:name]
     @restaurant.price_range = params[:restaurant][:price_range]
+    @restaurant.open = params[:restaurant][:open]
+    @restaurant.close = params[:restaurant][:close]
     @restaurant.neighbourhood = params[:restaurant][:neighbourhood]
     @restaurant.phone_number = params[:restaurant][:phone_number]
     @restaurant.capacity = params[:restaurant][:capacity]
@@ -86,12 +90,4 @@ class RestaurantsController < ApplicationController
       image_tag restaurant.main_picture
     end
   end
-
-
-<<<<<<< Updated upstream
-=======
-
-
-
->>>>>>> Stashed changes
 end

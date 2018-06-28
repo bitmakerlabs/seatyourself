@@ -21,6 +21,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
 
     @restaurant.name = params[:restaurant][:name]
+    @restaurant.picture = params[:restaurant][:picture]
     @restaurant.address = params[:restaurant][:address]
     @restaurant.neighbourhood = params[:restaurant][:neighbourhood]
     @restaurant.price_range = params[:restaurant][:price_range]
@@ -29,8 +30,11 @@ class RestaurantsController < ApplicationController
     @restaurant.time_slots = params[:restaurant][:time_slots]
     @restaurant.user_id = session[:user_id]
 
+    @user = User.find(current_user)
+    @user.owner = true
 
-    if @restaurant.save
+
+    if @restaurant.save && @user.save
       redirect_to root_url
     else
       render :new

@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <nav class="nav_bar_top">
+
   <ul>
     <% if current_user %>
       <li><%= link_to "Logout", session_path, method: :delete, :class => "nav-link" %></li>
@@ -23,7 +24,7 @@
     <%= submit_tag 'GET FOOD', name: nil %>
     <%end %>
   </ul>
-
+  
 </nav>
 
 <body>

@@ -5,7 +5,15 @@
   <%= @restaurant.address %> <br />
   <%= @restaurant.neighbourhood %> <br />
   <%= @restaurant.price_range %>
-
+<ul>
+ <%@reservations.each do |reservation | %>
+<li>
+Full Name: <%= reservation.user.first_name %> <%= reservation.user.last_name %> |
+Customer Phone :<%= reservation.user.phone_number %> | Party Size: <%= reservation.party_size %> |
+ Reservation Date: <%= reservation.date %> | Reservation Time: <%= reservation.time %>
+</li>
+ <%end%>
+</ul>
   <div class="menu">
     <% @restaurant.uploads.each do |upload|%>
     <%= image_tag upload %>

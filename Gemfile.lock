@@ -59,6 +59,10 @@ GEM
     ffi (1.9.25)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    google_places (1.1.0)
+      httparty (>= 0.13.1)
+    httparty (0.16.2)
+      multi_xml (>= 0.5.2)
     i18n (1.0.1)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -79,9 +83,11 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    multi_xml (0.6.0)
     nio4r (2.3.1)
     nokogiri (1.8.3)
       mini_portile2 (~> 2.3.0)
+    normalize-rails (4.1.1)
     rack (2.0.5)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -160,8 +166,10 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   byebug
   coffee-rails (~> 4.1.0)
+  google_places
   jbuilder (~> 2.0)
   jquery-rails
+  normalize-rails
   rails (~> 5.0.1)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

@@ -23,7 +23,6 @@
  body {
    background-image: url('https://www.thechediandermatt.com/images/content/mood/Big/The-Chedi-Andermatt-RESTAURANT-Main-Dining-03.jpg');
    background-repeat: no-repeat;
-
    box-sizing: border-box;
  }
 
@@ -56,8 +55,6 @@ section {
   background-color: rgba(255,255,255,0.3);
   display: inline-block;
   padding: 2em;
-  margin-left: 6em;
-  margin-right: 6em;
 }
 
 .name a {
@@ -90,4 +87,22 @@ section .name:hover {
 .individual_restaurant img {
   width: 200px;
   grid
+}
+
+.title h1 {
+  text-align: center;
+  color: black;
+  background-color: white;
+}
+
+.button {
+  background-color: white;
+  border: 2px solid grey;
+  padding: 0.5em;
+  border-radius: 1em;
+  text-decoration: none;
+}
+
+.all_restaurants {
+  margin: 1em;
 }

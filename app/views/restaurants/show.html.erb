@@ -1,11 +1,10 @@
 
 <div class="individual_restaurant">
   <h1><%= @restaurant.name%></h1>
-  <%= image_tag @restaurant.main_picture %>
-
-  <%= @restaurant.address %> <br />
-  <%= @restaurant.neighbourhood %> <br />
-  <%= @restaurant.price_range %>
+  <%= image_tag @restaurant.main_picture %><br />
+  Address: <%= @restaurant.address %> <br />
+  Neighbourhood: <%= @restaurant.neighbourhood %> <br />
+  Price range <%= @restaurant.price_range %>
 
   <div class="menu">
     <% @restaurant.uploads.each do |upload|%>

@@ -1,4 +1,4 @@
 
 <h1>Edit Restaurant</h1>
 <%= render 'form', restaurant: @restaurant %>
-<%= link_to 'Back', restaurants_path %>
+<%= link_to 'Back', restaurant_path(@restaurant.id) %>

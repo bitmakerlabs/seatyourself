@@ -53,6 +53,8 @@ class RestaurantsController < ApplicationController
     @restaurant.phone_number = params[:restaurant][:phone_number]
     @restaurant.capacity = params[:restaurant][:capacity]
     @restaurant.address = params[:restaurant][:address]
+    @restaurant.main_picture = params[:restaurant][:main_picture]
+    @restaurant.uploads = params[:restaurant][:uploads] || []
 
 
     if @restaurant.save
@@ -83,10 +85,5 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  def picture(restaurant)
-    if restaurant.main_picture.present?
-      image_tag restaurant.main_picture
-    end
-  end
 
 end

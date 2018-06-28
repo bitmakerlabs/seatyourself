@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address: MyString
+  neighbourhood: MyString
+  price_range: 1
+  summary: MyText
+  menu: MyText
+  time_slots: 2018-06-26 13:47:51
+
+two:
+  address: MyString
+  neighbourhood: MyString
+  price_range: 1
+  summary: MyText
+  menu: MyText
+  time_slots: 2018-06-26 13:47:51

@@ -6,13 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Restaurant.create!(name: "Burger-Place", neighbourhood: "Westdale", price_range: 5, summary: "test", menu: "test", time_slots: nil)
-Restaurant.create!(name: "Pizza-Place", neighbourhood: "Westdale", price_range: 5, summary: "test", menu: "test", time_slots: nil)
-Restaurant.create!(name: "Fry-Place", neighbourhood: "Westdale", price_range: 5, summary: "test", menu: "test", time_slots: nil)
-Restaurant.create!(name: "Ramen-Spot", neighbourhood: "Westdale", price_range: 5, summary: "test", menu: "test", time_slots: nil)
-Restaurant.create!(name: "Sushi-Palace", neighbourhood: "Westdale", price_range: 5, summary: "test", menu: "test", time_slots: nil)
-Restaurant.create!(name: "Burger-Place", neighbourhood: "Westdale", price_range: 5, summary: "test", menu: "test", time_slots: nil)
-Restaurant.create!(name: "Italian-Place", neighbourhood: "Westdale", price_range: 5, summary: "test", menu: "test", time_slots: nil)
-Restaurant.create!(name: "Chinese-Place", neighbourhood: "Westdale", price_range: 5, summary: "test", menu: "test", time_slots: nil)
-Restaurant.create!(name: "Mexican-Place", neighbourhood: "Westdale", price_range: 5, summary: "test", menu: "test", time_slots: nil)
-Restaurant.create!(name: "Salad-Place", neighbourhood: "Westdale", price_range: 5, summary: "test", menu: "test", time_slots: nil)
+@client = GooglePlaces::Client.new('AIzaSyBsGdpGRHBjmqtAuOox1lJSGWjMSIGWihQ')
+cache = @client.spots(43.6514991, -79.3834668, :types => 'restaurant')
+
+cache.each do |item|
+  x = @client.spot(item.place_id)
+  Restaurant.create!(name: x.name, address: x.formatted_address, phone: x.formatted_phone_number, picture: x.photos[0].fetch_url(800), neighbourhood: x.city, price_range: 5, summary: "test", menu: "test", time_slots: nil)
+end
+
+User.create!(email: 'test1@gmail.com', password_digest: '1234')
+User.create!(email: 'test2@gmail.com', password_digest: '1234')
+User.create!(email: 'test3@gmail.com', password_digest: '1234')
+User.create!(email: 'test4@gmail.com', password_digest: '1234')

@@ -1,0 +1,9 @@
+<ol>
+<% @reservations.each do | reservation | %>
+<li><%= link_to "#{reservation.user.first_name} #{reservation.user.last_name}", user_path(current_user) %></li>
+<%end %>
+</ol>
+
+
+
+You are signed is as.. : <%=current_user.first_name %> <%= current_user.last_name %>

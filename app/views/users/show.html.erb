@@ -18,7 +18,7 @@
       <% @user.reservations.each do |reservation| %>
       <div class="display"><%= reservation.restaurant.name %></div>
         <% if reservation.user != nil %>
-        <p><%= reservation.party_size %> guests ON <%= reservation.time %><%= reservation.date %></p>
+            <p><%= reservation.party_size %> guests ON <%= reservation.time %><%= reservation.date %></p>
         <% else %>
          <div class="display">No reservations yet!</div>
         <% end %>

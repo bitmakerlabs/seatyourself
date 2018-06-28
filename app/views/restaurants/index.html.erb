@@ -8,8 +8,8 @@
   <%= submit_tag 'Search', name:nil %>
 <% end %>
 
-<section>
 <% @restaurants.each do |restaurant| %>
+<section class="all_restaurants">
   <p>
   Name: <%=link_to(restaurant.name, restaurant_path(restaurant.id))%><br>
   Address: <%=restaurant.address%><br>
@@ -17,8 +17,5 @@
   Total Capacity: <%=restaurant.capacity%>
   </p>
   <p><%= link_to "Reserve", new_restaurant_reservation_url(restaurant.id) %> </p>
-<% end %>
-
-<%= link_to "New restaurant", new_restaurant_path %>
-
 </section>
+<% end %>

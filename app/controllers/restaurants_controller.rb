@@ -54,15 +54,13 @@ class RestaurantsController < ApplicationController
     @restaurant.phone_number = params[:restaurant][:phone_number]
     @restaurant.capacity = params[:restaurant][:capacity]
     @restaurant.address = params[:restaurant][:address]
-<<<<<<< HEAD
-    @restaurant.main_picture = params[:restaurant][:main_picture]
+    if params[:restaurant][:main_picture]
+      @restaurant.main_picture = params[:restaurant][:main_picture]
+    end
     @restaurant.uploads = params[:restaurant][:uploads] || []
-=======
     @restaurant.cuisine = params[:restaurant][:cuisine]
->>>>>>> c551e4d5c1d48fbcbab4d2044a5c1ea9774a311d
 
-
-    if @restaurant.save
+    if @restaurant.save!
       redirect_to restaurant_path(@restaurant)
     else
       render :edit
@@ -90,13 +88,5 @@ class RestaurantsController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
 
-=======
-  def picture(restaurant)
-    if restaurant.main_picture.present?
-      image_tag restaurant.main_picture
-    end
-  end
->>>>>>> c551e4d5c1d48fbcbab4d2044a5c1ea9774a311d
 end

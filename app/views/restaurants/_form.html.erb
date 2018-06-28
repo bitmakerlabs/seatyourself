@@ -33,7 +33,7 @@
     <%= f.label :cuisine %><br>
     <%= f.text_field :cuisine %>
   </p>
- 
+
   <p>
     Price Range </br>
     <%= f.radio_button(:price_range, "$") %>
@@ -51,6 +51,7 @@
   <p>
     <%= f.label :uploads,"Menu Photos"%><br>
     <%= f.file_field :uploads, multiple: true%>
+
   </p>
   <p>
      <%= f.submit "Save" %>

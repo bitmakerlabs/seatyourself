@@ -5,7 +5,7 @@ class Restaurant < ApplicationRecord
   has_many :reservations
   has_many :users, through: :reservations
 
-  validates :name, :address, :phone_number, :capacity, :price_range, :neighbourhood, :main_picture, :uploads, presence: true
+  validates :name, :address, :phone_number, :capacity, :price_range, :neighbourhood, presence: true
 
 
   def self.search(term)

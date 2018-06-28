@@ -14,6 +14,7 @@ class ReservationsController < ApplicationController
     end
 
     def create
+
         @reservation = Reservation.new
         @reservation.date = params[:reservation][:date]
         @reservation.time = params[:reservation][:time]
@@ -22,6 +23,7 @@ class ReservationsController < ApplicationController
 
 
         @reservation.user       = current_user
+        
         if @reservation.save
             redirect_to user_path(current_user)
         else

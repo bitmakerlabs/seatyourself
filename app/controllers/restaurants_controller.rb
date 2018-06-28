@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
 
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.search(params[:term])
   end
 
   def show
@@ -20,6 +20,7 @@ class RestaurantsController < ApplicationController
 
     @restaurant.name = params[:restaurant][:name]
     @restaurant.price_range = params[:restaurant][:price_range]
+    @restaurant.cuisine = params[:restaurant][:cuisine]
     @restaurant.open = params[:restaurant][:open]
     @restaurant.close = params[:restaurant][:close]
     @restaurant.neighbourhood = params[:restaurant][:neighbourhood]
@@ -53,6 +54,7 @@ class RestaurantsController < ApplicationController
     @restaurant.phone_number = params[:restaurant][:phone_number]
     @restaurant.capacity = params[:restaurant][:capacity]
     @restaurant.address = params[:restaurant][:address]
+    @restaurant.cuisine = params[:restaurant][:cuisine]
 
 
     if @restaurant.save
@@ -88,5 +90,4 @@ class RestaurantsController < ApplicationController
       image_tag restaurant.main_picture
     end
   end
-
 end

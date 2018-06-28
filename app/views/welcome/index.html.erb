@@ -1,1 +1,7 @@
 <h1 class = 'welcome'>seat<span>|</span>yourself</h1>
+
+
+<%= form_tag(restaurants_path, method: :get) do %>
+  <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search', name:nil %>
+<% end %>

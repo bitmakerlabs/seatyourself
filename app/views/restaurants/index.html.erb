@@ -3,14 +3,22 @@
   <a href="/restaurants/new" class="button">Add a New Restaurant</a>
 </div>
 
-  <% @restaurants.each do |restaurant| %>
-  <section class="all_restaurants">
-    <p>
-    Name: <a><%=link_to(restaurant.name, restaurant_path(restaurant.id))%></a><br>
-    Address: <%=restaurant.address%><br>
-    Phone: <%=restaurant.phone_number%><br>
-    Total Capacity: <%=restaurant.capacity%>
-    </p>
-    <p><%= link_to "Reserve", new_restaurant_reservation_url(restaurant.id) %> </p>
-  </section>
-  <% end %>
+<%= form_tag(restaurants_path, method: :get) do %>
+  <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search', name:nil %>
+<% end %>
+
+<section>
+<% @restaurants.each do |restaurant| %>
+  <p>
+  Name: <%=link_to(restaurant.name, restaurant_path(restaurant.id))%><br>
+  Address: <%=restaurant.address%><br>
+  Phone: <%=restaurant.phone_number%><br>
+  Total Capacity: <%=restaurant.capacity%>
+  </p>
+  <p><%= link_to "Reserve", new_restaurant_reservation_url(restaurant.id) %> </p>
+<% end %>
+
+<%= link_to "New restaurant", new_restaurant_path %>
+
+</section>

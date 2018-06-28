@@ -1,0 +1,11 @@
+<h1>Restaurant Reservation</h1>
+
+<% if current_user %>
+<%= link_to("ADD RESERVATION", new_restaurant_reservation_url)%>
+<%end %>
+
+<ol>
+<% @reservations.each do | reservation | %>
+<li><%= link_to "#{reservation.user.first_name} #{reservation.user.last_name}", restaurant_reservation_url %></li>
+<%end %>
+</ol>

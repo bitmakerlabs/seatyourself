@@ -45,7 +45,7 @@ class RestaurantsController < ApplicationController
 
   def update
     load_restaurant
-
+    @restaurant.cuisine = params[:restaurant][:cuisine]
     @restaurant.name = params[:restaurant][:name]
     @restaurant.price_range = params[:restaurant][:price_range]
     @restaurant.open = params[:restaurant][:open]
@@ -57,10 +57,12 @@ class RestaurantsController < ApplicationController
     if params[:restaurant][:main_picture]
       @restaurant.main_picture = params[:restaurant][:main_picture]
     end
-    @restaurant.uploads = params[:restaurant][:uploads] || []
-    @restaurant.cuisine = params[:restaurant][:cuisine]
 
-    if @restaurant.save!
+    if params[:restaurant][:uploads]
+      @restaurant.uploads = params[:restaurant][:uploads] || []
+    end
+
+    if @restaurant.save
       redirect_to restaurant_path(@restaurant)
     else
       render :edit

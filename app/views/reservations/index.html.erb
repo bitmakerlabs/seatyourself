@@ -6,6 +6,6 @@
 
 <ol>
 <% @reservations.each do | reservation | %>
-<li><%= link_to "#{reservation.user.first_name} #{reservation.user.last_name}", restaurant_reservation_url(reservation.id) %></li>
+<li><%= link_to "#{reservation.user.first_name} #{reservation.user.last_name}", user_path(current_user) %></li>
 <%end %>
 </ol>

@@ -1,3 +1,6 @@
+<h1><%= @restaurant.name %></h1>
+<h4>Hours:</h4>
+<p>Open <%= @restaurant.open_at %> to <%= @restaurant.close_at %></p>
 <div class="reso_page">
   <div class="errors">
     <% @reso.errors.messages.each do |attribute, errors| %>

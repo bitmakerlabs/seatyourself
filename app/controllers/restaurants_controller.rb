@@ -27,7 +27,8 @@ class RestaurantsController < ApplicationController
     @restaurant.price_range = params[:restaurant][:price_range]
     @restaurant.summary = params[:restaurant][:summary]
     @restaurant.menu = params[:restaurant][:menu]
-    @restaurant.time_slots = params[:restaurant][:time_slots]
+    @restaurant.open_at = params[:restaurant][:open_at]
+    @restaurant.close_at = params[:restaurant][:close_at]
     @restaurant.user_id = session[:user_id]
 
     @user = User.find(current_user)

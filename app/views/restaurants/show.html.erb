@@ -11,7 +11,7 @@
   <h3><%= @restaurant.price_range %></h3>
   <h3><%= @restaurant.summary %></h3>
   <h3><%= @restaurant.menu %></h3>
-  <h3><%= @restaurant.time_slots %></h3>
+  <h3>Open from <%= @restaurant.open_at %> to <%= @restaurant.close_at %></h3>
 
 <% if current_user  %>
   <%= link_to "Make a Reservation!", new_restaurant_reservation_path(@restaurant) %>

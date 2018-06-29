@@ -1,0 +1,22 @@
+<% if booking.errors.any? %>
+  <% booking.errors.messages[:custom_message].each do |msg| %>
+  <p><%= msg %></p>
+  <% end %>
+<% end %>
+<%= form_for [restaurant, booking] do |f| %>
+  <p>
+    <%= f.label :day, "Date" %>
+    <%= f.date_select :day %>
+  </p>
+  <p>
+    <%= f.label (:time) %>
+    <%= f.select :time, options_for_select(@booking_times_array) %>
+  </p>
+  <p>
+    <%= f.label :n_people, "How many people?" %>
+    <%= f.number_field :n_people %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

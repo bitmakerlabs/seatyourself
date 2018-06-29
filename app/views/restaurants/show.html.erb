@@ -1,0 +1,23 @@
+<div class = "wrapper">
+  <div class = "show">
+    <h1><%= @restaurant.name %></h1>
+    <div class ="show1">
+      <h2>Description</h2>
+      <p> <%= @restaurant.description %> </p>
+      <p>Opens at: <%=time_to_am_pm(@restaurant.open_time.localtime.hour) %> </p>
+      <p>Closes at: <%= time_to_am_pm(@restaurant.close_time.localtime.hour) %> </p>
+      <p>Price: <%= "$"*@restaurant.price %>/5</p>
+    </div>
+
+    <div class ="show2">
+      <h2>Make Your Reservation</h2>
+      <% if session[:user_id] %>
+        <% if @restaurant.user_id == current_user.id %>
+          <%= link_to 'edit', edit_user_restaurant_path(current_user, @restaurant) %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <%= render 'bookings/booking_form', restaurant: @restaurant, booking: @booking %>
+  </div>
+</div>

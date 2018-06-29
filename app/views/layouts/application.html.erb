@@ -7,8 +7,53 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container col-12">
+  <nav class="nav nav-pills nav-fill">
+
+    <li><%= link_to "Home", root_path, class: "nav-item nav-link active" %></li>
+
+        <!-- we only want to show this link if the user is logged in -->
+
+      <% if logged_in? %>
+
+         <li><%= link_to 'Add a restaurant', new_restaurant_path %> </li>
+        <li><%= link_to 'Log Out', session_path(current_user), class: "nav-link", method: :delete %></li>
+
+
+      <%else %>
+
+        <!-- else we show the visitor the signup and login page -->
+        <li><%= link_to "Sign Up", new_user_path, class: "nav-link" %></li>
+        <li><%= link_to "Log in", new_session_path, class: "nav-link"%></li>
+
+      <% end %>
+  </nav>
 
 <%= yield %>
 
+  <footer>
+
+    <h2>TEAM</h2>
+
+    <section class="creator">
+      <div class="info">
+        <h3>ANTONIO </h3>
+        <%= link_to "Linkedin", "https://www.linkedin.com/in/antoniomanzanares/", :target => "_blank" %>
+      </div>
+
+      <div class="info">
+        <h3>DENIS</h3>
+        <%= link_to "Linkedin", "https://www.linkedin.com/in/denis-sanchez-dujota-a717336b/", :target => "_blank" %>
+      </div>
+
+      <div class="info">
+        <h3>LAN PHAN</h3>
+        <%= link_to "Linkedin", "https://www.linkedin.com/in/lancphan/", :target => "_blank" %>
+      </div>
+
+    </section>
+
+  </footer>
+</div>
 </body>
 </html>

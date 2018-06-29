@@ -1,0 +1,19 @@
+<% if @reservation.errors.any? %>
+  <div id="field_with_errors">
+    <ul>
+    <% @reservation.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for [@restaurant, @reservation] do |f| %>
+  <p>
+    <%= f.label :reserved_time %> <br>
+    <%= f.datetime_field :reserved_time %>
+  </p>
+
+  <p><%= f.submit %></p>
+
+<% end %>

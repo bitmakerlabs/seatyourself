@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <title>Seatyourself</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="user_info">
+    <% if current_user %>
+    <p>
+      Hello <%= current_user.first_name %>
+      |
+      <%= link_to "Logout", session_path("current"), method: :delete %>
+      |
+      <a><%= link_to "All restaurants", restaurants_path %></a>
+    </p>
+    <% else  %>
+    <p>
+      <%= link_to "Restaurants", restaurants_path %>
+      |
+      <%= link_to "Log in", new_session_path %>
+      |
+      <%= link_to "Create account", new_user_path %>
+    </p>
+    <% end %>
+  </div>
+
+
+
+
+
+
+
+
+
+
 
 <%= yield %>
+
+
+<main class="site-content"
+</main>
+  <footer>Copyright Bibek + Yumee + Haggai BAYMAX 2018</footer>
 
 </body>
 </html>

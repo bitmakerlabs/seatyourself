@@ -1,0 +1,27 @@
+<section>
+  <% if current_user %>
+    <% if current_user.id == @restaurant.user_id %>
+      <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant) %> | <%=
+      link_to 'Delete', restaurant_path(@restaurant), :method => :delete %>
+    <% end %>
+  <% end %>
+
+<h3><%= @restaurant.name %></h3>
+<h4>Price Range: $<%= @restaurant.price_range %></h4>
+<p>Owner: <%= @restaurant.user.first_name %></p>
+
+<ul>
+  <li>Address: <%= @restaurant.address %>, <%= @restaurant.neighbourhood %></li>
+  <li>Hours: <%= @restaurant.opening_hour %>:00 - <%= @restaurant.closing_hour %>:00</li>
+  <li>About: <%= @restaurant.summary %></li>
+  <li>Menu: <%= @restaurant.menu %></li>
+  <li><%= @restaurant.available_slots %></li>
+  <li><%= @restaurant.max_capacity %></li>
+  <li>Party Size: <%= @restaurant.min_party_size %> - <%= @restaurant.max_party_size %></li>
+</ul>
+</section>
+
+<section class="reservation-form">
+  <h4>Make a New Reservation</h4>
+  <%= render 'reservations/form' %>
+</section>

@@ -7,8 +7,47 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <h1>Main Nav</h1>
+    <p><%= link_to "Home page", root_path %></p>
 
-<%= yield %>
+    <% if current_user %>
+      Hello <%= current_user.full_name %>! <br>
+      <%= link_to 'Log Out', session_path(current_user), method: :delete %> |
+      <%= link_to "Create New Restaurant", new_restaurant_path %> |
+      <%= link_to "Profile", user_path(current_user) %>
+      
+    <% else %>
+      <%= link_to "Sign Up", new_user_path %> |
+      <%= link_to "Login", new_session_path %> |
+
+    <% end %>
+  </header>
+
+  <main>
+    <section>
+
+
+    <h1>Welcome</h1>
+
+
+
+    <section>
+      <% if flash[:notice] %>
+        <p class="notice"><%= flash[:notice] %></p>
+      <% end %>
+      <% if flash[:alert] %>
+        <p class="alert"><%= flash[:alert] %></p>
+      <% end %>
+    </section>
+
+
+    <%= yield %>
+  </main>
+
+  <footer>
+    &copy; Bitmaker 2018 | <a href="https://github.com/ilyana19/seatyourself">See Repo Here</a>
+  </footer>
 
 </body>
 </html>

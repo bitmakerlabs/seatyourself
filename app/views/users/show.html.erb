@@ -1,0 +1,37 @@
+
+
+<h2>Reservations</h2>
+  <% if current_user %>
+    <% current_user.reservations.each do |reservation| %>
+      <p>
+        <%= reservation.restaurant.name %>
+      </p>
+      <p>
+        <%= reservation.restaurant.address %>
+      </p>
+      <p>
+        <%= reservation.time_slot %>
+      </p>
+      <p>
+        <%= reservation.party_size%>
+      </p>
+    <% end %>
+  <% end %>
+</section>
+
+
+
+  <h2>My Restaurants</h2>
+
+  <% @restaurant.each do |restaurant| %>
+  <%=   restaurant.name %>
+    <% restaurant.reservations.each do |reservation| %>
+    <br>
+    <%= reservation.party_size %>
+    <br>
+    <%= reservation.time_slot %>
+    <br>
+    <%= reservation.note %>
+    <p> ---------------- </p>
+    <% end %>
+  <% end  %>

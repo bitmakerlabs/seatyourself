@@ -1,0 +1,56 @@
+<% if restaurant.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <ul>
+      <% restaurant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(restaurant) do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </p>
+
+  <p>
+    <%= f.label :price_range %>
+    <%= f.text_field :price_range %>
+  </p>
+
+  <p>
+    <%= f.label :opening_hour %>
+    <%= f.time_field :opening_hour %>
+  </p>
+
+  <p>
+    <%= f.label :closing_hour %>
+    <%= f.time_field :closing_hour %>
+  </p>
+
+  <p>
+    <%= f.label :max_capacity %><br>
+    <%= f.text_field :max_capacity %>
+  </p>
+
+  <p>
+    <%= f.label :max_party_size %><br>
+    <%= f.text_field :max_party_size %>
+  </p>
+
+  <p>
+    <%= f.label :min_party_size %><br>
+    <%= f.text_field :min_party_size %>
+  </p>
+
+  <p>
+    <%= f.submit "Register" %>
+  </p>
+<% end %>

@@ -1,0 +1,16 @@
+<h1>Welcome To Munch!</h1>
+
+<% @restaurants.each do |restaurant| %>
+  <div class="restaurant_list">
+    <ul>
+      <h2><%= restaurant %></h2>
+      <li><%= restaurant.address  %></li>
+      <li><%= restaurant.city  %></li>
+      <li><%= restaurant.price_range  %></li>
+      <li><%= restaurant.summary  %></li>
+      <li><%= restaurant.menu  %></li>
+      <li><%= restaurant.opening_hours  %></li>
+      <li><%= restaurant.capacity  %></li>
+    </ul>
+  </div>
+<% end %>

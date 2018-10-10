@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :reservations
   end
 
-  resources :users
+  resources :users 
 
   resources :sessions
 

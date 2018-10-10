@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_10_191213) do
+ActiveRecord::Schema.define(version: 2018_10_10_202515) do
 
   create_table "reservations", force: :cascade do |t|
     t.integer "restaurant_id"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2018_10_10_191213) do
     t.boolean "owner"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
 end

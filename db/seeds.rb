@@ -5,3 +5,41 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+user = User.create(
+  name: "kevin",
+  email: "kevindiep@fakemail.com"
+)
+
+Restaurant.create(
+  address: "353 Bay Street",
+  city: "Toronto",
+  price_range: "$$$",
+  summary: "Authentic Japanese cuisine",
+  menu: "not available",
+  opening_hours: "10am - 8pm",
+  capacity: "150",
+  user_id: user.id
+)
+
+Restaurant.create(
+  address: "1 Yonge Street",
+  city: "Toronto",
+  price_range: "$$",
+  summary: "Mongolian hot pot",
+  menu: "not available",
+  opening_hours: "9am - 10pm",
+  capacity: "200",
+  user_id: user.id
+)
+
+Restaurant.create(
+  address: "200 Bay Street",
+  city: "Toronto",
+  price_range: "$$$$",
+  summary: "Surf and Turf, fine dining",
+  menu: "coming soon!",
+  opening_hours: "11am - 11pm",
+  capacity: "100",
+  user_id: user.id
+)

@@ -6,6 +6,10 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
+
+<header>
+  <%= link_to 'Home', restaurants_path %> | <%= link_to 'Log In', new_session_path %> | <%= link_to 'Sign Up', new_user_path %>
+</header>
 <body>
 
 <%= yield %>

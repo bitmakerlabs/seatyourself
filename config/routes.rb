@@ -5,8 +5,9 @@ Rails.application.routes.draw do
     resources :reservations
   end
 
-  resources :users 
+  resources :users
 
   resources :sessions
 
+  root 'restaurants#index'
 end

@@ -15,3 +15,6 @@
       <p> Opening Hours<%= @restaurant.opening_hours  %></p>
       <p> Closing Hours<%= @restaurant.closing_hours  %></p>
     </ul>
+
+<h2>Reservation</h2>
+<%= render partial: "reservations/form", locals: {restaurant: @restaurant, reservation: @reservation} %>

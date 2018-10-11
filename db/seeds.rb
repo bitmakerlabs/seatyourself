@@ -20,6 +20,7 @@ Restaurant.create(
   capacity: 150,
   user_id: 1,
   name: "Miku"
+
 )
 
 Restaurant.create(

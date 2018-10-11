@@ -1,0 +1,10 @@
+<h1><%= current_user.name %></h1>
+<div class="">
+<%= current_user.email %>
+</div>
+
+
+<%  @restaurants.each do |restaurant| %>
+<ul>
+<li>  <%= restaurant.name %> </li>
+<% end %>

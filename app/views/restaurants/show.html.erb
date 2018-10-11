@@ -9,3 +9,6 @@
       <li><%= @restaurant.opening_hours  %></li>
       <li><%= @restaurant.capacity  %></li>
     </ul>
+
+<h2>Reservation</h2>
+<%= render partial: "reservations/form", locals: {restaurant: @restaurant, reservation: @reservation} %>

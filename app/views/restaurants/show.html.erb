@@ -1,13 +1,19 @@
 <h1><%= @restaurant.name %></h1>
 
+<% if current_user == @restaurant.user %>
+  <%= link_to "Edit", edit_restaurant_path %>   |   <%= link_to "Delete", "/restaurants/#{@restaurant.id}", method: :delete %>
+<% end %>
+
+
     <ul class="restaurant_list">
-      <li><%= @restaurant.address  %></li>
-      <li><%= @restaurant.city  %></li>
-      <li><%= @restaurant.price_range  %></li>
-      <li><%= @restaurant.summary  %></li>
-      <li><%= @restaurant.menu  %></li>
-      <li><%= @restaurant.opening_hours  %></li>
-      <li><%= @restaurant.capacity  %></li>
+      <p> <%= @restaurant.name %>
+      <p> Address: <%= @restaurant.address  %></p>
+      <p> City:<%= @restaurant.city  %></p>
+      <p> Price Range: <%= @restaurant.price_range  %></p>
+      <p> Summary <%= @restaurant.summary  %></p>
+      <p> Menu:<%= @restaurant.menu  %></p>
+      <p> Opening Hours<%= @restaurant.opening_hours  %></p>
+      <p> Closing Hours<%= @restaurant.closing_hours  %></p>
     </ul>
 
 <h2>Reservation</h2>

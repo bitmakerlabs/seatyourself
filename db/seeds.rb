@@ -17,10 +17,10 @@ Restaurant.create(
   price_range: "$$$",
   summary: "Authentic Japanese cuisine",
   menu: "not available",
-  opening_hours: Time.now,
-  capacity: "150",
-  user_id: user.id,
-  name: "OKAY"
+  capacity: 150,
+  user_id: 1,
+  name: "Miku"
+
 )
 
 Restaurant.create(
@@ -29,9 +29,8 @@ Restaurant.create(
   price_range: "$$",
   summary: "Mongolian hot pot",
   menu: "not available",
-  opening_hours: "9am - 10pm",
-  capacity: "200",
-  user_id: user.id,
+  capacity: 200,
+  user_id: 1,
   name: "Mongolian Style"
 )
 
@@ -41,8 +40,7 @@ Restaurant.create(
   price_range: "$$$$",
   summary: "Surf and Turf, fine dining",
   menu: "coming soon!",
-  opening_hours: "11am - 11pm",
-  capacity: "100",
-  user_id: user.id,
+  capacity: 100,
+  user_id: 1,
   name: "surfs up!"
 )

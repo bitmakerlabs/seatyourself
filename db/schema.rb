@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_10_11_185212) do
 
+
   create_table "reservations", force: :cascade do |t|
     t.integer "restaurant_id"
     t.integer "user_id"

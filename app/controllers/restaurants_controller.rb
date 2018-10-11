@@ -26,6 +26,8 @@ class RestaurantsController < ApplicationController
     @restaurant.opening_hours = params[:restaurant][:opening_hours]
     @restaurant.closing_hours = params[:restaurant][:closing_hours]
     @restaurant.capacity = params[:restaurant][:capacity]
+    @restaurant.min_party_size = params[:restaurant][:min_party_size]
+    @restaurant.max_party_size = params[:restaurant][:max_party_size]
     @restaurant.user = current_user
     if @restaurant.save
       redirect_to restaurants_url
@@ -49,6 +51,8 @@ class RestaurantsController < ApplicationController
     @restaurant.opening_hours = params[:restaurant][:opening_hours]
     @restaurant.closing_hours = params[:restaurant][:closing_hours]
     @restaurant.capacity = params[:restaurant][:capacity]
+    @restaurant.min_party_size = params[:restaurant][:min_party_size]
+    @restaurant.max_party_size = params[:restaurant][:max_party_size]
     if @restaurant.save
       redirect_to restaurant_url
     else

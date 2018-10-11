@@ -1,5 +1,10 @@
 <h1><%= @restaurant.name %></h1>
 
+<% if current_user == @restaurant.user %>
+  <%= link_to "Edit", edit_restaurant_path %>
+<% end %>
+
+
     <ul class="restaurant_list">
       <li><%= @restaurant.address  %></li>
       <li><%= @restaurant.city  %></li>

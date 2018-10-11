@@ -17,10 +17,10 @@ Restaurant.create(
   price_range: "$$$",
   summary: "Authentic Japanese cuisine",
   menu: "not available",
-  opening_hours: "10am - 8pm",
+  opening_hours: Time.now,
   capacity: "150",
   user_id: user.id,
-  name: "Miku"
+  name: "OKAY"
 )
 
 Restaurant.create(

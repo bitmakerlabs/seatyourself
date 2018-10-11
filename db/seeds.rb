@@ -19,7 +19,8 @@ Restaurant.create(
   menu: "not available",
   opening_hours: "10am - 8pm",
   capacity: "150",
-  user_id: user.id
+  user_id: user.id,
+  name: "Miku"
 )
 
 Restaurant.create(
@@ -30,7 +31,8 @@ Restaurant.create(
   menu: "not available",
   opening_hours: "9am - 10pm",
   capacity: "200",
-  user_id: user.id
+  user_id: user.id,
+  name: "Mongolian Style"
 )
 
 Restaurant.create(
@@ -41,5 +43,6 @@ Restaurant.create(
   menu: "coming soon!",
   opening_hours: "11am - 11pm",
   capacity: "100",
-  user_id: user.id
+  user_id: user.id,
+  name: "surfs up!"
 )

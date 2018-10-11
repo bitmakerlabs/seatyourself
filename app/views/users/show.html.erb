@@ -7,5 +7,5 @@
 <%  @restaurants.each do |restaurant| %>
 <ul>
 <li>  <%= restaurant.name %> </li>
-<%= link_to("Edit", edit_restaurant_url(restaurant)) %>
+<%= link_to("Edit", edit_restaurant_url(restaurant)) %>   |   <%= link_to("Delete", "/restaurants/#{restaurant.id}", method: :delete) %>
 <% end %>

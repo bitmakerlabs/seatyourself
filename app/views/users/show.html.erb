@@ -7,4 +7,5 @@
 <%  @restaurants.each do |restaurant| %>
 <ul>
 <li>  <%= restaurant.name %> </li>
+<%= link_to("Edit", edit_restaurant_url(restaurant)) %>
 <% end %>

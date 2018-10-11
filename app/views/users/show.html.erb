@@ -4,8 +4,16 @@
 </div>
 
 
-<%  @restaurants.each do |restaurant| %>
-<ul>
-<li>  <%= restaurant.name %> </li>
-<%= link_to("Edit", edit_restaurant_url(restaurant)) %>
+<% @restaurants.each do |restaurant| %>
+<% @reservations = restaurant.reservations %>
+<ul class="restaurant_names">
+  <li>  <%= restaurant.name %> </li>
+  <%= link_to("Edit", edit_restaurant_url(restaurant)) %>   |   <%= link_to("Delete", "/restaurants/#{restaurant.id}", method: :delete) %>
+</ul>
+<% @reservations.each do |reservation| %>
+<ul class="reservation_list">
+  <li> Reservation Time: <%= reservation.time %> </li>
+  <li> Number of Guests: <%= reservation.number_of_guests %></li>
+</ul>
+<% end %>
 <% end %>

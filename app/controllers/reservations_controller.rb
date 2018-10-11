@@ -8,24 +8,19 @@ def create
   @reservation.restaurant_id = params[:restaurant_id]
 
 
-  @restaurant_total_capacity = Restaurant.find(params[:restaurant_id]).capacity
+  # @restaurant_total_capacity = Restaurant.find(params[:restaurant_id]).capacity
   # @restaurant_open = (Restaurant.find(params[:restaurant_id]).opening_hours..Restaurant.find(params[:restaurant_id]).closing_hours).step(1.hour)
+  # @total_guests = Restaurant.find(params[:restaurant_id]).reservations.where(time: @reservation.time).sum(:number_of_guests)
 
 
-  if @restaurant_total_capacity > @reservation.number_of_guests
-    total_guests = Restaurant.find(params[:restaurant_id]).reservations.where(time: @reservation.time).sum(:number_of_guests)
 
-    flash[:notice] = "Hi"
-     @reservation.save
-
+  if @reservation.save
 
     redirect_to restaurants_url
-
   else
-
     redirect_to restaurants_url
+end
 
-  end
 
 end
 

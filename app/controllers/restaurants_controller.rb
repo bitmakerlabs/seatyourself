@@ -54,6 +54,7 @@ class RestaurantsController < ApplicationController
     @restaurant.capacity = params[:restaurant][:capacity]
     @restaurant.min_party_size = params[:restaurant][:min_party_size]
     @restaurant.max_party_size = params[:restaurant][:max_party_size]
+    @restaurant.picture_url = params[:restaurant][:picture_url]
     if @restaurant.save
       redirect_to restaurant_url
     else

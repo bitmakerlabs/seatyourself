@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 
 
     if @user.save
+      current_user = @user
       redirect_to restaurants_url
     else
       render :new

@@ -3,18 +3,20 @@
 <%= current_user.email %>
 </div>
 
-
+<h2>My restaurants: <%= @restaurants.length %></h2>
 <% @restaurants.each do |restaurant| %>
   <% @reservations = restaurant.reservations %>
   <ul class="restaurant_names">
     <li>  <%= restaurant.name %> </li>
     <%= link_to("Edit", edit_restaurant_url(restaurant)) %>   |   <%= link_to("Delete", "/restaurants/#{restaurant.id}", method: :delete) %>
   </ul>
+<h3>Reservations:</h3>
   <% @reservations.each do |reservation| %>
   <ul class="reservation_list">
-    <li> Reservation Time: <%= reservation.time %> </li>
+    <li> Reservation Time: <%= reservation.time.hour %> </li>
     <li> Number of Guests: <%= reservation.number_of_guests %></li>
   </ul>
+  <hr>
   <% end %>
 <% end %>
 
@@ -23,7 +25,7 @@
 <% @restaurant = Restaurant.find(r.restaurant_id)%>
 <div class="Reservation_made">
 <p>Restaurant: <%= @restaurant.name %></p>
-<p>Time: <%= r.time %></p>
+<p>Time: <%= r.time.hour %></p>
 <p>Guests:<%= r.number_of_guests %></p>
 </div>
 <% end %>

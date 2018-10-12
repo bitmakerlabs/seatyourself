@@ -20,9 +20,10 @@
 
 <h2>Reservations made</h2>
 <% current_user.reservations.each do |r| %>
+<% @restaurant = Restaurant.find(r.restaurant_id)%>
 <div class="Reservation_made">
+<p>Restaurant: <%= @restaurant.name %></p>
 <p>Time: <%= r.time %></p>
-<p>Restaurant: <%= r.restaurant_id %></p>
 <p>Guests:<%= r.number_of_guests %></p>
 </div>
 <% end %>

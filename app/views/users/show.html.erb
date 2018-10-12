@@ -1,0 +1,28 @@
+<h1><%= current_user.name %></h1>
+<div class="">
+<%= current_user.email %>
+</div>
+
+
+<% @restaurants.each do |restaurant| %>
+  <% @reservations = restaurant.reservations %>
+  <ul class="restaurant_names">
+    <li>  <%= restaurant.name %> </li>
+    <%= link_to("Edit", edit_restaurant_url(restaurant)) %>   |   <%= link_to("Delete", "/restaurants/#{restaurant.id}", method: :delete) %>
+  </ul>
+  <% @reservations.each do |reservation| %>
+  <ul class="reservation_list">
+    <li> Reservation Time: <%= reservation.time %> </li>
+    <li> Number of Guests: <%= reservation.number_of_guests %></li>
+  </ul>
+  <% end %>
+<% end %>
+
+<h2>Reservations made</h2>
+<% current_user.reservations.each do |r| %>
+<div class="Reservation_made">
+<p>Time: <%= r.time %></p>
+<p>Restaurant: <%= r.restaurant_id %></p>
+<p>Guests:<%= r.number_of_guests %></p>
+</div>
+<% end %>

@@ -1,0 +1,5 @@
+<h1>Welcome To Munch!</h1>
+
+<% @restaurants.sort_by{|city| city[:city]}.each do |restaurant| %>
+    <li><%= link_to"#{restaurant.name}", restaurant_url(restaurant) %></li>
+<% end %>

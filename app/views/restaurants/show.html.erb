@@ -20,4 +20,8 @@
   </div>
 
 <h2>Reservation</h2>
+<% if current_user %>
 <%= render partial: "reservations/form", locals: {restaurant: @restaurant, reservation: @reservation} %>
+<% else %>
+    <p> If you want to book a table at this restaurant please <%= link_to 'Log In', new_session_path %> </p>
+<% end %>

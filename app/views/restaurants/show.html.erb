@@ -5,6 +5,7 @@
 <% end %>
 
 
+<div class="restaurant_show">
     <ul class="restaurant_list">
       <p> <%= @restaurant.name %>
       <p> Address: <%= @restaurant.address  %></p>
@@ -15,6 +16,7 @@
       <p> Opening Hours<%= @restaurant.opening_hours  %></p>
       <p> Closing Hours<%= @restaurant.closing_hours  %></p>
     </ul>
+  </div>
 
 <h2>Reservation</h2>
 <%= render partial: "reservations/form", locals: {restaurant: @restaurant, reservation: @reservation} %>

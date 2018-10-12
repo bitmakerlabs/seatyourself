@@ -1,6 +1,10 @@
-<h1>Welcome To Munch!</h1>
-
-<% @restaurants.each do |restaurant| %>
+<div class="restaurant_index">
+  <h1>Restaurants</h1>
+  <% @restaurants.each do |restaurant| %>
+  <div class="restaurant_list">
+    <ul>
       <li><%= link_to"#{restaurant.name}", restaurant_url(restaurant) %></li>
+    </ul>
   </div>
-<% end %>
+  <% end %>
+</div>

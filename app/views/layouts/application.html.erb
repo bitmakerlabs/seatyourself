@@ -8,14 +8,21 @@
 </head>
 
 <header>
+  <div class="nav">
   <%= link_to 'Home', restaurants_path %>
 
   <% if current_user %>
-  Signed in as <%= link_to("#{current_user.email}", user_path(current_user)) %> <%= link_to 'Log out', session_path("current"), :method => :delete  %>
+  <div class="">
+  Signed in as <%= link_to("#{current_user.email}", user_path(current_user)) %> <br>
+  <%= link_to 'Log out', session_path("current"), :method => :delete  %> <br>  
   <%= link_to 'Create Restaurant', new_restaurant_path %>
+  </div>
   <% else %>
+  <div class="">
   <%= link_to 'Log In', new_session_path %> | <%= link_to 'Sign Up', new_user_path %>
+  </div>
   <% end %>
+  </div>
 </header>
 <body>
 

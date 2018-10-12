@@ -44,3 +44,10 @@ Restaurant.create(
   user_id: 1,
   name: "surfs up!"
 )
+
+Reservation.create(
+  restaurant_id: 10,
+  user_id: 4,
+  time: Time.now,
+  number_of_guests: 10
+)

@@ -1,7 +1,7 @@
 <h1><%= @restaurant.name %></h1>
 
 <% if current_user == @restaurant.user %>
-  <%= link_to "Edit", edit_restaurant_path %>   |   <%= link_to "Delete", "/restaurants/#{@restaurant.id}", method: :delete %>
+  <%= link_to "Edit", edit_restaurant_path(@restaurant) %>   |   <%= link_to "Delete", "/restaurants/#{@restaurant.id}", method: :delete %>
 <% end %>
 
 

@@ -1,11 +1,12 @@
 
 <div class="restaurant_index">
   <h1>Restaurants</h1>
-  <% @restaurants.each do |restaurant| %>
   <div class="restaurant_list">
+    <% @restaurants.each do |restaurant| %>
     <ul>
       <li><%= link_to"#{restaurant.name}", restaurant_url(restaurant) %></li>
+      <li><%= link_to(image_tag(restaurant.picture_url), "/restaurants/#{restaurant.id}") %></li>
     </ul>
+    <% end %>
   </div>
-  <% end %>
 </div>

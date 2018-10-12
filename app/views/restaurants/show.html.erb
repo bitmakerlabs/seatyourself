@@ -5,6 +5,7 @@
 <% end %>
 
 
+<div class="restaurant_show">
     <ul class="restaurant_list">
       <p> <%= @restaurant.name %>
       <p> Address: <%= @restaurant.address  %></p>
@@ -16,6 +17,11 @@
       <p> Closing Hours<%= @restaurant.closing_hours  %></p>
       <p> Capacity <%=@restaurant.capacity %> </p>
     </ul>
+  </div>
 
 <h2>Reservation</h2>
+<% if current_user %>
 <%= render partial: "reservations/form", locals: {restaurant: @restaurant, reservation: @reservation} %>
+<% else %>
+    <p> If you want to book a table at this restaurant please <%= link_to 'Log In', new_session_path %> </p>
+<% end %>

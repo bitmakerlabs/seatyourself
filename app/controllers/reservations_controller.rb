@@ -5,6 +5,7 @@ def create
   @reservation.time = params[:reservation][:time]
   @reservation.date = params[:reservation][:date]
   @reservation.number_of_guests = params[:reservation][:number_of_guests]
+
   # @reservation.user_id = params[:user_id]
   @reservation.user = current_user
   # @restaurant = Restaurant.find(@reservation.restaurant_id)

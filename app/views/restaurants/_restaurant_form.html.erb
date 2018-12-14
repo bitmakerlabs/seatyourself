@@ -5,11 +5,11 @@
   </p>
   <p>
     <%= f.label :open_from %><br/>
-    <%= f.datetime_field :open_from %>
+    <%= f.datetime_select( :open_from, :discard_minute => true, :discard_year => true, :discard_month => true, :discard_day => true) %>
   </p>
   <p>
     <%= f.label :open_until %><br/>
-    <%= f.datetime_field :open_until %>
+    <%= f.datetime_select( :open_until, :discard_minute => true, :discard_year => true, :discard_month => true, :discard_day => true) %>
   </p>
   <p>
     <%= f.label :capacity %><br/>
@@ -33,11 +33,11 @@
   </p>
   <p>
     <%= f.label :neighbourhood %><br/>
-    <%= f.text_field :neighbourhood %><br/>
+    <%= f.text_field :neighbourhood %>
   </p>
   <p>
     <%= f.label :category %><br/>
-    <%= f.text_field :category %><br/>
+    <%= f.text_field :category %>
   </p>
   <p>
     <%= f.submit %>

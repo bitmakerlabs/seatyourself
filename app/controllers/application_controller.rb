@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    #user_id == session[session [:user_id]
+    #user_id && User.find_user_id]
   end
 
     helper_method :current_user

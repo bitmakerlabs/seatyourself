@@ -1,4 +1,35 @@
 class UsersController < ApplicationController
+    # email = params[:email]
+    # password = params[:password]#
+
+    # u = User.find_by[email :email]#
+    #   if u && u.password == password#
+    #
+    #
+    #      #Access denied!
+    #    end
+
+    # salt = u.password(0..2)#
+    # hashed_salted_password = u.password_digest(3..-1)
+
+    # if u && unhash(u.unhashed_password) == submitted_password#
+    # if u && u.hashed_password hash(submitted_password), u.salt)#
+      #end?
+      #end again?
+
+    def decrypt(x, salt)
+
+    end
+
+    def encrypt(x)
+
+    end
+
+    def hash(x)
+
+    end
+
+
 
     def index
 

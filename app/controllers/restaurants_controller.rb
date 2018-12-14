@@ -1,8 +1,15 @@
 class RestaurantsController < ApplicationController
+  #before_action :require_login, except: [:index]
+
+  #def require_login
+    #unless session [:user_id]
+    #flash [:alert] = "Log in to your fucking account, dickhead."
+    #redirect_to new_session_path
+  # => end
+  #end
 
     def index
         @restaurants = Restaurant.all
-    end
 
     def show
         @restaurant = Restaurant.find(params[:id])

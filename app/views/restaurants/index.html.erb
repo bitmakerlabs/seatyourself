@@ -1,0 +1,7 @@
+<p>Restaurants:</p>
+<ul>
+  <% @restaurant.each do |restaurant| %>
+  <%= render 'restaurant',
+  restaurant: @restaurant %>
+  <% end %>
+</ul>

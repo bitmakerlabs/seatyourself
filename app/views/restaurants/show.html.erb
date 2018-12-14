@@ -1,0 +1,16 @@
+<% @restaurant.each do |restaurant| %>
+<%= render 'restaurant',
+restaurant: @restaurant %>
+<% end %>
+<ul>
+  <% @menu_item.each do |menu_item| %>
+  <%= render 'menu_item',
+  menu_item: @menu_item %>
+  <% end %>
+</ul>
+<ul>
+  <% @reservation.each do |reservation| %>
+  <%= render 'reservation',
+  reservation: @reservation %>
+  <% end %>
+</ul>

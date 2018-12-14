@@ -1,0 +1,45 @@
+<%= form_for resturant do |f| %>
+  <p>
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :open_from %><br/>
+    <%= f.datetime_field :open_from %>
+  </p>
+  <p>
+    <%= f.label :open_until %><br/>
+    <%= f.datetime_field :open_until %>
+  </p>
+  <p>
+    <%= f.label :capacity %><br/>
+    <%= f.number_field :capacity %>
+  </p>
+  <p>
+    <%= f.label :max_reservation_size %><br/>
+    <%= f.number_field :max_reservation_size %>
+  </p>
+  <p>
+    <%= f.label :price_range %><br/>
+    <%= f.number_field :price_range %>
+  </p>
+  <p>
+    <%= f.label :summary %><br/>
+    <%= f.text_area :summary %>
+  </p>
+  <p>
+    <%= f.label :address %><br/>
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :neighbourhood %><br/>
+    <%= f.text_field :neighbourhood %><br/>
+  </p>
+  <p>
+    <%= f.label :category %><br/>
+    <%= f.text_field :category %><br/>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

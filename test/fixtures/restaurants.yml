@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  open_from: 2018-12-13 20:00:48
+  open_until: 2018-12-13 20:00:48
+  capacity: 1
+  max_reservation_size: 1
+  price_range: 1
+  summary: MyText
+  user_id: 1
+  address: MyString
+  neighbourhood: MyString
+  category: MyString
+
+two:
+  name: MyString
+  open_from: 2018-12-13 20:00:48
+  open_until: 2018-12-13 20:00:48
+  capacity: 1
+  max_reservation_size: 1
+  price_range: 1
+  summary: MyText
+  user_id: 1
+  address: MyString
+  neighbourhood: MyString
+  category: MyString

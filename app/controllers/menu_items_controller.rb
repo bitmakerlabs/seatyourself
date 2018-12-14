@@ -13,20 +13,20 @@ class MenuItemsController < ApplicationController
     # end
 
     def create
-        @restaurant = Restaurant.find_by(params[:id]
-        
+        @restaurant = Restaurant.find_by(params[:id])
+
         @menu_item = MenuItem.new
-        @menu_items = @restaurant.reviews
+        @menu_items = @restaurant.menu_items
     end
 
     def edit
-        @restaurant = Restaurant.find_by(params[:id]
+        @restaurant = Restaurant.find_by(params[:id])
         @menu_item = MenuItem.find(params[:id])
         @menu_item.restaurant = @restaurant
     end
 
     def update
-        @restaurant = Restaurant.find_by(params[:id]
+        @restaurant = Restaurant.find_by(params[:id])
         @menu_item = MenuItem.find(params[:id])
         @menu_item.dish = params[:menu_item][:dish]
         @menu_item.price = params[:menu_item][:price]

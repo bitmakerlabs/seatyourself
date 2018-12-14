@@ -5,9 +5,9 @@ class RestaurantsController < ApplicationController
     end
 
     def show
-        @restaurant = Restaurant.find_by(params[:id])
-        @menu_items = @restaurant.menu_items
-        @menu_item = MenuItem.new
+        @restaurants = Restaurant.all
+        # @menu_items = @restaurant.menu_items
+        # @menu_item = MenuItem.new
     end
 
     def new
@@ -27,7 +27,7 @@ class RestaurantsController < ApplicationController
         @restaurant.address = params[:restaurant][:address]
         @restaurant.neighbourhood = params[:restaurant][:neighbourhood]
         @restaurant.category = params[:restaurant][:category]
-    
+
         if @restaurant.save
             redirect_to restaurants_path
         else

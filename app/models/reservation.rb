@@ -10,5 +10,3 @@ class Reservation < ApplicationRecord
   # validates :party_size, :less_than_or_equal_to: max_reservation_size
   # validates :party_size,  :less_than_or_equal_to: capacity
 end
-
-

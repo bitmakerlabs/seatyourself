@@ -1,16 +1,15 @@
 <%= form_for restaurant do |f| %>
-    <% if restaurant.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this review from being saved:</h2>
+<% if restaurant.errors.any? %>
+   <div id="error_explanation">
+     <p><%= pluralize(restaurant.errors.count, "error") %> prohibited this review from being saved:</p>
 
-        <ul>
-        <% restaurant.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
+     <ul>
+     <% restaurant.errors.full_messages.each do |msg| %>
+       <li><%= msg %></li>
+     <% end %>
+     </ul>
+   </div>
+<% end %>
   <p>
     <%= f.label :name %><br/>
     <%= f.text_field :name %>

@@ -63,7 +63,6 @@ class RestaurantsController < ApplicationController
         if @restaurant.save
             redirect_to restaurant_path
             flash[:notice] = "Restaurant updated."
-
         else
             render :edit
         end

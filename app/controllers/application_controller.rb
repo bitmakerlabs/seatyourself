@@ -5,12 +5,21 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    #user_id == session[session [:user_id]
-    #user_id && User.find_user_id]
   end
 
     helper_method :current_user
 
+  def ensure_logged_in
+    unless current_user
+      flash[:alert] = "Please log in"
+      redirect_to new_sessions_url
+    end
+  end
 
+  def ensure_user_owns_restaurant
+    unless current_user == @restaurant.user
+      redirect_to new_sessions_url
+    end
+  end
 
 end

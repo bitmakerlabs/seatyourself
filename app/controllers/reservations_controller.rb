@@ -28,6 +28,8 @@ class ReservationsController < ApplicationController
     
         if @reservation.save
           redirect_to restaurant_path(@restaurant)
+          flash[:notice] = "Reservation made!"
+
         else
           render restaurant_path
         end
@@ -50,6 +52,7 @@ class ReservationsController < ApplicationController
     
         if @reservation.save
           redirect_to restaurant_path(@restaurant)
+          flash[:notice] = "Reservation updated."
         else
           render reservation_path
         end
@@ -61,6 +64,7 @@ class ReservationsController < ApplicationController
         @reservation.restaurant = @restaurant
         @reservation.destroy
         redirect_to restaurant_path(@restaurant)
+        flash[:notice] = "Reservation cancelled."
     end
 
 end

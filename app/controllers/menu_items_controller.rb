@@ -8,9 +8,9 @@ class MenuItemsController < ApplicationController
 
     # end
 
-    # def new
-
-    # end
+    def new
+        @menu_item = MenuItem.new
+    end
 
     def create
         @restaurant = Restaurant.find_by(params[:id])

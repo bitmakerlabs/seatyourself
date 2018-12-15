@@ -1,9 +1,8 @@
 class RestaurantsController < ApplicationController
-  #before_action :require_login, except: [:index]
+    before_action :ensure_logged_in, except: [:show, :index]
 
   #def require_login
     #unless session [:user_id]
-    #flash [:alert] = "Log in to your fucking account, dickhead."
     #redirect_to new_session_path
   # => end
   #end
@@ -38,6 +37,7 @@ class RestaurantsController < ApplicationController
 
         if @restaurant.save
             redirect_to restaurants_path
+            flash[:notice] = "Restaurant added."
         else
             render :new
         end
@@ -48,7 +48,7 @@ class RestaurantsController < ApplicationController
     end
 
     def update
-        @restaurant =  Restaurant.find(params[:id])
+        @restaurant = Restaurant.find(params[:id])
         @restaurant.name = params[:restaurant][:name]
         @restaurant.open_from = params[:restaurant][:open_from]
         @restaurant.open_until = params[:restaurant][:open_until]
@@ -62,6 +62,8 @@ class RestaurantsController < ApplicationController
         @restaurant.category = params[:restaurant][:category]
         if @restaurant.save
             redirect_to restaurant_path
+            flash[:notice] = "Restaurant updated."
+
         else
             render :edit
         end
@@ -72,6 +74,8 @@ class RestaurantsController < ApplicationController
         @restaurant.destroy
 
         redirect_to user_path
+        flash[:notice] = "Restaurant removed."
+
     end
 
 end

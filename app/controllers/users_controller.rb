@@ -1,35 +1,22 @@
 class UsersController < ApplicationController
-    # email = params[:email]
-    # password = params[:password]#
+    before_action :load_restaurant
+    before_action :load_menu_item
+    before_action :load_reservation
 
-    # u = User.find_by[email :email]#
-    #   if u && u.password == password#
-    #
-    #
-    #      #Access denied!
-    #    end
+    before_action :ensure_logged_in, except: [:show, :index]
+    before_action :ensure_user_owns_restaurant, only: [:edit, :update, :destroy]
 
-    # salt = u.password(0..2)#
-    # hashed_salted_password = u.password_digest(3..-1)
-
-    # if u && unhash(u.unhashed_password) == submitted_password#
-    # if u && u.hashed_password hash(submitted_password), u.salt)#
-      #end?
-      #end again?
-
-    def decrypt(x, salt)
-
+    def load_restaurant
+        @restaurant = Restaurant.find(params[:id])
     end
 
-    def encrypt(x)
-
+    def load_menu_item
+        @menu_item = MenuItem.find(params[:id])
     end
 
-    def hash(x)
-
+    def load_reservation
+        @reservation = Reservation.find(params[:id])
     end
-
-
 
     def index
 
@@ -53,6 +40,7 @@ class UsersController < ApplicationController
         if
             @user.save
             redirect_to restaurants_path
+            flash[:notice] = "Welcome to Seat Yourself!"
         else
             render :new
         end
@@ -60,7 +48,6 @@ class UsersController < ApplicationController
 
     def edit
         @user = User.find(params[:id])
-
     end
 
     def update
@@ -72,6 +59,7 @@ class UsersController < ApplicationController
         if
             @user.save
             redirect_to user_path
+            flash[:notice] = "User info successfully updated!"
         else
             render :edit
         end

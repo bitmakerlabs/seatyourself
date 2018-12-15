@@ -1,4 +1,7 @@
-  <%= render 'restaurant',
+  <% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<%= render 'restaurant',
   restaurant: @restaurant %>
   <%= link_to 'edit', edit_restaurant_path %>
   

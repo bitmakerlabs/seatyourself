@@ -24,7 +24,9 @@ class UsersController < ApplicationController
 
     def show
       @user = current_user
-
+      @restaurants = @user.restaurants
+      @reservations = @user.reservations
+      @all_restaurants = Restaurant.all
     end
 
     def new
@@ -37,8 +39,10 @@ class UsersController < ApplicationController
         @user.email = params[:user][:email]
         @user.password = params[:user][:password]
         @user.password_confirmation = params[:user][:password_confirmation]
-        if
-            @user.save
+        @user.loyalty_points = 0
+
+        if @user.save
+            session[:user_id] = @user.id
             redirect_to restaurants_path
             flash[:notice] = "Welcome to Seat Yourself!"
         else

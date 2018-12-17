@@ -120,8 +120,6 @@ h2 {
    width: 30px;
  }
 
-
-
 .hero {
     height: 100vh;
     background-image: url("hero_1.jpg");
@@ -154,7 +152,6 @@ h2 {
     top: 30px;
 }
 
-
 li {
     list-style: none;
 }
@@ -164,12 +161,15 @@ li {
     width: 30px;
     display: inline-block;
   }
+
   div > p {
     line-height: 1.5;
   }
+
   .container {
     text-align: center;
   }
+
   .left {
     display: inline-block;
     text-align: left;

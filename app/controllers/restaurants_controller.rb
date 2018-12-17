@@ -12,10 +12,11 @@ class RestaurantsController < ApplicationController
     end
 
     def show
+        @all_restaurants = Restaurant.all
         @user = current_user
         @restaurant = Restaurant.find(params[:id])
         @menu_items = @restaurant.menu_items
-        # @menu_item = MenuItem.new
+        @reservations = @restaurant.reservations
     end
 
     def new

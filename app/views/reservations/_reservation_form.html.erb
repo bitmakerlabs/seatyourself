@@ -1,15 +1,11 @@
 <%= form_for ([restaurant, reservation]) do |f| %>
   <p>
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %><br/>
+    <%= f.label :date %><br/>
+    <%= f.date_field :date %>
   </p>
-  <p>
-    <%= f.label :phone_number %><br/>
-    <%= f.number_field :phone_number %><br/>
-  </p>
-  <p>
+    <p>
     <%= f.label :time %><br/>
-    <%= f.datetime_field :time %>
+    <%= f.number_field :time %><br/>
   </p>
   <p>
     <%= f.label :party_size %><br/>

@@ -1,7 +1,7 @@
 <%= form_for restaurant do |f| %>
 <% if restaurant.errors.any? %>
    <div id="error_explanation">
-     <p><%= pluralize(restaurant.errors.count, "error") %> prohibited this review from being saved:</p>
+     <p><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</p>
      <ul>
      <% restaurant.errors.full_messages.each do |msg| %>
        <li><%= msg %></li>

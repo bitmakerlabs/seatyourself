@@ -4,3 +4,4 @@
 <p>Edit your restaurant</p>
 <%= render 'restaurant_form',
 restaurant: @restaurant %>
+<%= link_to("Delete this Restaurant", "/restaurant/#{@restaurant.id}", method: :delete, data: {confirm: "Are you sure you want to delete your restaurant?"})  %>

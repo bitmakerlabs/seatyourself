@@ -93,12 +93,14 @@ class RestaurantsController < ApplicationController
     end
 
     def destroy
-        @restaurant = Product.find([:params])
+        @restaurant = Restaurant.find([:params])
         @restaurant.destroy
-
-        redirect_to user_path
-        flash[:notice] = "Restaurant removed."
-
+        redirect_to restaurants_path
+        # ^ was user_path
+        flash[:notice] = "Your restaurant was successfully removed."
     end
-
 end
+
+
+# redirect_to user_path
+# flash[:notice] = "Restaurant removed."

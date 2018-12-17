@@ -1,13 +1,13 @@
+<link rel="stylesheet" href="styles.css">
 <% if flash[:notice] %>
   <div class="notice"><%= flash[:notice] %></div>
 <% end %>
-<p>Restaurants:</p>
-
+  <div class="container">
+  <img src="assets/shop.svg" class="svg"></img><h2 class="title">Restaurants</h2>
 <ul>
   <% @restaurants.each do |restaurant| %>
-  <%= render 'restaurant',
-  restaurant: restaurant %>
-  <%= link_to 'details', restaurant_path(restaurant.id)%>
-
+  <%= render 'restaurant_short',
+  restaurant: restaurant %><br/>
   <% end %>
 </ul>
+</div>

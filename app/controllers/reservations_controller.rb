@@ -32,12 +32,12 @@ class ReservationsController < ApplicationController
         @reservation.restaurant_id =  @restaurant.id
     
         if @reservation.save
-          @user[:loyalty_points] +=1
+          @user.loyalty_points += 1
+          @user.save
           redirect_to user_path(current_user.id)
           flash[:notice] = "Reservation made!"
-
         else
-          render restaurant_path
+          render :new
         end
     end
 

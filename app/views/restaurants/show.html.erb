@@ -16,6 +16,16 @@
   <%else%>
     <%= link_to 'Make a reservation', new_restaurant_reservation_path(@restaurant.id) %>
   <%end%>
-  
 </div>
+
+  <% if @restaurant.user_id == @user.id %>
+    <div class="restaurant_details_card">
+      <% @reservations.each do |reservation| %>
+        <li>
+          <%= render './reservations/reservation', reservation: reservation %>
+        </li>
+      <% end %>
+    </div>
+  
+  <%end%>
   

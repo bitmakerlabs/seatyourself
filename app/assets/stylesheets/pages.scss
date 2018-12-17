@@ -17,7 +17,6 @@
 $wine: #722F37;
 $charcoal: rgb(59, 62, 67);
 $logo-font: 'Roboto Slab', serif;
-$color: #ffffff;
 
 
 * {
@@ -47,8 +46,6 @@ footer {
     width: 100%;
     height: 45px;
 }
-
-
 
 .hero {
     height: 100vh;
@@ -109,7 +106,6 @@ a {
     top: 30px;
 }
 
-
 li {
     list-style: none;
 }
@@ -120,25 +116,22 @@ li {
     font-size: 30px;
     padding-bottom: 20px;
   }
+
   .svg {
     height: 30px;
     width: 30px;
     display: inline-block;
   }
+
   div > p {
     line-height: 1.5;
   }
+  
   .container {
     text-align: center;
   }
+
   .left {
     display: inline-block;
     text-align: left;
-  }
-
-  h2 {
-    color: $color;
-  }
-  p {
-    color: $color;
   }

@@ -4,3 +4,25 @@
     <span class="users_loyalty_points"><img src="assets/star-black.svg" class="svg"><%= @user.loyalty_points %></span>
     <p><%= link_to "Edit", edit_user_path(@user.id)%> | <%= link_to "Add a restaurant", new_restaurant_path%></p>
 </div>
+
+<div class="user_card">
+    Restaurants:
+    <ul>
+        <% @restaurants.each do |restaurant| %>
+            <li>
+                <%= render './restaurants/restaurant_short', restaurant: restaurant %>
+            </li>
+        <% end %>
+    </ul>
+</div>
+
+<div class="user_card">
+    Reservations:
+    <ul>
+        <% @reservations.each do |reservation| %>
+            <li>
+                <%= render './reservations/reservation', reservation: reservation %>
+            </li>
+        <% end %>
+    </ul>
+</div>

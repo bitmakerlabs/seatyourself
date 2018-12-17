@@ -156,6 +156,14 @@ li {
     list-style: none;
 }
 
+  .title {
+    margin-left: 1%;
+    display: inline-block;
+    font-size: 30px;
+    padding-bottom: 20px;
+  }
+
+
   .svg {
     height: 30px;
     width: 30px;
@@ -166,15 +174,6 @@ li {
     line-height: 1.5;
   }
 
-  .container {
-    text-align: center;
-  }
-
-  .left {
-    display: inline-block;
-    text-align: left;
-  }
-
   h2 {
     color: $white;
   }
@@ -182,3 +181,4 @@ li {
   .error_explanation {
 
   }
+

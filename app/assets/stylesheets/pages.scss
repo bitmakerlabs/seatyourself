@@ -113,6 +113,10 @@ h2 {
   vertical-align: middle;
 }
 
+.container > h2 {
+  color: $white;
+}
+
 .logo_2 {
    padding-right: 15px;
    vertical-align: bottom;
@@ -133,7 +137,8 @@ h2 {
 
 
 .restaurant_card, .login_card, .user_card, .new_restaurant_card, .restaurant_details_card, .reservation_card, .menu_item_card {
-    background: white;
+    background: $white;
+    border-radius: 20px;
     padding: 20px;
     margin: 20px auto;
     width: 50vw;
@@ -173,10 +178,6 @@ li {
   .left {
     display: inline-block;
     text-align: left;
-  }
-
-  h2 {
-    color: $white;
   }
 
   .error_explanation {

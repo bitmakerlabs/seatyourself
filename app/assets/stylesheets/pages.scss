@@ -17,6 +17,7 @@
 $wine: #722F37;
 $charcoal: rgb(59, 62, 67);
 $logo-font: 'Roboto Slab', serif;
+$color: #ffffff;
 
 
 * {
@@ -58,12 +59,11 @@ footer {
     -webkit-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-  
 }
 
 .logo {
-    position: absolute;
-    left: 20px;
+   position: absolute;;
+   left: 20px;
    font-size: 30px;
    font-family: $logo-font;
    margin: 0
@@ -82,6 +82,7 @@ footer {
     height: 30px;
     width: 30px;
     display: inline-block;
+    top: 2px;
   }
 
 a {
@@ -134,4 +135,10 @@ li {
     display: inline-block;
     text-align: left;
   }
-  
+
+  h2 {
+    color: $color;
+  }
+  p {
+    color: $color;
+  }

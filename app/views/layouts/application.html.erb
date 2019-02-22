@@ -6,9 +6,52 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
+
+
+<header>
+  <div class="header_background">
+    <img src="https://www.kcalextra.com/kcal-content/uploads/2017/05/kcal-header.jpg">
+  </div>
+  <div class="header_logo">
+    <img src="https://kobejapanesegrill.com/wp-content/uploads/2015/02/urbanspoon.png"></li>
+    <h1>Welcome To Munch!</h1></li>
+  </div>
+  <div class="nav_bar">
+    <nav>
+      <ul class="header_nav">
+        <li><%= link_to 'Home', restaurants_path %></li>
+      <% if current_user %>
+        <li>Signed in as <%= link_to("#{current_user.email}", user_path(current_user)) %></li>
+        <li><%= link_to 'Log out', session_path("current"), :method => :delete  %></li>
+        <li><%= link_to 'Create Restaurant', new_restaurant_path %></li>
+      <% else %>
+        <li><%= link_to 'Log In', new_session_path %></li>
+        <li><%= link_to 'Sign Up', new_user_path %></li>
+      <% end %>
+      </nav>
+    </ul>
+  </div>
+
+  <% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
+
+</header>
+
 <body>
-
-<%= yield %>
-
+  <div class="main">
+    <%= yield %>
+  </div>
 </body>
+
+<footer>
+  <ul class="footer_nav">
+    <li><%= link_to 'About us' %></li>
+    <li><%= link_to 'Contact us' %></li>
+    <li><%= link_to 'Job Oppourtunities at Munch' %></li>
+    <li><%= link_to 'Created by Dan, Nicholas, Mamun and Kevin ™' %></li>
+  </ul>
+</footer>
+
+
 </html>

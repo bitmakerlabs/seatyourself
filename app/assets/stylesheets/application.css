@@ -13,3 +13,101 @@
  *= require_tree .
  *= require_self
  */
+
+ a, h1, h2 {
+   text-decoration: none;
+   font-family: "Helvetica", sans-serif;
+ }
+
+ li {
+   list-style: none;
+ }
+
+ header {
+   display: grid;
+   grid-template-rows: 70% 30%;
+   background-color: #E48B58;
+   width: 100%;
+   border-style: solid;
+ }
+
+.header_background {
+  background-size: auto;
+  width: 100%;
+}
+
+.header_logo {
+  position: absolute;
+  display: inline-block;
+}
+
+.header_logo h1 {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 20px;
+  padding-left: 20px;
+  color: white;
+  position: absolute;
+  grid-row: 1/2;
+  text-align: center;
+}
+
+.header_logo li {
+  padding-left: 20px;
+}
+
+.header_logo img {
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+header a {
+  color: white;
+}
+.header_nav li {
+  display: inline;
+  color: white;
+  padding-right: 5px;
+  text-align: left;
+
+}
+
+.header_nav {
+
+}
+
+body {
+  margin: 0
+}
+
+.restaurant_list ul {
+  display: inline-block;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.restaurant_list li {
+  text-align: center;
+}
+
+footer {
+  border-style: solid;
+}
+
+footer ul {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0
+}
+
+.footer_nav {
+  background-color: #E48B58;
+}
+
+.footer_nav a {
+  color: white;
+}
+
+.footer_nav li {
+  text-align: center;
+}

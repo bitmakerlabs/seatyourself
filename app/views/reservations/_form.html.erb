@@ -1,0 +1,33 @@
+<%= form_for ([restaurant, reservation]) do |f| %>
+
+<% if reservation.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+    <ul>
+    <% reservation.errors.full_messages.each do |msg| %>
+      <li ><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="field">
+  <%= f.label :date %>
+  <%= f.date_field :date%>
+</div>
+
+<div class="field">
+  <%= f.label :time %>
+  <%= f.time_field :time %>
+</div>
+
+<div class="field_1">
+  <%= f.label :number_of_guests %>
+  <%= f.number_field :number_of_guests %>
+</div>
+
+<div class="submit">
+  <%= f.submit "Submit" %>
+</div>
+
+<% end %>

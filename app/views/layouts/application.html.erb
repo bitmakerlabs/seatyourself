@@ -1,37 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Mister Tee Table Tagger</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<nav class="nav_bar_top">
+  <head>
+    <title>Res.io</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
 
-  <ul>
-    <% if current_user %>
-      <p>Signed-in as : <%= current_user.email %></p>
-      <li><%= link_to "Logout", session_path, method: :delete, :class => "nav-link" %></li>
-      <li><%= link_to "New Restaurant", new_restaurant_path, :class => "nav-link" %></li>
-      <li><%= link_to "Home", restaurants_path, :class => "nav-link" %></li>
-      <li><%= link_to "Profile", user_url(session[:user_id]) , :class => "nav-link" %></li>
-    <% else %>
-      <li><%= link_to "Signup", new_user_path, :class => "nav-link" %></li>
-      <li><%= link_to "Sign In", new_session_path, :class => "nav-link" %></li>
-      <li><%= link_to "Restaurants", restaurants_path,  :class => "nav-link" %></li>
-    <% end %>
+    <div class="container-fullwidth bg-dark">
+      <div class="container">
+        <% if current_user %>
+        <%= render "shared/navbar" %>
+        <% else %>
+        <%= render "shared/public_navbar" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="container mx-auto" style="width: fit-content;">
+      <%= yield %>
+    </div>
 
-    <%= form_tag(restaurants_path, method: :get) do %>
-    <%= text_field_tag :term, params[:term] %>
-    <%= submit_tag 'GET FOOD', name: nil %>
-    <%end %>
-  </ul>
-
-</nav>
-
-<body>
-
-<%= yield %>
-
-</body>
+  </body>
 </html>
